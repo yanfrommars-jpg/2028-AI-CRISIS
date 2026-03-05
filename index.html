@@ -5,123 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AI时代的十字路口</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* 全局重置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        /* 基础字体设置 - 更适合阅读 */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
-            color: #2c3e50;
-            line-height: 1.8;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.85;
+            padding: 24px 16px;
             min-height: 100vh;
         }
         
-        .container {
-            max-width: 680px;
-            margin: 0 auto;
+        /* 容器 */
+        .container { 
+            max-width: 640px; 
+            margin: 0 auto; 
         }
         
+        /* 标题区 */
         .header {
             text-align: center;
-            padding: 40px 20px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            margin-bottom: 24px;
+            padding: 32px 24px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
         
-        .header h1 {
-            font-size: 28px;
-            color: #1a1a2e;
-            margin-bottom: 12px;
-            font-weight: 700;
+        .header h1 { 
+            font-size: 26px; 
+            color: #1a1a1a; 
+            margin-bottom: 8px; 
+            font-weight: 600;
+            letter-spacing: 1px;
         }
         
-        .header .subtitle {
-            font-size: 15px;
-            color: #666;
-            letter-spacing: 2px;
+        .header .subtitle { 
+            font-size: 14px; 
+            color: #888; 
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
         
+        /* 引言卡片 - 扁平风格 */
         .intro-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 28px;
-            border-radius: 16px;
-            margin-bottom: 24px;
-            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
         
         .intro-card .icon {
-            font-size: 32px;
-            margin-bottom: 12px;
+            font-size: 28px;
+            margin-bottom: 8px;
+            display: block;
         }
         
         .intro-card p {
             font-size: 15px;
+            color: #444;
             line-height: 1.9;
         }
         
+        /* 观点切换按钮 - 扁平风格 */
         .view-selector {
             display: flex;
-            gap: 10px;
+            gap: 6px;
             margin-bottom: 20px;
-            background: white;
-            padding: 8px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 6px;
+            border-radius: 8px;
             position: sticky;
-            top: 10px;
+            top: 12px;
             z-index: 100;
+            overflow-x: auto;
         }
         
         .view-btn {
             flex: 1;
-            padding: 12px 8px;
+            min-width: 58px;
+            padding: 10px 4px;
             border: none;
             background: transparent;
-            font-size: 14px;
+            font-size: 11px;
             cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            border-radius: 6px;
+            transition: all 0.2s ease;
             color: #666;
             font-weight: 500;
+            white-space: nowrap;
         }
+        
+        .view-btn:hover { background: #f5f5f5; }
         
         .view-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            background: #333;
+            color: #fff;
         }
         
+        /* 观点卡片 - 扁平风格 */
         .opinion-card {
-            background: white;
-            border-radius: 16px;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
             padding: 24px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            transition: transform 0.3s ease;
+            margin-bottom: 16px;
         }
         
-        .opinion-card:hover {
-            transform: translateY(-2px);
-        }
-        
-        .opinion-card.pessimistic {
-            border-left: 4px solid #ff6b6b;
-        }
-        
-        .opinion-card.optimistic {
-            border-left: 4px solid #51cf66;
-        }
-        
-        .opinion-card.neutral {
-            border-left: 4px solid #fcc419;
-        }
+        /* 左边框标识 - 使用纯色 */
+        .opinion-card.pessimistic { border-left: 4px solid #e74c3c; }
+        .opinion-card.optimistic { border-left: 4px solid #27ae60; }
+        .opinion-card.renaissance { border-left: 4px solid #3498db; }
+        .opinion-card.neutral { border-left: 4px solid #f39c12; }
         
         .opinion-header {
             display: flex;
@@ -130,271 +129,351 @@
             margin-bottom: 16px;
         }
         
-        .opinion-icon {
-            font-size: 36px;
+        .opinion-icon { font-size: 32px; }
+        
+        .opinion-title { 
+            font-size: 17px; 
+            font-weight: 600; 
+            color: #1a1a1a; 
         }
         
-        .opinion-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1a1a2e;
+        .opinion-source { 
+            font-size: 12px; 
+            color: #999; 
+            margin-top: 3px; 
         }
         
-        .opinion-source {
-            font-size: 12px;
-            color: #999;
-            margin-top: 4px;
+        .section-title { 
+            font-size: 14px; 
+            font-weight: 600; 
+            color: #333; 
+            margin: 18px 0 10px; 
+            display: flex; 
+            align-items: center; 
+            gap: 6px; 
         }
         
-        .section-title {
-            font-size: 15px;
+        /* 要点列表 - 简洁风格 */
+        .key-points { 
+            background: #f9f9f9; 
+            border-radius: 6px; 
+            padding: 16px; 
+            margin: 12px 0; 
+        }
+        
+        .key-points ul { list-style: none; }
+        
+        .key-points li { 
+            padding: 7px 0; 
+            font-size: 14px; 
+            color: #555; 
+            border-bottom: 1px solid #eee; 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 8px; 
+        }
+        
+        .key-points li:last-child { border-bottom: none; }
+        
+        .key-points .arrow { 
+            color: #666; 
             font-weight: 600;
-            color: #2c3e50;
-            margin: 20px 0 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
         
-        .key-points {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 16px;
-            margin: 12px 0;
+        /* 深度概念卡片 - 柔和色调 */
+        .deep-concept { 
+            background: #fdf6f6; 
+            border: 1px solid #f0e0e0; 
+            border-radius: 6px; 
+            padding: 16px; 
+            margin: 12px 0; 
         }
         
-        .key-points ul {
-            list-style: none;
+        .deep-concept .concept-title { 
+            font-size: 13px; 
+            font-weight: 600; 
+            color: #c0392b; 
+            margin-bottom: 8px; 
         }
         
-        .key-points li {
-            padding: 8px 0;
-            font-size: 14px;
-            color: #495057;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
+        .deep-concept p { 
+            font-size: 13px; 
+            color: #5a4a4a; 
+            line-height: 1.7; 
         }
         
-        .key-points li:last-child {
-            border-bottom: none;
+        /* 亮点卡片 - 柔和色调 */
+        .highlight-box { 
+            background: #f0f7ff; 
+            border: 1px solid #dfe8f0; 
+            border-radius: 6px; 
+            padding: 14px; 
+            margin: 12px 0; 
         }
         
-        .key-points .arrow {
-            color: #667eea;
+        .highlight-box .highlight-title { 
+            font-size: 13px; 
+            font-weight: 600; 
+            color: #2980b9; 
+            margin-bottom: 6px; 
+        }
+        
+        .highlight-box p { 
+            font-size: 13px; 
+            color: #4a5568; 
+            line-height: 1.6; 
+        }
+        
+        /* 不同颜色的亮点卡片 */
+        .highlight-box.green { background: #f0fff4; border-color: #dce8d8; }
+        .highlight-box.green .highlight-title { color: #27ae60; }
+        .highlight-box.green p { color: #4a5a4a; }
+        
+        .highlight-box.purple { background: #f5f0ff; border-color: #e8e0f0; }
+        .highlight-box.purple .highlight-title { color: #8e44ad; }
+        .highlight-box.purple p { color: #5a4a6a; }
+        
+        .highlight-box.orange { background: #fffaf0; border-color: #f0e8d8; }
+        .highlight-box.orange .highlight-title { color: #d35400; }
+        .highlight-box.orange p { color: #5a4a3a; }
+        
+        .highlight-box.gray { background: #f8f8f8; border-color: #e0e0e0; }
+        .highlight-box.gray .highlight-title { color: #555; }
+        .highlight-box.gray p { color: #555; }
+        
+        /* 时间线 - 简洁风格 */
+        .timeline { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+            margin: 12px 0; 
+        }
+        
+        .timeline-item { 
+            display: flex; 
+            gap: 12px; 
+            align-items: flex-start; 
+        }
+        
+        .timeline-date { 
+            background: #eee; 
+            padding: 5px 10px; 
+            border-radius: 4px; 
+            font-size: 11px; 
+            font-weight: 600; 
+            color: #555; 
+            white-space: nowrap; 
+        }
+        
+        .timeline-content { 
+            font-size: 13px; 
+            color: #666; 
+            line-height: 1.6;
+            padding-top: 2px;
+        }
+        
+        /* 投资建议 - 扁平风格 */
+        .investment-tips { 
+            background: #fffbf0; 
+            border: 1px solid #f0e8d0; 
+            border-radius: 6px; 
+            padding: 14px; 
+            margin-top: 14px; 
+        }
+        
+        .investment-tips .title { 
+            font-size: 13px; 
+            font-weight: 600; 
+            color: #b8860b; 
+            margin-bottom: 8px; 
+            display: flex; 
+            align-items: center; 
+            gap: 5px; 
+        }
+        
+        .investment-tips ul { list-style: none; }
+        
+        .investment-tips li { 
+            font-size: 12px; 
+            color: #5a5040; 
+            padding: 5px 0; 
+            padding-left: 14px; 
+            position: relative; 
+            line-height: 1.5;
+        }
+        
+        .investment-tips li::before { 
+            content: "·"; 
+            position: absolute; 
+            left: 0; 
+            color: #b8860b;
             font-weight: bold;
         }
         
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin: 12px 0;
+        /* 不同颜色的投资建议 */
+        .investment-tips.blue { background: #f0f7ff; border-color: #d0e0f0; }
+        .investment-tips.blue .title { color: #2980b9; }
+        .investment-tips.blue li { color: #3a4a5a; }
+        .investment-tips.blue li::before { color: #2980b9; }
+        
+        .investment-tips.purple { background: #f5f0ff; border-color: #e8dff0; }
+        .investment-tips.purple .title { color: #8e44ad; }
+        .investment-tips.purple li { color: #4a3a5a; }
+        .investment-tips.purple li::before { color: #8e44ad; }
+        
+        .investment-tips.gray { background: #f8f8f8; border-color: #e0e0e0; }
+        .investment-tips.gray .title { color: #666; }
+        .investment-tips.gray li { color: #555; }
+        .investment-tips.gray li::before { color: #666; }
+        
+        /* 信号追踪 */
+        .signal-section { 
+            background: #fff; 
+            border: 1px solid #e0e0e0; 
+            border-radius: 8px; 
+            padding: 20px; 
+            margin-bottom: 16px; 
         }
         
-        .timeline-item {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-        
-        .timeline-date {
-            background: #e9ecef;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
+        .signal-section h3 { 
+            font-size: 16px; 
+            color: #333; 
+            margin-bottom: 14px; 
             font-weight: 600;
-            color: #495057;
-            white-space: nowrap;
         }
         
-        .timeline-content {
-            font-size: 14px;
-            color: #666;
+        .signal-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 10px; 
+            margin-top: 14px; 
+        }
+        
+        .signal-item { 
+            text-align: center; 
+            padding: 14px 6px; 
+            background: #fafafa; 
+            border-radius: 6px; 
+            border: 1px solid #eee;
+        }
+        
+        .signal-item.pessimistic { border-color: #fadbd8; }
+        .signal-item.optimistic { border-color: #d5f5e3; }
+        .signal-item.controversial { border-color: #fdebd0; }
+        
+        .signal-label { 
+            font-size: 10px; 
+            color: #888; 
+            margin-bottom: 4px; 
+            letter-spacing: 0.5px;
+        }
+        
+        .signal-value { 
+            font-size: 12px; 
+            font-weight: 600; 
+            color: #333; 
+            line-height: 1.4;
+        }
+        
+        .signal-item.pessimistic .signal-value { color: #c0392b; }
+        .signal-item.optimistic .signal-value { color: #27ae60; }
+        .signal-item.controversial .signal-value { color: #d35400; }
+        
+        /* 行动指南 */
+        .action-guide { 
+            background: #fff; 
+            border: 1px solid #e0e0e0; 
+            border-radius: 8px; 
+            padding: 20px; 
+            margin-bottom: 16px; 
+        }
+        
+        .action-guide h3 { 
+            font-size: 16px; 
+            color: #333; 
+            margin-bottom: 14px; 
+            font-weight: 600;
+        }
+        
+        .action-category { margin-bottom: 14px; }
+        .action-category:last-child { margin-bottom: 0; }
+        
+        .action-category .cat-title { 
+            font-size: 13px; 
+            font-weight: 600; 
+            color: #555; 
+            margin-bottom: 6px; 
+            display: flex; 
+            align-items: center; 
+            gap: 5px; 
+        }
+        
+        .action-category ul { list-style: none; }
+        
+        .action-category li { 
+            font-size: 13px; 
+            color: #666; 
+            padding: 5px 0; 
+            padding-left: 10px; 
+            border-left: 2px solid #ddd; 
+            line-height: 1.5;
+        }
+        
+        /* 结论 */
+        .conclusion { 
+            background: #2c3e50; 
+            color: #ecf0f1; 
+            padding: 24px; 
+            border-radius: 8px; 
+            margin-top: 20px; 
+        }
+        
+        .conclusion h3 { 
+            font-size: 16px; 
+            margin-bottom: 12px; 
+            font-weight: 600;
+        }
+        
+        .conclusion ul { list-style: none; }
+        
+        .conclusion li { 
+            padding: 8px 0; 
+            font-size: 13px; 
+            color: #bdc3c7; 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 10px; 
             line-height: 1.6;
         }
         
-        .investment-tips {
-            background: linear-gradient(135deg, #fff9db 0%, #fff3bf 100%);
-            border-radius: 12px;
-            padding: 16px;
-            margin-top: 16px;
-            border: 1px solid #ffe066;
-        }
-        
-        .investment-tips .title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #f08c00;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .investment-tips ul {
-            list-style: none;
-        }
-        
-        .investment-tips li {
-            font-size: 13px;
-            color: #5c3d00;
-            padding: 6px 0;
-            padding-left: 16px;
-            position: relative;
-        }
-        
-        .investment-tips li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #f08c00;
-        }
-        
-        .signal-section {
-            background: white;
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-        }
-        
-        .signal-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-top: 16px;
-        }
-        
-        .signal-item {
-            text-align: center;
-            padding: 16px 8px;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-        
-        .signal-item.pessimistic {
-            border: 1px solid #ffc9c9;
-            background: #fff5f5;
-        }
-        
-        .signal-item.optimistic {
-            border: 1px solid #b2f2bb;
-            background: #f0fff4;
-        }
-        
-        .signal-item.controversial {
-            border: 1px solid #ffe8cc;
-            background: #fff9f0;
-        }
-        
-        .signal-label {
-            font-size: 11px;
-            color: #666;
-            margin-bottom: 6px;
-        }
-        
-        .signal-value {
-            font-size: 14px;
-            font-weight: 700;
-            color: #1a1a2e;
-        }
-        
-        .signal-item.pessimistic .signal-value {
-            color: #e03131;
-        }
-        
-        .signal-item.optimistic .signal-value {
-            color: #2f9e44;
-        }
-        
-        .signal-item.controversial .signal-value {
-            color: #f08c00;
-        }
-        
-        .conclusion {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 28px;
-            border-radius: 16px;
-            margin-top: 24px;
-        }
-        
-        .conclusion h3 {
-            font-size: 18px;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .conclusion ul {
-            list-style: none;
-        }
-        
-        .conclusion li {
-            padding: 10px 0;
-            font-size: 14px;
-            color: rgba(255,255,255,0.9);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .conclusion li::before {
-            content: "✓";
-            background: rgba(255,255,255,0.2);
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
+        .conclusion li::before { 
+            content: "✓"; 
+            color: #2ecc71;
+            font-weight: bold;
             flex-shrink: 0;
         }
         
-        .footer {
-            text-align: center;
-            padding: 24px;
-            color: #999;
-            font-size: 12px;
+        /* 页脚 */
+        .footer { 
+            text-align: center; 
+            padding: 24px 16px; 
+            color: #999; 
+            font-size: 12px; 
+            line-height: 1.6;
         }
         
-        .tabs-content {
-            display: none;
-        }
+        .tabs-content { display: none; }
+        .tabs-content.active { display: block; }
         
-        .tabs-content.active {
-            display: block;
-        }
-        
+        /* 移动端适配 */
         @media (max-width: 480px) {
-            body {
-                padding: 12px;
-            }
-            
-            .header {
-                padding: 24px 16px;
-            }
-            
-            .header h1 {
-                font-size: 24px;
-            }
-            
-            .opinion-card {
-                padding: 20px 16px;
-            }
-            
-            .signal-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .view-selector {
-                position: static;
-                margin-bottom: 16px;
-            }
+            body { padding: 16px 12px; }
+            .header { padding: 24px 16px; }
+            .header h1 { font-size: 22px; }
+            .opinion-card { padding: 18px 14px; }
+            .signal-grid { grid-template-columns: 1fr; }
+            .view-selector { position: static; margin-bottom: 14px; }
+            .view-btn { font-size: 10px; padding: 8px 2px; }
         }
     </style>
 
@@ -402,18 +481,19 @@
     <div class="container">
         <div class="header">
             <h1>🤖 AI 时代的十字路口</h1>
-            <p class="subtitle">三派观点 · 两种未来 · 你的选择？</p>
+            <p class="subtitle">四派观点 · 两种未来 · 你的选择？</p>
         </div>
         
         <div class="intro-card">
-            <div class="icon">📖</div>
-            <p>2027年一个普通早晨，你用AI几分钟写完报告。但就在同一天，公司宣布因AI效率提升需要缩编——办公室里空了好几个工位。<br><br>这不是科幻。这是三派顶级机构正在"吵架"的焦点：<strong>AI到底会让你的生活变好还是变坏？</strong></p>
+            <span class="icon">📖</span>
+            <p>2027年一个普通早晨，你用AI几分钟写完报告。但就在同一天，公司宣布因AI效率提升需要缩编——办公室里空了好几个工位。<br><br>这不是科幻。这是<strong>四派顶级机构</strong>正在"吵架"的焦点：<strong>AI到底会让你的生活变好还是变坏？</strong></p>
         </div>
         
         <div class="view-selector">
             <button class="view-btn active" onclick="showTab('all')">全部观点</button>
             <button class="view-btn" onclick="showTab('pessimistic')">😰 悲观派</button>
             <button class="view-btn" onclick="showTab('optimistic')">😊 乐观派</button>
+            <button class="view-btn" onclick="showTab('renaissance')">🚀 复兴派</button>
             <button class="view-btn" onclick="showTab('neutral')">🤔 中立派</button>
         </div>
         
@@ -437,6 +517,12 @@
                         <li><span class="arrow">→</span> 利润下降 → 继续用AI替代人力</li>
                         <li><span class="arrow">→</span> <strong>无限循环，没有刹车</strong></li>
                     </ul>
+                </div>
+                
+                <div class="deep-concept">
+                    <div class="concept-title">💡 深入理解：两个关键概念</div>
+                    <p><strong>消除人类中介摩擦</strong>：AI将直接取代律师、采购经理、中层管理等"信息中介"、"合规与信任中介"和"协调与执行中介"职能。这些"摩擦"过去是大量白领收入的来源，其消失意味着这部分收入的蒸发。</p>
+                    <p style="margin-top:8px;"><strong>幽灵GDP</strong>：即使AI大幅提升生产力，但如果财富没有通过工资流向普通家庭，这些"产出"将无法转化为消费需求，形成"有产出无消费"的幽灵GDP，货币流通速度可能降至零。</p>
                 </div>
                 
                 <div class="section-title">📅 预测时间线</div>
@@ -487,6 +573,16 @@
                     </ul>
                 </div>
                 
+                <div class="highlight-box">
+                    <div class="highlight-title">🚀 AI如何增强你的能力？</div>
+                    <p>高盛报告指出AI将使劳动生产率提高约15%。数据分析师利用AI处理海量数据，设计师用AI生成创意草图，程序员用AI自动补全代码——"人+AI"组合的效率远超单独的人类或AI。</p>
+                </div>
+                
+                <div class="highlight-box green">
+                    <div class="highlight-title">💼 正在涌现的新职业</div>
+                    <p>AI催生了传统技术革命中未曾出现的新工种：AI伦理专家、提示工程师（Prompt Engineer）、AI系统维护师、AI训练师、人机交互设计师等。</p>
+                </div>
+                
                 <div class="section-title">📅 预测时间线</div>
                 <div class="timeline">
                     <div class="timeline-item">
@@ -503,13 +599,66 @@
                     </div>
                 </div>
                 
-                <div class="investment-tips" style="background: linear-gradient(135deg, #e7f5ff 0%, #d0ebff 100%); border-color: #a5d8ff;">
-                    <div class="title" style="color: #1971c2;">💰 对投资的建议</div>
+                <div class="investment-tips blue">
+                    <div class="title">💰 对投资的建议</div>
                     <ul>
                         <li>继续持有/加仓科技股</li>
                         <li>关注"赋能者"：芯片、云服务、AI基础设施</li>
                         <li>麦肯锡预测AI每年带来$2.6-4.4万亿增量</li>
                         <li>S&P 500目标7600点，别轻易退出</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 复兴派观点 -->
+            <div class="opinion-card renaissance">
+                <div class="opinion-header">
+                    <span class="opinion-icon">🚀</span>
+                    <div>
+                        <div class="opinion-title">AI驱动的创业潮：单人独角兽时代</div>
+                        <div class="opinion-source">来源：David Kingsley · 2028全球智能复兴</div>
+                    </div>
+                </div>
+                
+                <div class="section-title">💡 核心观点：被取代者的新出路</div>
+                <div class="key-points">
+                    <ul>
+                        <li><span class="arrow">→</span> AI消除创业中的"管理摩擦"和"技术摩擦"</li>
+                        <li><span class="arrow">→</span> "单人独角兽"成为可能</li>
+                        <li><span class="arrow">→</span> 被取代的白领可利用AI工具低成本创业</li>
+                        <li><span class="arrow">→</span> 创造新的经济价值和就业机会</li>
+                        <li><span class="arrow">→</span> <strong>从"被淘汰"到"主动创造"</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="highlight-box purple">
+                    <div class="highlight-title">📱 真实案例想象</div>
+                    <p>一个被裁的产品经理，如何利用AI工具在几周内开发并上线一个SaaS产品？AI负责代码编写、UI设计、数据库搭建、营销文案——人只需要创意和决策。</p>
+                </div>
+                
+                <div class="section-title">📅 预测时间线</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">2026-2027</span>
+                        <span class="timeline-content">AI工具普及，创业门槛大幅降低</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2027-2028</span>
+                        <span class="timeline-content">个人创业者涌现，"超级个体"出现</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2028+</span>
+                        <span class="timeline-content">新公司大规模创造就业，消化失业人口</span>
+                    </div>
+                </div>
+                
+                <div class="investment-tips purple">
+                    <div class="title">💰 对投资的建议</div>
+                    <ul>
+                        <li>关注SaaS、工具类、AI应用层公司</li>
+                        <li>投资那些降低创业门槛的AI平台</li>
+                        <li>留意"超级个体"带来的新消费形态</li>
+                        <li>分散配置，不要只押注大公司</li>
                     </ul>
                 </div>
             </div>
@@ -535,6 +684,16 @@
                     </ul>
                 </div>
                 
+                <div class="highlight-box orange">
+                    <div class="highlight-title">🔋 为什么算力是天然刹车？</div>
+                    <p>AI发展需要庞大的计算资源、能源消耗和数据积累。这些物理限制会延缓AI的全面普及和替代速度，为人类社会留下适应和转型的窗口期。</p>
+                </div>
+                
+                <div class="highlight-box gray">
+                    <div class="highlight-title">📈 S曲线扩散意味着什么？</div>
+                    <p>技术从发明到普及需要时间，存在学习曲线、基础设施建设周期和法规适应过程。AI的影响将是渐进的，而非瞬间爆发的"奇点"。</p>
+                </div>
+                
                 <div class="section-title">📅 预测时间线</div>
                 <div class="timeline">
                     <div class="timeline-item">
@@ -551,8 +710,8 @@
                     </div>
                 </div>
                 
-                <div class="investment-tips" style="background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); border-color: #d1d5db;">
-                    <div class="title" style="color: #4b5563;">💰 对投资的建议</div>
+                <div class="investment-tips gray">
+                    <div class="title">💰 对投资的建议</div>
                     <ul>
                         <li>不要all in任何一边</li>
                         <li>均衡配置：科技+国债+黄金+现金</li>
@@ -564,7 +723,7 @@
             
             <!-- 信号追踪 -->
             <div class="signal-section">
-                <h3 style="font-size: 18px; margin-bottom: 8px;">📊 现在，已经发生了什么？</h3>
+                <h3>📊 现在，已经发生了什么？</h3>
                 <div class="signal-grid">
                     <div class="signal-item pessimistic">
                         <div class="signal-label">悲观信号</div>
@@ -604,161 +763,47 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- 悲观派单独视图 -->
-        <div id="pessimistic" class="tabs-content">
-            <div class="opinion-card pessimistic">
-                <div class="opinion-header">
-                    <span class="opinion-icon">😰</span>
-                    <div>
-                        <div class="opinion-title">AI 越成功，你越危险</div>
-                        <div class="opinion-source">来源：Citrini Research · 2026年初</div>
-                    </div>
-                </div>
+            
+            <!-- 行动指南 -->
+            <div class="action-guide">
+                <h3>🎯 你的行动指南</h3>
                 
-                <div class="section-title">🔄 核心观点：恶性循环</div>
-                <div class="key-points">
+                <div class="action-category">
+                    <div class="cat-title">💼 工作：技能升级与角色转型</div>
                     <ul>
-                        <li><span class="arrow">→</span> AI变强 → 企业用AI替代白领</li>
-                        <li><span class="arrow">→</span> 白领失业 → 没钱消费</li>
-                        <li><span class="arrow">→</span> 消费减少 → 企业利润下降</li>
-                        <li><span class="arrow">→</span> 利润下降 → 继续用AI替代人力</li>
-                        <li><span class="arrow">→</span> <strong>无限循环，没有刹车</strong></li>
+                        <li>学习AI工具使用：提示工程、数据分析、自动化办公</li>
+                        <li>培养AI无法替代的软技能：批判性思维、创造力、情商、复杂问题解决能力</li>
+                        <li>从"执行者"转向"AI管理者"或"AI协调者"</li>
+                        <li>关注你所在行业岗位要求的变化</li>
                     </ul>
                 </div>
                 
-                <div class="section-title">📅 预测时间线</div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span class="timeline-date">2026下半年</span>
-                        <span class="timeline-content">公司开始用AI帮你做事，同时悄悄裁人</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-date">2027年中</span>
-                        <span class="timeline-content">失业率飙升至10%+，找工作异常困难</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-date">2028年</span>
-                        <span class="timeline-content">房贷出问题，房价下跌10%+</span>
-                    </div>
+                <div class="action-category">
+                    <div class="cat-title">🏠 生活：时间管理与心理调适</div>
+                    <ul>
+                        <li>AI可能释放更多个人时间，用于学习、社交或追求个人兴趣</li>
+                        <li>保持积极心态，避免过度焦虑</li>
+                        <li>建立多元化的社交网络，不把所有鸡蛋放在一个篮子里</li>
+                        <li>关注早期信号：招聘市场、工资变化、行业动态</li>
+                    </ul>
                 </div>
                 
-                <div class="investment-tips">
-                    <div class="title">💰 对投资的建议</div>
+                <div class="action-category">
+                    <div class="cat-title">📈 投资：多元化与长期主义</div>
                     <ul>
-                        <li>卖出科技股（尤其是消费依赖型）</li>
-                        <li>买入防御性资产：国债、黄金、现金</li>
-                        <li>远离私人信贷（违约潮将来袭）</li>
-                        <li>有房贷小心"负资产"</li>
+                        <li>区分"AI赋能型"和"AI防御型"资产</li>
+                        <li>投资利用AI提升效率的传统行业公司</li>
+                        <li>关注AI基础设施：芯片、算力、数据</li>
+                        <li>避免短期投机，关注企业长期价值</li>
                     </ul>
                 </div>
             </div>
         </div>
         
-        <!-- 乐观派单独视图 -->
-        <div id="optimistic" class="tabs-content">
-            <div class="opinion-card optimistic">
-                <div class="opinion-header">
-                    <span class="opinion-icon">😊</span>
-                    <div>
-                        <div class="opinion-title">AI 是来帮你的，别怕</div>
-                        <div class="opinion-source">来源：高盛、麦肯锡 · 2026</div>
-                    </div>
-                </div>
-                
-                <div class="section-title">📜 核心观点：历史会重演</div>
-                <div class="key-points">
-                    <ul>
-                        <li><span class="arrow">→</span> 每次技术革命都创造更多就业</li>
-                        <li><span class="arrow">→</span> 汽车→司机，ATM→更多银行网点</li>
-                        <li><span class="arrow">→</span> AI是"增强人力"不是"替代人力"</li>
-                        <li><span class="arrow">→</span> 以后你是"人+AI助手"组合</li>
-                        <li><span class="arrow">→</span> <strong>你的能力被放大，价值也增加</strong></li>
-                    </ul>
-                </div>
-                
-                <div class="section-title">📅 预测时间线</div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span class="timeline-date">2026年</span>
-                        <span class="timeline-content">AI工具成常态，效率提升，岗位更受重视</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-date">2027年</span>
-                        <span class="timeline-content">工资上涨，能做更高价值工作</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-date">2028年</span>
-                        <span class="timeline-content">你成为更值钱的职场人</span>
-                    </div>
-                </div>
-                
-                <div class="investment-tips" style="background: linear-gradient(135deg, #e7f5ff 0%, #d0ebff 100%); border-color: #a5d8ff;">
-                    <div class="title" style="color: #1971c2;">💰 对投资的建议</div>
-                    <ul>
-                        <li>继续持有/加仓科技股</li>
-                        <li>关注"赋能者"：芯片、云服务、AI基础设施</li>
-                        <li>麦肯锡预测AI每年带来$2.6-4.4万亿增量</li>
-                        <li>S&P 500目标7600点，别轻易退出</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 中立派单独视图 -->
-        <div id="neutral" class="tabs-content">
-            <div class="opinion-card neutral">
-                <div class="opinion-header">
-                    <span class="opinion-icon">🤔</span>
-                    <div>
-                        <div class="opinion-title">别吵了，两个都有问题</div>
-                        <div class="opinion-source">来源：Citadel Securities · 创始人Ken Griffin</div>
-                    </div>
-                </div>
-                
-                <div class="section-title">⚖️ 核心观点：现实更复杂</div>
-                <div class="key-points">
-                    <ul>
-                        <li><span class="arrow">→</span> 招聘数据打脸：软件工程师需求同比+11%</li>
-                        <li><span class="arrow">→</span> 技术扩散是S曲线，不会直线变化</li>
-                        <li><span class="arrow">→</span> 算力不够是天然刹车</li>
-                        <li><span class="arrow">→</span> 凯恩斯也错过：生产力≠失业</li>
-                        <li><span class="arrow">→</span> <strong>AI会创造全新需求和产业</strong></li>
-                    </ul>
-                </div>
-                
-                <div class="section-title">📅 预测时间线</div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span class="timeline-date">短期</span>
-                        <span class="timeline-content">工作不会有太大变化</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-date">中期</span>
-                        <span class="timeline-content">会有调整但不是灾难</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-date">长期</span>
-                        <span class="timeline-content">保持学习，别焦虑别躺平</span>
-                    </div>
-                </div>
-                
-                <div class="investment-tips" style="background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); border-color: #d1d5db;">
-                    <div class="title" style="color: #4b5563;">💰 对投资的建议</div>
-                    <ul>
-                        <li>不要all in任何一边</li>
-                        <li>均衡配置：科技+国债+黄金+现金</li>
-                        <li>关注估值，过度反应时别盲目</li>
-                        <li>保持灵活性，短期内有波动</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
+        <!-- 结论 -->
         <div class="conclusion">
             <h3>🎯 你的结论是什么？</h3>
-            <p style="margin-bottom: 16px; opacity: 0.9;">过度乐观和过度悲观，都很危险。更好的姿势是：</p>
+            <p style="margin-bottom: 12px; color: #bdc3c7; font-size: 13px;">过度乐观和过度悲观，都很危险。更好的姿势是：</p>
             <ul>
                 <li>关注你的行业：岗位要求变了吗？</li>
                 <li>关注你的技能：AI不能做什么？</li>
@@ -769,26 +814,19 @@
         
         <div class="footer">
             <p>本文基于Citrini Research、高盛、麦肯锡、Citadel Securities等机构公开报告整理</p>
-            <p style="margin-top: 8px;">仅供思考参考，不构成投资建议</p>
+            <p style="margin-top: 6px;">仅供思考参考，不构成投资建议</p>
         </div>
     </div>
     
     <script>
         function showTab(tabName) {
-            // 隐藏所有tab内容
             document.querySelectorAll('.tabs-content').forEach(function(tab) {
                 tab.classList.remove('active');
             });
-            
-            // 移除所有按钮的active状态
             document.querySelectorAll('.view-btn').forEach(function(btn) {
                 btn.classList.remove('active');
             });
-            
-            // 显示选中的tab内容
             document.getElementById(tabName).classList.add('active');
-            
-            // 给对应的按钮添加active状态
             event.target.classList.add('active');
         }
     </script>
