@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI时代的十字路口</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; padding: 20px; }
+        .header { text-align: center; padding: 30px 15px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 16px; margin-bottom: 20px; }
+        .header h1 { font-size: 24px; margin-bottom: 8px; }
+        .header p { color: #9ca3af; font-size: 14px; }
+        .intro { background: #111827; padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #374151; }
+        .intro p { font-size: 14px; color: #d1d5db; text-align: justify; }
+        .tabs { display: flex; gap: 8px; margin-bottom: 15px; }
+        .tab { flex: 1; padding: 12px 8px; border-radius: 10px; font-size: 12px; text-align: center; cursor: pointer; transition: 0.3s; }
+        .tab.red { background: #1f2937; border: 2px solid #ef4444; color: #9ca3af; }
+        .tab.red.active { background: #fef2f2; color: #dc2626; }
+        .tab.green { background: #1f2937; border: 2px solid #10b981; color: #9ca3af; }
+        .tab.green.active { background: #ecfdf5; color: #059669; }
+        .tab.gray { background: #1f2937; border: 2px solid #6b7280; color: #9ca3af; }
+        .tab.gray.active { background: #f3f4f6; color: #374151; }
+        .view { display: none; }
+        .view.active { display: block; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .card { background: #1f2937; border-radius: 12px; padding: 18px; margin-bottom: 15px; }
+        .card h3 { font-size: 15px; margin-bottom: 6px; }
+        .card.red { border-left: 4px solid #ef4444; }
+        .card.red h3 { color: #f87171; }
+        .card.green { border-left: 4px solid #10b981; }
+        .card.green h3 { color: #34d399; }
+        .card.gray { border-left: 4px solid #6b7280; }
+        .card.gray h3 { color: #9ca3af; }
+        .source { font-size: 11px; color: #6b7280; margin-bottom: 12px; }
+        .card ul { list-style: none; margin-bottom: 12px; }
+        .card li { font-size: 12px; color: #d1d5db; padding: 4px 0; padding-left: 14px; position: relative; }
+        .card li::before { content: "•"; position: absolute; left: 0; color: #6b7280; }
+        .timeline { background: #111827; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+        .timeline h4 { font-size: 12px; color: #60a5fa; margin-bottom: 8px; }
+        .timeline-item { display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px solid #374151; font-size: 12px; }
+        .timeline-item:last-child { border: none; }
+        .timeline-year { font-weight: bold; min-width: 70px; }
+        .card.red .timeline-year { color: #ef4444; }
+        .card.green .timeline-year { color: #10b981; }
+        .card.gray .timeline-year { color: #6b7280; }
+        .timeline-desc { color: #d1d5db; }
+        .impact { background: #111827; border-radius: 8px; padding: 12px; }
+        .impact h4 { font-size: 12px; color: #fbbf24; margin-bottom: 8px; }
+        .impact p { font-size: 11px; color: #9ca3af; line-height: 1.8; }
+        .signal-section { margin: 20px 0; }
+        .signal-section h3 { font-size: 14px; text-align: center; margin-bottom: 12px; }
+        .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .signal-item { background: #1f2937; border-radius: 8px; padding: 10px 6px; text-align: center; font-size: 10px; }
+        .signal-dot { width: 6px; height: 6px; border-radius: 50%; margin: 0 auto 6px; }
+        .signal-dot.red { background: #ef4444; }
+        .signal-dot.green { background: #10b981; }
+        .signal-dot.yellow { background: #fbbf24; }
+        .signal-label { color: #6b7280; margin-bottom: 3px; }
+        .signal-value { color: #fff; font-size: 9px; line-height: 1.4; }
+        .cta { background: linear-gradient(135deg, #1e3a5f, #0f172a); padding: 20px; border-radius: 12px; margin: 20px 0; border: 1px solid #374151; }
+        .cta h3 { font-size: 14px; margin-bottom: 10px; text-align: center; }
+        .cta p { font-size: 12px; color: #9ca3af; margin-bottom: 12px; }
+        .action-item { font-size: 11px; color: #d1d5db; padding: 6px 0; padding-left: 16px; position: relative; }
+        .action-item::before { content: "✓"; position: absolute; left: 0; color: #10b981; }
+        .cta-footer { font-size: 12px; color: #fbbf24; margin-top: 12px; text-align: center; font-weight: bold; }
+        .footer { text-align: center; padding: 15px; color: #6b7280; font-size: 10px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🤖 AI时代的十字路口</h1>
+        <p>三派观点 · 两种未来 · 你的选择？</p>
+    </div>
+    
+    <div class="intro">
+        <p><strong>📖 场景引入</strong></p>
+        <p style="margin-top:8px">2027年一个普通早晨，你用AI几分钟写完报告。但就在同一天，公司宣布因AI效率提升需要缩编——办公室里空了好几个工位。</p>
+        <p style="margin-top:8px;color:#fbbf24">这不是科幻。这是三派顶级机构正在"吵架"的焦点：AI到底会让你的生活变好还是变坏？</p>
+    </div>
+    
+    <div class="tabs">
+        <div class="tab red active" onclick="switchTab('red')">😰 观点一<br><span style="font-size:10px">AI越成功，你越危险</span></div>
+        <div class="tab green" onclick="switchTab('green')">😊 观点二<br><span style="font-size:10px">AI是来帮你的</span></div>
+        <div class="tab gray" onclick="switchTab('gray')">🤔 观点三<br><span style="font-size:10px">别吵了</span></div>
+    </div>
+    
+    <div id="view-red" class="view active">
+        <div class="card red">
+            <h3>🚨 AI越成功，你越危险</h3>
+            <p class="source">来源：Citrini Research · 2026年初</p>
+            <h4 style="color:#f87171;font-size:12px;margin-bottom:8px;">核心观点：恶性循环</h4>
+            <ul>
+                <li>AI变强 → 企业用AI替代白领</li>
+                <li>白领失业 → 没钱消费</li>
+                <li>消费减少 → 企业利润下降</li>
+                <li>利润下降 → 继续用AI替代人力</li>
+                <li>无限循环，没有刹车</li>
+            </ul>
+            <div class="timeline">
+                <h4>📅 预测时间线</h4>
+                <div class="timeline-item"><span class="timeline-year">2026下半年</span><span class="timeline-desc">公司开始用AI帮你做事，同时悄悄裁人</span></div>
+                <div class="timeline-item"><span class="timeline-year">2027年中</span><span class="timeline-desc">失业率飙升至10%+，找工作异常困难</span></div>
+                <div class="timeline-item"><span class="timeline-year">2028年</span><span class="timeline-desc">房贷出问题，房价下跌10%+</span></div>
+            </div>
+            <div class="impact">
+                <h4>💰 对投资的建议</h4>
+                <p>• 卖出科技股（尤其是消费依赖型）<br>• 买入防御性资产：国债、黄金、现金<br>• 远离私人信贷（违约潮将来袭）<br>• 有房贷小心"负资产"</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="view-green" class="view">
+        <div class="card green">
+            <h3>🚀 AI是来帮你的，别怕</h3>
+            <p class="source">来源：高盛、麦肯锡 · 2026</p>
+            <h4 style="color:#34d399;font-size:12px;margin-bottom:8px;">核心观点：历史会重演</h4>
+            <ul>
+                <li>每次技术革命都创造更多就业</li>
+                <li>汽车→司机，ATM→更多银行网点</li>
+                <li>AI是"增强人力"不是"替代人力"</li>
+                <li>以后你是"人+AI助手"组合</li>
+                <li>你的能力被放大，价值也增加</li>
+            </ul>
+            <div class="timeline">
+                <h4>📅 预测时间线</h4>
+                <div class="timeline-item"><span class="timeline-year">2026年</span><span class="timeline-desc">AI工具成常态，效率提升，岗位更受重视</span></div>
+                <div class="timeline-item"><span class="timeline-year">2027年</span><span class="timeline-desc">工资上涨，能做更高价值工作</span></div>
+                <div class="timeline-item"><span class="timeline-year">2028年</span><span class="timeline-desc">你成为更值钱的职场人</span></div>
+            </div>
+            <div class="impact">
+                <h4>💰 对投资的建议</h4>
+                <p>• 继续持有/加仓科技股<br>• 关注"赋能者"：芯片、云服务、AI基础设施<br>• 麦肯锡预测AI每年带来$2.6-4.4万亿增量<br>• S&P 500目标7600点，别轻易退出</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="view-gray" class="view">
+        <div class="card gray">
+            <h3>⚖️ 别吵了，两个都有问题</h3>
+            <p class="source">来源：Citadel Securities · 创始人Ken Griffin</p>
+            <h4 style="color:#9ca3af;font-size:12px;margin-bottom:8px;">核心观点：现实更复杂</h4>
+            <ul>
+                <li>招聘数据打脸：软件工程师需求同比+11%</li>
+                <li>技术扩散是S曲线，不会直线变化</li>
+                <li>算力不够是天然刹车</li>
+                <li>凯恩斯也错过：生产力≠失业</li>
+                <li>AI会创造全新需求和产业</li>
+            </ul>
+            <div class="timeline">
+                <h4>📅 预测时间线</h4>
+                <div class="timeline-item"><span class="timeline-year">短期</span><span class="timeline-desc">工作不会有太大变化</span></div>
+                <div class="timeline-item"><span class="timeline-year">中期</span><span class="timeline-desc">会有调整但不是灾难</span></div>
+                <div class="timeline-item"><span class="timeline-year">长期</span><span class="timeline-desc">保持学习，别焦虑别躺平</span></div>
+            </div>
+            <div class="impact">
+                <h4>💰 对投资的建议</h4>
+                <p>• 不要all in任何一边<br>• 均衡配置：科技+国债+黄金+现金<br>• 关注估值，过度反应时别盲目<br>• 保持灵活性，短期内有波动</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="signal-section">
+        <h3>📊 现在，已经发生了什么？</h3>
+        <div class="signal-grid">
+            <div class="signal-item"><div class="signal-dot red"></div><p class="signal-label">悲观信号</p><p class="signal-value">ServiceNow<br>裁员15%</p></div>
+            <div class="signal-item"><div class="signal-dot red"></div><p class="signal-label">悲观信号</p><p class="signal-value">Mastercard<br>增长放缓</p></div>
+            <div class="signal-item"><div class="signal-dot red"></div><p class="signal-label">悲观信号</p><p class="signal-value">SaaS<br>股价大跌</p></div>
+            <div class="signal-item"><div class="signal-dot green"></div><p class="signal-label">乐观信号</p><p class="signal-value">AI基建股<br>+44%</p></div>
+            <div class="signal-item"><div class="signal-dot green"></div><p class="signal-label">乐观信号</p><p class="signal-value">72%企业<br>已用AI</p></div>
+            <div class="signal-item"><div class="signal-dot green"></div><p class="signal-label">乐观信号</p><p class="signal-value">2026投资<br>$6670亿</p></div>
+            <div class="signal-item"><div class="signal-dot yellow"></div><p class="signal-label">争议中</p><p class="signal-value">高盛：AI贡献<br>"基本为零"</p></div>
+            <div class="signal-item"><div class="signal-dot yellow"></div><p class="signal-label">争议中</p><p class="signal-value">劳动收入<br>占比下降</p></div>
+            <div class="signal-item"><div class="signal-dot yellow"></div><p class="signal-label">争议中</p><p class="signal-value">美联储：<br>"无替代风险"</p></div>
+        </div>
+    </div>
+    
+    <div class="cta">
+        <h3>🎯 你的结论是什么？</h3>
+        <p>过度乐观和过度悲观，都很危险。更好的姿势是：</p>
+        <p class="action-item">关注你的行业：岗位要求变了吗？</p>
+        <p class="action-item">关注你的技能：AI不能做什么？</p>
+        <p class="action-item">关注早期信号：招聘/工资有什么变化？</p>
+        <p class="cta-footer">在真正的变革到来之前，没有人能100%确定答案。但思考这些问题本身，就是最好的准备。</p>
+    </div>
+    
+    <div class="footer">
+        <p>本文基于Citrini Research、高盛、麦肯锡、Citadel Securities等机构公开报告整理<br>仅供思考参考，不构成投资建议</p>
+    </div>
+    
+    <script>
+        function switchTab(color) {
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById('view-' + color).classList.add('active');
+            document.querySelector('.tab.' + color).classList.add('active');
+        }
+    </script>
+</body>
+</html>
