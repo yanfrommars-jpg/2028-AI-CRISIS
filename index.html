@@ -196,6 +196,66 @@
             pointer-events: none;
         }
         
+        /* 移动端快速浏览卡片 */
+        .mobile-quick-view {
+            display: none;
+            margin-top: 20px;
+            gap: 12px;
+            flex-direction: column;
+        }
+        
+        .mobile-view-card {
+            background: rgba(20, 20, 25, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-view-card:active {
+            transform: scale(0.98);
+            background: rgba(30, 30, 35, 0.95);
+        }
+        
+        .mobile-view-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .mobile-view-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        
+        .mobile-view-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        
+        .mobile-view-source {
+            font-size: 11px;
+            color: #888;
+        }
+        
+        .mobile-view-summary {
+            font-size: 13px;
+            color: #c0c0c0;
+            line-height: 1.7;
+        }
+        
+        .mobile-view-position {
+            font-size: 10px;
+            color: #666;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
         @keyframes hintBounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
@@ -2104,7 +2164,7 @@
             <div class="action-category">
                 <div class="cat-title">📚 立即开始</div>
                 <ul>
-                    <li>学习使用主流AI工具(ChatGPT、Claude、Midjourney等)</li>
+                    <li>学习使用主流AI工具</li>
                     <li>评估你的工作中哪些部分可以用AI提效</li>
                     <li>建立个人知识库和技能档案</li>
                 </ul>
@@ -2115,7 +2175,7 @@
                 <ul>
                     <li>掌握至少一个AI工具的深度应用</li>
                     <li>用AI完成一个完整的项目</li>
-                    <li>开始建立个人品牌(博客、社交媒体等)</li>
+                    <li>开始建立个人品牌</li>
                 </ul>
             </div>
             
