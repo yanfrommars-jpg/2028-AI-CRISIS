@@ -1166,15 +1166,290 @@
             display: block; 
         }
         
-        /* 响应式 */
+        /* 响应式 - 移动端优化 */
+        @media (max-width: 768px) {
+            body { 
+                padding: 16px 12px; 
+            }
+            
+            .container {
+                max-width: 100%;
+            }
+            
+            /* 头部适配 */
+            .header { 
+                padding: 28px 20px; 
+            }
+            
+            .header h1 { 
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+            
+            .header .subtitle {
+                font-size: 12px;
+                letter-spacing: 2px;
+            }
+            
+            /* 坐标图适配 - 降低高度 */
+            .chart-container {
+                height: 320px;
+            }
+            
+            .axis-label {
+                font-size: 10px;
+            }
+            
+            .point-icon {
+                font-size: 16px;
+            }
+            
+            /* 信号网格 - 改为2列 */
+            .signal-grid { 
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .signal-item {
+                padding: 14px 6px;
+            }
+            
+            .signal-value {
+                font-size: 12px;
+            }
+            
+            /* 观点卡片 */
+            .opinion-card { 
+                padding: 24px 18px; 
+            }
+            
+            .opinion-icon {
+                font-size: 32px;
+            }
+            
+            .opinion-title {
+                font-size: 18px;
+            }
+            
+            /* 视图切换器 */
+            .view-selector { 
+                position: static; 
+                margin-bottom: 16px;
+                flex-wrap: wrap;
+            }
+            
+            .view-btn { 
+                font-size: 11px; 
+                padding: 12px 8px;
+                min-height: 44px; /* 确保触摸区域足够大 */
+            }
+            
+            /* 时间线适配 */
+            .timeline-item {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .timeline-date {
+                align-self: flex-start;
+            }
+            
+            /* 互动提示框 */
+            .interactive-prompt {
+                padding: 28px 20px;
+            }
+            
+            .interactive-prompt-title {
+                font-size: 20px;
+            }
+            
+            .interactive-prompt-subtitle {
+                font-size: 13px;
+            }
+            
+            .interactive-prompt-features {
+                gap: 16px;
+            }
+            
+            .prompt-feature {
+                font-size: 12px;
+            }
+            
+            .interactive-prompt .cta-button {
+                font-size: 16px;
+                padding: 18px 32px;
+            }
+            
+            /* 关键点列表 */
+            .key-points {
+                padding: 16px;
+            }
+            
+            .key-points li {
+                font-size: 13px;
+            }
+            
+            /* 按钮适配 */
+            .cta-button {
+                padding: 16px 28px;
+                font-size: 15px;
+                min-height: 50px;
+            }
+            
+            /* Tooltip 适配 */
+            .tooltip {
+                max-width: 240px;
+                padding: 12px 16px;
+            }
+            
+            .tooltip-title {
+                font-size: 13px;
+            }
+            
+            .tooltip-content {
+                font-size: 11px;
+            }
+        }
+        
         @media (max-width: 480px) {
-            body { padding: 16px 12px; }
-            .header { padding: 32px 20px; }
-            .header h1 { font-size: 24px; }
-            .opinion-card { padding: 24px 20px; }
-            .signal-grid { grid-template-columns: 1fr; }
-            .view-selector { position: static; margin-bottom: 16px; }
-            .view-btn { font-size: 11px; padding: 10px 6px; }
+            body { 
+                padding: 12px 10px; 
+            }
+            
+            .header { 
+                padding: 24px 16px; 
+            }
+            
+            .header h1 { 
+                font-size: 22px;
+            }
+            
+            /* 坐标图进一步优化 */
+            .chart-container {
+                height: 280px;
+            }
+            
+            .axis-label {
+                font-size: 9px;
+            }
+            
+            .point-icon {
+                font-size: 14px;
+            }
+            
+            /* 信号网格 - 小屏改为单列 */
+            .signal-grid { 
+                grid-template-columns: 1fr;
+            }
+            
+            /* 观点卡片 */
+            .opinion-card { 
+                padding: 20px 16px; 
+            }
+            
+            .opinion-header {
+                gap: 12px;
+            }
+            
+            .opinion-icon {
+                font-size: 28px;
+            }
+            
+            .opinion-title {
+                font-size: 17px;
+            }
+            
+            /* 视图按钮 */
+            .view-btn { 
+                font-size: 10px; 
+                padding: 10px 6px;
+            }
+            
+            /* 互动提示框 */
+            .interactive-prompt {
+                padding: 24px 16px;
+            }
+            
+            .interactive-prompt-icon {
+                font-size: 40px;
+            }
+            
+            .interactive-prompt-title {
+                font-size: 18px;
+            }
+            
+            .interactive-prompt-subtitle {
+                font-size: 12px;
+            }
+            
+            .interactive-prompt .cta-button {
+                font-size: 15px;
+                padding: 16px 28px;
+            }
+            
+            /* 深度概念框 */
+            .deep-concept {
+                padding: 16px;
+            }
+            
+            .deep-concept p {
+                font-size: 12px;
+            }
+            
+            /* 高亮框 */
+            .highlight-box {
+                padding: 14px;
+            }
+            
+            .highlight-box p {
+                font-size: 12px;
+            }
+            
+            /* 投资提示 */
+            .investment-tips {
+                padding: 14px;
+            }
+            
+            .investment-tips li {
+                font-size: 12px;
+            }
+            
+            /* 结论区域 */
+            .conclusion {
+                padding: 20px 16px;
+            }
+            
+            .conclusion h3 {
+                font-size: 16px;
+            }
+            
+            .conclusion li {
+                font-size: 13px;
+            }
+        }
+        
+        /* 超小屏幕优化 */
+        @media (max-width: 360px) {
+            .header h1 { 
+                font-size: 20px;
+            }
+            
+            .chart-container {
+                height: 240px;
+            }
+            
+            .interactive-prompt-features {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .view-selector {
+                flex-direction: column;
+            }
+            
+            .view-btn {
+                width: 100%;
+            }
         }
     </style>
 
