@@ -1306,23 +1306,33 @@
             
             /* 坐标图适配 - 增强可读性 */
             .chart-container {
-                height: 350px;
+                height: 380px;
                 background: rgba(10, 10, 15, 0.95);
             }
             
             .axis-label {
-                font-size: 11px;
+                font-size: 14px;
                 fill: #ddd;
-                font-weight: 600;
+                font-weight: 700;
+            }
+            
+            .faction-label {
+                font-size: 15px;
+                font-weight: 700;
             }
             
             .quadrant-label {
-                font-size: 10px;
+                font-size: 12px;
                 fill: #999;
+                font-weight: 600;
             }
             
             .point-icon {
-                font-size: 18px;
+                font-size: 24px;
+            }
+            
+            .point-circle {
+                r: 18;
             }
             
             .axis-line {
@@ -1452,33 +1462,39 @@
             
             /* 坐标图进一步优化 - 增强可读性 */
             .chart-container {
-                height: 300px;
+                height: 340px;
                 background: rgba(10, 10, 15, 0.98);
                 border: 2px solid rgba(255, 255, 255, 0.12);
             }
             
             .axis-label {
-                font-size: 10px;
+                font-size: 13px;
                 fill: #eee;
                 font-weight: 700;
             }
             
+            .faction-label {
+                font-size: 14px;
+                font-weight: 700;
+            }
+            
             .quadrant-label {
-                font-size: 9px;
+                font-size: 11px;
                 fill: #aaa;
+                font-weight: 600;
             }
             
             .point-icon {
-                font-size: 16px;
+                font-size: 22px;
+            }
+            
+            .point-circle {
+                stroke-width: 2;
             }
             
             .axis-line {
                 stroke: #888;
                 stroke-width: 2.5;
-            }
-            
-            .point-circle {
-                stroke-width: 2;
             }
             
             /* 信号网格 - 小屏改为单列 */
@@ -1580,7 +1596,7 @@
             
             /* 坐标图超小屏优化 */
             .chart-container {
-                height: 280px;
+                height: 320px;
                 background: rgba(10, 10, 15, 1);
                 border: 2px solid rgba(255, 255, 255, 0.15);
             }
@@ -1594,18 +1610,24 @@
             }
             
             .axis-label {
-                font-size: 10px;
+                font-size: 12px;
                 fill: #fff;
                 font-weight: 700;
             }
             
+            .faction-label {
+                font-size: 13px;
+                font-weight: 700;
+            }
+            
             .quadrant-label {
-                font-size: 8px;
+                font-size: 10px;
                 fill: #bbb;
+                font-weight: 600;
             }
             
             .point-icon {
-                font-size: 15px;
+                font-size: 20px;
             }
             
             .axis-line {
@@ -1637,7 +1659,7 @@
         
         <div class="intro-card tech-border">
             <span class="icon">📖</span>
-            <p>2027年一个普通早晨，你用AI几分钟写完报告。但就在同一天，公司宣布因AI效率提升需要缩编——办公室里空了好几个工位。<br><br>这不是科幻。这是四派顶级机构正在“吵架”的焦点：<strong>AI到底会让你的生活变好还是变坏？</strong></p>
+            <p>2027年一个普通早晨,你用AI几分钟写完报告。但就在同一天,公司宣布因AI效率提升需要缩编——办公室里空了好几个工位。<br><br>这不是科幻。这是<strong>四派顶级机构</strong>正在"吵架"的焦点:<strong>AI到底会让你的生活变好还是变坏?</strong></p>
         </div>
         
         <!-- 全景坐标系 -->
@@ -1722,17 +1744,17 @@
                 <div class="opinion-header">
                     <span class="opinion-icon">⚙️</span>
                     <div>
-                        <div class="opinion-title">AI越成功，你越危险</div>
-                        <div class="opinion-source">来源：Citrini Research · 2025</div>
+                        <div class="opinion-title">AI越成功,你越危险</div>
+                        <div class="opinion-source">来源:Citrini Research · 2025</div>
                     </div>
                 </div>
                 
                 <div class="section-title">💭 核心观点</div>
                 <div class="highlight-box">
-                    <p>AI越成功，你越危险。AI替代白领导致消费减少，形成恶性循环。</p>
+                    <p>AI越成功,你越危险。AI替代白领导致消费减少,形成恶性循环。</p>
                 </div>
                 
-                <div class="section-title">⚙️ 核心逻辑：替代螺旋</div>
+                <div class="section-title">⚙️ 核心逻辑:替代螺旋</div>
                 <div class="key-points">
                     <ul>
                         <li><span class="arrow">→</span> AI首先替代白领工作</li>
@@ -1745,35 +1767,35 @@
                 
                 <div class="highlight-box red">
                     <div class="highlight-title">🔥 最危险的职业</div>
-                    <p>数据分析师、初级程序员、客服、内容编辑、财务会计、市场研究员，这些岗位的重复性工作正在被AI快速替代。如果你的工作70%以上是“按流程操作”，你需要立即警惕。</p>
+                    <p>数据分析师、初级程序员、客服、内容编辑、财务会计、市场研究员——这些岗位的重复性工作正在被AI快速替代。如果你的工作70%以上是"按流程操作",你需要立即警惕。</p>
                 </div>
                 
                 <div class="section-title">📉 悲观派的时间线</div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <span class="timeline-date">2025-2027</span>
-                        <span class="timeline-content">AI工具成熟，企业开始大规模应用，初级岗位减少30%</span>
+                        <span class="timeline-content">AI工具成熟,企业开始大规模应用,初级岗位减少30%</span>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-date">2028-2030</span>
-                        <span class="timeline-content">中级岗位受冲击，白领失业率显著上升，消费市场萎缩</span>
+                        <span class="timeline-content">中级岗位受冲击,白领失业率显著上升,消费市场萎缩</span>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-date">2031+</span>
-                        <span class="timeline-content">经济进入调整期，社会结构性失业问题凸显</span>
+                        <span class="timeline-content">经济进入调整期,社会结构性失业问题凸显</span>
                     </div>
                 </div>
                 
                 <div class="section-title">🛡️ 如何自保</div>
                 <div class="highlight-box red">
                     <div class="highlight-title">三条生存法则</div>
-                    <p><strong>法则1：成为AI无法替代的人</strong>——深度专业知识、复杂决策能力、人际关系网络<br><strong>法则2：建立多元收入来源</strong>——不要把鸡蛋放在一个篮子里<br><strong>法则3：保持财务缓冲</strong>——至少准备12个月的应急储备金</p>
+                    <p><strong>法则1:成为AI无法替代的人</strong>——深度专业知识、复杂决策能力、人际关系网络<br><strong>法则2:建立多元收入来源</strong>——不要把鸡蛋放在一个篮子里<br><strong>法则3:保持财务缓冲</strong>——至少准备12个月的应急储备金</p>
                 </div>
                 
                 <div class="investment-tips red">
-                    <div class="title">💰 投资建议：防御为主</div>
+                    <div class="title">💰 投资建议:防御为主</div>
                     <ul>
-                        <li>增加现金和债券比例，降低风险敞口</li>
+                        <li>增加现金和债券比例,降低风险敞口</li>
                         <li>投资必需消费品和公用事业</li>
                         <li>避免过度集中于科技股</li>
                         <li>考虑黄金等避险资产</li>
@@ -1789,60 +1811,60 @@
                     <span class="opinion-icon">🚀</span>
                     <div>
                         <div class="opinion-title">AI是新的电力革命</div>
-                        <div class="opinion-source">来源：高盛 & ARK Invest · 2025</div>
+                        <div class="opinion-source">来源:高盛 & ARK Invest · 2025</div>
                     </div>
                 </div>
                 
                 <div class="section-title">💭 核心观点</div>
                 <div class="highlight-box">
-                    <p>AI是新的电力革命，将创造更多高质量工作，提升全球GDP。</p>
+                    <p>AI是新的电力革命,将创造更多高质量工作,提升全球GDP。</p>
                 </div>
                 
-                <div class="section-title">🚀 核心逻辑：生产力爆发</div>
+                <div class="section-title">🚀 核心逻辑:生产力爆发</div>
                 <div class="key-points">
                     <ul>
                         <li><span class="arrow">→</span> AI大幅提升生产效率</li>
                         <li><span class="arrow">→</span> 效率提升创造新的需求</li>
                         <li><span class="arrow">→</span> 新需求催生新行业和新岗位</li>
-                        <li><span class="arrow">→</span> 就像电力革命一样，短期阵痛，长期繁荣</li>
+                        <li><span class="arrow">→</span> 就像电力革命一样,短期阵痛,长期繁荣</li>
                         <li><span class="arrow">→</span> <strong>总体就业和收入将增加</strong></li>
                     </ul>
                 </div>
                 
                 <div class="highlight-box blue">
                     <div class="highlight-title">💡 历史会重演</div>
-                    <p>电力革命淘汰了点灯工，但创造了无数新职业。互联网革命淘汰了打字员，但诞生了整个数字经济。AI革命也会如此——它会淘汰一些岗位，但会创造更多我们现在无法想象的新机会。</p>
+                    <p>电力革命淘汰了点灯工,但创造了无数新职业。互联网革命淘汰了打字员,但诞生了整个数字经济。AI革命也会如此——它会淘汰一些岗位,但会创造更多我们现在无法想象的新机会。</p>
                 </div>
                 
                 <div class="section-title">📈 乐观派的时间线</div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <span class="timeline-date">2025-2027</span>
-                        <span class="timeline-content">AI工具普及，生产力显著提升，新型岗位开始涌现</span>
+                        <span class="timeline-content">AI工具普及,生产力显著提升,新型岗位开始涌现</span>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-date">2028-2030</span>
-                        <span class="timeline-content">AI相关产业爆发式增长，创造数百万高薪岗位</span>
+                        <span class="timeline-content">AI相关产业爆发式增长,创造数百万高薪岗位</span>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-date">2031+</span>
-                        <span class="timeline-content">全球GDP因AI提升15-20%，进入新一轮繁荣周期</span>
+                        <span class="timeline-content">全球GDP因AI提升15-20%,进入新一轮繁荣周期</span>
                     </div>
                 </div>
                 
                 <div class="section-title">🎯 如何抓住机会</div>
                 <div class="highlight-box blue">
                     <div class="highlight-title">三个黄金赛道</div>
-                    <p><strong>赛道1：AI应用开发</strong>——学习AI工具，成为"AI翻译官"，帮助企业落地AI方案<br><strong>赛道2：AI内容创作</strong>——用AI提升创作效率10倍，在内容经济中占据优势<br><strong>赛道3：AI咨询培训</strong>——成为AI专家，帮助个人和企业适应AI时代</p>
+                    <p><strong>赛道1:AI应用开发</strong>——学习AI工具,成为"AI翻译官",帮助企业落地AI方案<br><strong>赛道2:AI内容创作</strong>——用AI提升创作效率10倍,在内容经济中占据优势<br><strong>赛道3:AI咨询培训</strong>——成为AI专家,帮助个人和企业适应AI时代</p>
                 </div>
                 
                 <div class="investment-tips blue">
-                    <div class="title">💰 投资建议：拥抱科技</div>
+                    <div class="title">💰 投资建议:拥抱科技</div>
                     <ul>
                         <li>重点配置AI相关科技股</li>
-                        <li>关注AI基础设施（芯片、云计算）</li>
+                        <li>关注AI基础设施(芯片、云计算)</li>
                         <li>投资AI应用领域的创新公司</li>
-                        <li>长期持有，享受科技红利</li>
+                        <li>长期持有,享受科技红利</li>
                     </ul>
                 </div>
             </div>
@@ -1855,16 +1877,16 @@
                     <span class="opinion-icon">👑</span>
                     <div>
                         <div class="opinion-title">个人独角兽时代来临</div>
-                        <div class="opinion-source">来源：Accenture & BCG · 2025</div>
+                        <div class="opinion-source">来源:Accenture & BCG · 2025</div>
                     </div>
                 </div>
                 
                 <div class="section-title">💭 核心观点</div>
                 <div class="highlight-box">
-                    <p>AI让人类从重复劳动中解放，专注创造性工作，实现人文复兴。</p>
+                    <p>AI让人类从重复劳动中解放,专注创造性工作,实现人文复兴。</p>
                 </div>
                 
-                <div class="section-title">👑 核心逻辑：个体崛起</div>
+                <div class="section-title">👑 核心逻辑:个体崛起</div>
                 <div class="key-points">
                     <ul>
                         <li><span class="arrow">→</span> AI承担所有重复性工作</li>
@@ -1877,33 +1899,33 @@
                 
                 <div class="highlight-box purple">
                     <div class="highlight-title">🌟 什么是"个人独角兽"?</div>
-                    <p>一个人，借助AI工具，创造出价值数百万甚至数十亿美元的产品或服务。就像一个人用AI在6个月内开发出爆款应用，或者一个创作者用AI制作的内容获得千万粉丝。AI让“超级个体”成为可能。</p>
+                    <p>一个人,借助AI工具,创造出价值数百万甚至数十亿美元的产品或服务。就像一个人用AI在6个月内开发出爆款应用,或者一个创作者用AI制作的内容获得千万粉丝。AI让"超级个体"成为可能。</p>
                 </div>
                 
                 <div class="section-title">🎨 复兴派的时间线</div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <span class="timeline-date">2025-2027</span>
-                        <span class="timeline-content">AI工具成熟，个人创作者开始展现惊人生产力</span>
+                        <span class="timeline-content">AI工具成熟,个人创作者开始展现惊人生产力</span>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-date">2028-2030</span>
-                        <span class="timeline-content">首批“个人独角兽”出现，创造者经济规模突破万亿美元</span>
+                        <span class="timeline-content">首批"个人独角兽"出现,创造者经济规模突破万亿美元</span>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-date">2031+</span>
-                        <span class="timeline-content">工作方式彻底改变，更多人从事创造性和有意义的工作</span>
+                        <span class="timeline-content">工作方式彻底改变,更多人从事创造性和有意义的工作</span>
                     </div>
                 </div>
                 
                 <div class="section-title">💎 如何成为个人独角兽</div>
                 <div class="highlight-box purple">
                     <div class="highlight-title">三个关键要素</div>
-                    <p><strong>独特视角</strong>：找到别人没有发现的需求或机会<br><strong>AI工具精通</strong>：深度掌握AI工具，让它们成为你的“超能力”<br><strong>快速迭代</strong>：用AI加速试错，快速找到产品市场契合点<br><strong>个人品牌</strong>：建立强大的个人IP，吸引粉丝和客户</p>
+                    <p><strong>独特视角</strong>:找到别人没有发现的需求或机会<br><strong>AI工具精通</strong>:深度掌握AI工具,让它们成为你的"超能力"<br><strong>快速迭代</strong>:用AI加速试错,快速找到产品市场契合点<br><strong>个人品牌</strong>:建立强大的个人IP,吸引粉丝和客户</p>
                 </div>
                 
                 <div class="investment-tips purple">
-                    <div class="title">💰 投资建议：投资自己</div>
+                    <div class="title">💰 投资建议:投资自己</div>
                     <ul>
                         <li>最好的投资是投资自己的技能和创造力</li>
                         <li>学习使用最先进的AI工具</li>
@@ -1920,41 +1942,41 @@
                 <div class="opinion-header">
                     <span class="opinion-icon">⚖️</span>
                     <div>
-                        <div class="opinion-title">理性渐进，时间充裕</div>
-                        <div class="opinion-source">来源：Citadel Securities · 2026</div>
+                        <div class="opinion-title">理性渐进,时间充裕</div>
+                        <div class="opinion-source">来源:Citadel Securities · 2026</div>
                     </div>
                 </div>
                 
                 <div class="section-title">💭 核心观点</div>
                 <div class="highlight-box">
-                    <p>AI影响取决于政策与社会选择，需要平衡技术进步与社会稳定。</p>
+                    <p>AI影响取决于政策与社会选择,需要平衡技术进步与社会稳定。</p>
                 </div>
                 
-                <div class="section-title">⚖️ 核心逻辑：理性渐进转型</div>
+                <div class="section-title">⚖️ 核心逻辑:理性渐进转型</div>
                 <div class="key-points">
                     <ul>
-                        <li><span class="arrow">→</span> AI潜力巨大，但受物理限制</li>
+                        <li><span class="arrow">→</span> AI潜力巨大,但受物理限制</li>
                         <li><span class="arrow">→</span> 生产力爆发尚未显现</li>
                         <li><span class="arrow">→</span> 社会有足够时间适应</li>
                         <li><span class="arrow">→</span> 渐进式转型是最可能的路径</li>
-                        <li><span class="arrow">→</span> <strong>不必恐慌，也不必过度乐观</strong></li>
+                        <li><span class="arrow">→</span> <strong>不必恐慌,也不必过度乐观</strong></li>
                     </ul>
                 </div>
                 
                 <div class="highlight-box gray">
-                    <div class="highlight-title">🔍 现实检验：物理世界的限制</div>
-                    <p>虽然AI在软件领域进展神速，但物理世界的改造需要时间。数据中心建设、能源供应、硬件制造——这些都需要数年甚至数十年。AI革命不会在一夜之间发生，我们有充足的时间来适应和调整。</p>
+                    <div class="highlight-title">🔍 现实检验:物理世界的限制</div>
+                    <p>虽然AI在软件领域进展神速,但物理世界的改造需要时间。数据中心建设、能源供应、硬件制造——这些都需要数年甚至数十年。AI革命不会在一夜之间发生,我们有充足的时间来适应和调整。</p>
                 </div>
                 
                 <div class="section-title">📊 关键制约因素</div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <span class="timeline-date">能源瓶颈</span>
-                        <span class="timeline-content">AI训练和运行需要大量电力，能源基础设施需要时间建设</span>
+                        <span class="timeline-content">AI训练和运行需要大量电力,能源基础设施需要时间建设</span>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-date">硬件限制</span>
-                        <span class="timeline-content">先进芯片产能有限，扩产需要数年时间</span>
+                        <span class="timeline-content">先进芯片产能有限,扩产需要数年时间</span>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-date">监管适应</span>
@@ -1965,14 +1987,14 @@
                 <div class="section-title">🎯 理性应对策略</div>
                 <div class="highlight-box gray">
                     <div class="highlight-title">平衡的行动方案</div>
-                    <p><strong>持续学习</strong>：保持对AI技术的关注，但不必焦虑<br><strong>稳健转型</strong>：逐步提升AI协作能力，不必激进转行<br><strong>多元发展</strong>：培养多种技能，增强适应能力<br><strong>长期视角</strong>：以5-10年为周期规划职业发展</p>
+                    <p><strong>持续学习</strong>:保持对AI技术的关注,但不必焦虑<br><strong>稳健转型</strong>:逐步提升AI协作能力,不必激进转行<br><strong>多元发展</strong>:培养多种技能,增强适应能力<br><strong>长期视角</strong>:以5-10年为周期规划职业发展</p>
                 </div>
                 
                 <div class="investment-tips gray">
-                    <div class="title">💰 投资建议：均衡配置</div>
+                    <div class="title">💰 投资建议:均衡配置</div>
                     <ul>
                         <li>保持投资组合的多元化</li>
-                        <li>既投资AI相关领域，也保留传统行业</li>
+                        <li>既投资AI相关领域,也保留传统行业</li>
                         <li>关注基础设施和能源板块</li>
                         <li>避免过度集中于单一主题</li>
                     </ul>
@@ -1983,7 +2005,7 @@
         <!-- 信号监测 -->
         <div class="signal-section tech-border">
             <h3>📡 关键信号监测</h3>
-            <p style="font-size: 13px; color: #888; margin-bottom: 12px;">观察这些指标，判断哪一派的预测正在成为现实</p>
+            <p style="font-size: 13px; color: #888; margin-bottom: 12px;">观察这些指标,判断哪一派的预测正在成为现实</p>
             
             <div class="signal-grid">
                 <div class="signal-item pessimistic">
@@ -2028,12 +2050,12 @@
         <!-- 行动指南 -->
         <div class="action-guide tech-border">
             <h3>🎯 你的行动指南</h3>
-            <p style="font-size: 13px; color: #888; margin-bottom: 16px;">无论哪一派成为现实，这些行动都能帮助你</p>
+            <p style="font-size: 13px; color: #888; margin-bottom: 16px;">无论哪一派成为现实,这些行动都能帮助你</p>
             
             <div class="action-category">
                 <div class="cat-title">📚 立即开始</div>
                 <ul>
-                    <li>学习使用主流AI工具</li>
+                    <li>学习使用主流AI工具(ChatGPT、Claude、Midjourney等)</li>
                     <li>评估你的工作中哪些部分可以用AI提效</li>
                     <li>建立个人知识库和技能档案</li>
                 </ul>
@@ -2044,7 +2066,7 @@
                 <ul>
                     <li>掌握至少一个AI工具的深度应用</li>
                     <li>用AI完成一个完整的项目</li>
-                    <li>开始建立个人品牌（博客、社交媒体等）</li>
+                    <li>开始建立个人品牌(博客、社交媒体等)</li>
                 </ul>
             </div>
             
@@ -2061,9 +2083,9 @@
         <!-- 互动测评器引导 -->
         <div class="interactive-prompt">
             <div class="interactive-prompt-icon">🎮</div>
-            <h3 class="interactive-prompt-title">互动测评：你的职业风险有多高?</h3>
+            <h3 class="interactive-prompt-title">互动测评:你的职业风险有多高?</h3>
             <p class="interactive-prompt-subtitle">
-                回答4个简单问题，AI帮你分析在悲观/乐观/复兴三种未来情景下的应对策略
+                回答4个简单问题,AI帮你分析在悲观/乐观/复兴三种未来情景下的应对策略
             </p>
             <div class="interactive-prompt-features">
                 <div class="prompt-feature">
@@ -2184,15 +2206,16 @@
         <div class="conclusion">
             <h3>🎯 最后的思考</h3>
             <ul>
-                <li>四派观点都有其合理性，现实可能是多种情景的混合</li>
-                <li>无论未来如何，主动学习和适应都是最佳策略</li>
-                <li>AI是工具，不是敌人——学会使用它，而不是被它取代</li>
-                <li>保持关注，但不必焦虑——变化需要时间</li>
-                <li>最重要的是开始行动，而不是等待</li>
+                <li>四派观点都有其合理性,现实可能是多种情景的混合</li>
+                <li>无论未来如何,主动学习和适应都是最佳策略</li>
+                <li>AI是工具,不是敌人——学会使用它,而不是被它取代</li>
+                <li>保持关注,但不必焦虑——变化需要时间</li>
+                <li>最重要的是:开始行动,而不是等待</li>
             </ul>
         </div>
         
         <div class="footer">
+            <p>数据来源:Citrini Research, Goldman Sachs, McKinsey, Citadel Securities, David Kingsley</p>
             <p class="wechat">想了解更多?关注公众号 @叽歪黄油小面包</p>
         </div>
     </div>
