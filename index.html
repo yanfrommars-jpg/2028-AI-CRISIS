@@ -176,109 +176,6 @@
             overflow: hidden;
         }
         
-        /* 交互提示标签 */
-        .chart-hint {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-            animation: hintBounce 2s ease-in-out infinite;
-            z-index: 10;
-            pointer-events: none;
-        }
-        
-        /* 移动端快速浏览卡片 */
-        .mobile-quick-view {
-            display: none;
-            margin-top: 20px;
-            gap: 12px;
-            flex-direction: column;
-        }
-        
-        .mobile-view-card {
-            background: rgba(20, 20, 25, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-view-card:active {
-            transform: scale(0.98);
-            background: rgba(30, 30, 35, 0.95);
-        }
-        
-        .mobile-view-card-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
-        }
-        
-        .mobile-view-icon {
-            font-size: 28px;
-            flex-shrink: 0;
-        }
-        
-        .mobile-view-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 4px;
-        }
-        
-        .mobile-view-source {
-            font-size: 11px;
-            color: #888;
-        }
-        
-        .mobile-view-summary {
-            font-size: 13px;
-            color: #c0c0c0;
-            line-height: 1.7;
-        }
-        
-        .mobile-view-position {
-            font-size: 10px;
-            color: #666;
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        @keyframes hintBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-        
-        .chart-hint .hint-icon {
-            font-size: 16px;
-            animation: pointFinger 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes pointFinger {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        
-        .chart-hint.fade-out {
-            animation: fadeOut 0.5s forwards;
-        }
-        
-        @keyframes fadeOut {
-            to { opacity: 0; visibility: hidden; }
-        }
-        
         .chart-svg {
             width: 100%;
             height: 100%;
@@ -299,6 +196,12 @@
             font-weight: 600;
         }
         
+        .faction-label {
+            font-size: 13px;
+            font-weight: 700;
+            pointer-events: none;
+        }
+        
         .quadrant-label {
             font-size: 11px;
             fill: #888;
@@ -312,59 +215,11 @@
             stroke-dasharray: 3,3;
         }
         
-        .data-point {
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: pointPulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pointPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        .data-point:hover {
-            animation: none;
-        }
-        
-        .data-point:hover .point-circle {
-            r: 18;
-            filter: drop-shadow(0 0 12px currentColor);
-        }
-        
-        .point-circle {
-            transition: all 0.3s ease;
-            animation: circleGlow 2s ease-in-out infinite;
-        }
-        
-        @keyframes circleGlow {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
-        
-        .data-point:hover .point-circle {
-            animation: none;
-            opacity: 1;
-        }
-        
-        .point-icon {
-            font-size: 20px;
-            text-anchor: middle;
-            dominant-baseline: central;
-            pointer-events: none;
-        }
-        
         .career-path {
-            stroke: #9b59b6;
+            stroke: rgba(155, 89, 182, 0.4);
             stroke-width: 2;
             stroke-dasharray: 5,5;
             fill: none;
-            opacity: 0.5;
-            animation: dashMove 20s linear infinite;
-        }
-        
-        @keyframes dashMove {
-            to { stroke-dashoffset: -100; }
         }
         
         .path-label {
@@ -373,19 +228,38 @@
             font-weight: 600;
         }
         
+        .data-point {
+            cursor: pointer;
+        }
+        
+        .point-circle {
+            transition: opacity 0.3s ease;
+        }
+        
+        .data-point:hover .point-circle {
+            opacity: 0.8;
+        }
+        
+        .point-icon {
+            font-size: 18px;
+            text-anchor: middle;
+            dominant-baseline: central;
+            pointer-events: none;
+        }
+        
         .tooltip {
             position: absolute;
             background: rgba(20, 20, 25, 0.98);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            padding: 14px 18px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+            border: 1px solid rgba(102, 126, 234, 0.4);
+            border-radius: 8px;
+            padding: 16px;
+            min-width: 260px;
+            max-width: 320px;
             pointer-events: none;
             opacity: 0;
             transition: opacity 0.3s ease;
-            z-index: 1000;
-            max-width: 280px;
-            backdrop-filter: blur(10px);
+            z-index: 100;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
         }
         
         .tooltip.show {
@@ -436,10 +310,9 @@
         
         .view-btn {
             flex: 1;
-            padding: 12px 8px;
+            padding: 12px 10px;
             border: none;
             background: transparent;
-            font-size: 12px;
             cursor: pointer;
             border-radius: 6px;
             transition: all 0.3s ease;
@@ -447,6 +320,8 @@
             font-weight: 500;
             position: relative;
             overflow: hidden;
+            text-align: center;
+            font-size: 13px;
         }
         
         .view-btn::before {
@@ -469,6 +344,10 @@
             background: rgba(255, 255, 255, 0.1);
             color: #fff;
             box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .view-btn.active div:last-child {
+            color: #aaa;
         }
         
         /* 观点卡片 - 统一深色科技风格 */
@@ -1291,101 +1170,79 @@
             display: block; 
         }
         
-        /* 浮动快速切换按钮 */
-        .floating-nav {
+        /* 顶部吸附导航栏 */
+        .sticky-nav {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 999;
-            display: none;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
         }
         
-        .floating-nav.show {
-            display: block;
+        .sticky-nav.show {
+            transform: translateY(0);
         }
         
-        .floating-toggle {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.6);
+        .sticky-nav-container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 12px 16px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            gap: 8px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
         
-        .floating-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.8);
+        .sticky-nav-container::-webkit-scrollbar {
+            height: 0;
         }
         
-        .floating-toggle:active {
-            transform: scale(0.95);
+        .sticky-nav-title {
+            font-size: 13px;
+            color: #888;
+            white-space: nowrap;
+            margin-right: 8px;
+            font-weight: 600;
         }
         
-        .floating-menu {
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            background: rgba(20, 20, 25, 0.98);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 12px;
-            min-width: 200px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(20px);
-            opacity: 0;
-            transform: translateY(10px);
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
-        
-        .floating-menu.show {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: all;
-        }
-        
-        .floating-menu-item {
-            padding: 12px 16px;
-            margin: 4px 0;
-            border-radius: 8px;
+        .sticky-nav-btn {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            color: #c0c0c0;
+            font-size: 13px;
             cursor: pointer;
             transition: all 0.2s ease;
+            white-space: nowrap;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            color: #c0c0c0;
-            border: 1px solid transparent;
-        }
-        
-        .floating-menu-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-        }
-        
-        .floating-menu-item.active {
-            background: rgba(102, 126, 234, 0.2);
-            border-color: rgba(102, 126, 234, 0.4);
-            color: #ffffff;
-        }
-        
-        .floating-menu-item .icon {
-            font-size: 18px;
+            gap: 6px;
             flex-shrink: 0;
         }
         
-        .floating-menu-item .label {
-            flex: 1;
-            font-weight: 500;
+        .sticky-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .sticky-nav-btn.active {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+            border-color: rgba(102, 126, 234, 0.5);
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        .sticky-nav-btn .icon {
+            font-size: 16px;
         }
         
         .floating-back-top {
@@ -1398,18 +1255,21 @@
             font-size: 20px;
             cursor: pointer;
             position: fixed;
-            bottom: 90px;
+            bottom: 20px;
             right: 20px;
             z-index: 998;
-            display: none;
+            display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            opacity: 0;
+            pointer-events: none;
         }
         
         .floating-back-top.show {
-            display: flex;
+            opacity: 1;
+            pointer-events: auto;
         }
         
         .floating-back-top:hover {
@@ -1777,21 +1637,14 @@
         
         <div class="intro-card tech-border">
             <span class="icon">📖</span>
-            <p>2027年一个普通早晨,你用AI几分钟写完报告。但就在同一天,公司宣布因AI效率提升需要缩编——办公室里空了好几个工位。<br><br>这不是科幻。这是<strong>四派顶级机构</strong>正在"吵架"的焦点:<strong>AI到底会让你的生活变好还是变坏?</strong></p>
+            <p>2027年一个普通早晨，你用AI几分钟写完报告。但就在同一天，公司宣布因AI效率提升需要缩编——办公室里空了好几个工位。<br><br>这不是科幻。这是<strong>四派顶级机构</strong>正在“吵架”的焦点：<strong>AI到底会让你的生活变好还是变坏?</strong></p>
         </div>
         
         <!-- 全景坐标系 -->
         <div class="panorama-section tech-border">
             <h2 class="panorama-title">🗺️ AI时代全景坐标系</h2>
-            <p class="panorama-subtitle">四派观点在二维空间中的位置 · 点击或悬停查看详情</p>
             
             <div class="chart-container">
-                <!-- 交互提示标签 -->
-                <div class="chart-hint" id="chartHint">
-                    <span class="hint-icon">👆</span>
-                    <span>点击图标查看详情</span>
-                </div>
-                
                 <svg class="chart-svg" viewBox="0 0 650 400" preserveAspectRatio="xMidYMid meet">
                     <!-- 网格线 -->
                     <line class="grid-line" x1="150" y1="50" x2="150" y2="350"></line>
@@ -1825,96 +1678,42 @@
                     
                     <!-- 数据点 -->
                     <!-- 悲观派 -->
-                    <g class="data-point" data-faction="pessimistic" onclick="showTooltip(event, 'pessimistic')">
+                    <g class="data-point" data-faction="pessimistic" onclick="showTab('pessimistic')" style="cursor: pointer;">
                         <circle class="point-circle" cx="140" cy="120" r="15" fill="#ff6b6b" opacity="0.9"></circle>
                         <text class="point-icon" x="140" y="120">⚙️</text>
+                        <text class="faction-label" x="140" y="150" text-anchor="middle" fill="#ff6b6b" style="cursor: pointer;">悲观派</text>
                     </g>
                     
                     <!-- 乐观派 -->
-                    <g class="data-point" data-faction="optimistic" onclick="showTooltip(event, 'optimistic')">
+                    <g class="data-point" data-faction="optimistic" onclick="showTab('optimistic')" style="cursor: pointer;">
                         <circle class="point-circle" cx="460" cy="260" r="15" fill="#4ecdc4" opacity="0.9"></circle>
                         <text class="point-icon" x="460" y="260">🚀</text>
+                        <text class="faction-label" x="460" y="290" text-anchor="middle" fill="#4ecdc4" style="cursor: pointer;">乐观派</text>
                     </g>
                     
                     <!-- 复兴派 -->
-                    <g class="data-point" data-faction="renaissance" onclick="showTooltip(event, 'renaissance')">
+                    <g class="data-point" data-faction="renaissance" onclick="showTab('renaissance')" style="cursor: pointer;">
                         <circle class="point-circle" cx="420" cy="140" r="15" fill="#ffd93d" opacity="0.9"></circle>
                         <text class="point-icon" x="420" y="140">👑</text>
+                        <text class="faction-label" x="420" y="170" text-anchor="middle" fill="#ffd93d" style="cursor: pointer;">复兴派</text>
                     </g>
                     
                     <!-- 中立派 -->
-                    <g class="data-point" data-faction="neutral" onclick="showTooltip(event, 'neutral')">
+                    <g class="data-point" data-faction="neutral" onclick="showTab('neutral')" style="cursor: pointer;">
                         <circle class="point-circle" cx="380" cy="280" r="15" fill="#a8a8a8" opacity="0.9"></circle>
                         <text class="point-icon" x="380" y="280">⚖️</text>
+                        <text class="faction-label" x="380" y="310" text-anchor="middle" fill="#a8a8a8" style="cursor: pointer;">中立派</text>
                     </g>
                 </svg>
-                
-                <!-- 悬浮提示框 -->
-                <div id="chartTooltip" class="tooltip">
-                    <div class="tooltip-title"></div>
-                    <div class="tooltip-source"></div>
-                    <div class="tooltip-content"></div>
-                    <div class="tooltip-position"></div>
-                </div>
-            </div>
-            
-            <!-- 移动端快速浏览卡片 -->
-            <div class="mobile-quick-view">
-                <div class="mobile-view-card" onclick="showTab('pessimistic')">
-                    <div class="mobile-view-card-header">
-                        <span class="mobile-view-icon">⚙️</span>
-                        <div>
-                            <div class="mobile-view-title">悲观派</div>
-                            <div class="mobile-view-source">Citrini Research</div>
-                        </div>
-                    </div>
-                    <div class="mobile-view-summary">AI越成功,你越危险。AI替代白领导致消费减少,形成恶性循环。</div>
-                    <div class="mobile-view-position">📍 位置:负面影响 × 快速扩散</div>
-                </div>
-                
-                <div class="mobile-view-card" onclick="showTab('optimistic')">
-                    <div class="mobile-view-card-header">
-                        <span class="mobile-view-icon">🚀</span>
-                        <div>
-                            <div class="mobile-view-title">乐观派</div>
-                            <div class="mobile-view-source">高盛 & ARK Invest</div>
-                        </div>
-                    </div>
-                    <div class="mobile-view-summary">AI是新的电力革命,将创造更多高质量工作,提升全球GDP。</div>
-                    <div class="mobile-view-position">📍 位置:正面影响 × 渐进扩散</div>
-                </div>
-                
-                <div class="mobile-view-card" onclick="showTab('renaissance')">
-                    <div class="mobile-view-card-header">
-                        <span class="mobile-view-icon">👑</span>
-                        <div>
-                            <div class="mobile-view-title">复兴派</div>
-                            <div class="mobile-view-source">Accenture & BCG</div>
-                        </div>
-                    </div>
-                    <div class="mobile-view-summary">AI让人类从重复劳动中解放,专注创造性工作,实现人文复兴。</div>
-                    <div class="mobile-view-position">📍 位置:正面影响 × 快速扩散</div>
-                </div>
-                
-                <div class="mobile-view-card" onclick="showTab('neutral')">
-                    <div class="mobile-view-card-header">
-                        <span class="mobile-view-icon">⚖️</span>
-                        <div>
-                            <div class="mobile-view-title">中立派</div>
-                            <div class="mobile-view-source">Castle Securities</div>
-                        </div>
-                    </div>
-                    <div class="mobile-view-summary">AI影响取决于政策与社会选择,需要平衡技术进步与社会稳定。</div>
-                    <div class="mobile-view-position">📍 位置:正面影响 × 渐进扩散</div>
-                </div>
             </div>
         </div>
         
+        <!-- 视图切换器 -->
         <div class="view-selector">
-            <button class="view-btn active" onclick="showTab('pessimistic')">⚙️ 悲观派</button>
-            <button class="view-btn" onclick="showTab('optimistic')">🚀 乐观派</button>
-            <button class="view-btn" onclick="showTab('renaissance')">👑 复兴派</button>
-            <button class="view-btn" onclick="showTab('neutral')">⚖️ 中立派</button>
+            <button class="view-btn" data-view="pessimistic" onclick="showTab('pessimistic')">⚙️ 悲观派</button>
+            <button class="view-btn" data-view="optimistic" onclick="showTab('optimistic')">🚀 乐观派</button>
+            <button class="view-btn" data-view="renaissance" onclick="showTab('renaissance')">👑 复兴派</button>
+            <button class="view-btn" data-view="neutral" onclick="showTab('neutral')">⚖️ 中立派</button>
         </div>
         
         <!-- 悲观派 -->
@@ -1923,57 +1722,61 @@
                 <div class="opinion-header">
                     <span class="opinion-icon">⚙️</span>
                     <div>
-                        <div class="opinion-title">AI 越成功,你越危险</div>
-                        <div class="opinion-source">来源:Citrini Research · 2026年初</div>
+                        <div class="opinion-title">AI越成功,你越危险</div>
+                        <div class="opinion-source">来源:Citrini Research · 2025</div>
                     </div>
                 </div>
                 
-                <div class="section-title">🔄 核心逻辑:理性渐进转型</div>
+                <div class="section-title">💭 核心观点</div>
+                <div class="highlight-box">
+                    <p>AI越成功，你越危险。AI替代白领导致消费减少，形成恶性循环。</p>
+                </div>
+                
+                <div class="section-title">⚙️ 核心逻辑：替代螺旋</div>
                 <div class="key-points">
                     <ul>
-                        <li><span class="arrow">→</span> AI变强 → 企业用AI替代白领</li>
-                        <li><span class="arrow">→</span> 白领失业 → 没钱消费</li>
-                        <li><span class="arrow">→</span> 消费减少 → 企业利润下降</li>
-                        <li><span class="arrow">→</span> 利润下降 → 继续用AI替代人力</li>
-                        <li><span class="arrow">→</span> <strong>无限循环,没有刹车</strong></li>
+                        <li><span class="arrow">→</span> AI首先替代白领工作</li>
+                        <li><span class="arrow">→</span> 白领失业导致消费能力下降</li>
+                        <li><span class="arrow">→</span> 消费减少影响整体经济</li>
+                        <li><span class="arrow">→</span> 经济衰退加速更多裁员</li>
+                        <li><span class="arrow">→</span> <strong>形成恶性循环</strong></li>
                     </ul>
                 </div>
                 
-                <div class="deep-concept">
-                    <div class="concept-title">💡 深入理解:两个关键概念</div>
-                    <p><strong>消除人类中介摩擦</strong>:AI将直接取代律师、采购经理、中层管理等"信息中介"、"合规与信任中介"和"协调与执行中介"职能。这些"摩擦"过去是大量白领收入的来源,其消失意味着这部分收入的蒸发。</p>
-                    <p><strong>幽灵GDP</strong>:即使AI大幅提升生产力,但如果财富没有通过工资流向普通家庭,这些"产出"将无法转化为消费需求,形成"有产出无消费"的幽灵GDP,货币流通速度可能降至零。</p>
+                <div class="highlight-box red">
+                    <div class="highlight-title">🔥 最危险的职业</div>
+                    <p>数据分析师、初级程序员、客服、内容编辑、财务会计、市场研究员——这些岗位的重复性工作正在被AI快速替代。如果你的工作70%以上是"按流程操作",你需要立即警惕。</p>
                 </div>
                 
-                <div class="section-title">📅 预测时间线</div>
+                <div class="section-title">📉 悲观派的时间线</div>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <span class="timeline-date">2026-2027</span>
-                        <span class="timeline-content">AI开始大规模替代白领岗位,失业率开始上升</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-date">2027-2028</span>
-                        <span class="timeline-content">消费需求明显下降,企业利润承压</span>
+                        <span class="timeline-date">2025-2027</span>
+                        <span class="timeline-content">AI工具成熟，企业开始大规模应用，初级岗位减少30%</span>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-date">2028-2030</span>
-                        <span class="timeline-content">通缩螺旋形成,系统性失业危机爆发</span>
+                        <span class="timeline-content">中级岗位受冲击,白领失业率显著上升,消费市场萎缩</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2031+</span>
+                        <span class="timeline-content">经济进入调整期,社会结构性失业问题凸显</span>
                     </div>
                 </div>
                 
-                <div class="section-title">⚠️ 高风险职业</div>
-                <div class="highlight-box">
-                    <div class="highlight-title">最危险的三类工作</div>
-                    <p><strong>信息中介</strong>:律师、会计师、金融分析师——AI可以更快更准确地处理信息<br><strong>合规中介</strong>:审计师、合规专员——AI不会犯错也不会疲劳<br><strong>协调中介</strong>:项目经理、采购经理——AI可以同时协调数百个任务</p>
+                <div class="section-title">🛡️ 如何自保</div>
+                <div class="highlight-box red">
+                    <div class="highlight-title">三条生存法则</div>
+                    <p><strong>法则1:成为AI无法替代的人</strong>——深度专业知识、复杂决策能力、人际关系网络<br><strong>法则2:建立多元收入来源</strong>——不要把鸡蛋放在一个篮子里<br><strong>法则3:保持财务缓冲</strong>——至少准备12个月的应急储备金</p>
                 </div>
                 
-                <div class="investment-tips">
+                <div class="investment-tips red">
                     <div class="title">💰 投资建议:防御为主</div>
                     <ul>
-                        <li>增加现金储备,准备应对经济衰退</li>
-                        <li>投资必需消费品和公用事业等防御性行业</li>
+                        <li>增加现金和债券比例,降低风险敞口</li>
+                        <li>投资必需消费品和公用事业</li>
+                        <li>避免过度集中于科技股</li>
                         <li>考虑黄金等避险资产</li>
-                        <li>避免高估值的科技股</li>
                     </ul>
                 </div>
             </div>
@@ -1985,56 +1788,61 @@
                 <div class="opinion-header">
                     <span class="opinion-icon">🚀</span>
                     <div>
-                        <div class="opinion-title">AI 是新的电力革命</div>
-                        <div class="opinion-source">来源:Goldman Sachs & McKinsey · 2025-2026</div>
+                        <div class="opinion-title">AI是新的电力革命</div>
+                        <div class="opinion-source">来源:高盛 & ARK Invest · 2025</div>
                     </div>
                 </div>
                 
-                <div class="section-title">📈 核心逻辑:生产力飞跃</div>
+                <div class="section-title">💭 核心观点</div>
+                <div class="highlight-box">
+                    <p>AI是新的电力革命，将创造更多高质量工作，提升全球GDP。</p>
+                </div>
+                
+                <div class="section-title">🚀 核心逻辑：生产力爆发</div>
                 <div class="key-points">
                     <ul>
-                        <li><span class="arrow">→</span> AI是通用目的技术(GPT),如同电力、互联网</li>
-                        <li><span class="arrow">→</span> 长期生产力提升15%,创造巨大经济价值</li>
-                        <li><span class="arrow">→</span> 新行业诞生,创造高价值岗位</li>
-                        <li><span class="arrow">→</span> 人类专注于创造性和战略性工作</li>
-                        <li><span class="arrow">→</span> <strong>整体财富增加,生活水平提升</strong></li>
+                        <li><span class="arrow">→</span> AI大幅提升生产效率</li>
+                        <li><span class="arrow">→</span> 效率提升创造新的需求</li>
+                        <li><span class="arrow">→</span> 新需求催生新行业和新岗位</li>
+                        <li><span class="arrow">→</span> 就像电力革命一样,短期阵痛,长期繁荣</li>
+                        <li><span class="arrow">→</span> <strong>总体就业和收入将增加</strong></li>
                     </ul>
                 </div>
                 
-                <div class="highlight-box green">
-                    <div class="highlight-title">🌟 历史经验:技术革命总是创造更多机会</div>
-                    <p>工业革命、电气化、计算机革命——每次技术飞跃都曾引发"失业恐慌",但最终都创造了更多、更好的工作机会。AI革命也不例外,它将释放人类潜能,让我们从重复性劳动中解放出来。</p>
+                <div class="highlight-box blue">
+                    <div class="highlight-title">💡 历史会重演</div>
+                    <p>电力革命淘汰了点灯工,但创造了无数新职业。互联网革命淘汰了打字员,但诞生了整个数字经济。AI革命也会如此——它会淘汰一些岗位,但会创造更多我们现在无法想象的新机会。</p>
                 </div>
                 
-                <div class="section-title">🎯 新兴高价值岗位</div>
+                <div class="section-title">📈 乐观派的时间线</div>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <span class="timeline-date">AI训练师</span>
-                        <span class="timeline-content">教AI理解特定行业知识和企业文化</span>
+                        <span class="timeline-date">2025-2027</span>
+                        <span class="timeline-content">AI工具普及,生产力显著提升,新型岗位开始涌现</span>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-date">AI伦理官</span>
-                        <span class="timeline-content">确保AI决策符合道德和法律标准</span>
+                        <span class="timeline-date">2028-2030</span>
+                        <span class="timeline-content">AI相关产业爆发式增长,创造数百万高薪岗位</span>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-date">AI-人类协作设计师</span>
-                        <span class="timeline-content">设计最优的人机协作流程</span>
+                        <span class="timeline-date">2031+</span>
+                        <span class="timeline-content">全球GDP因AI提升15-20%,进入新一轮繁荣周期</span>
                     </div>
                 </div>
                 
-                <div class="section-title">💼 职业转型策略</div>
+                <div class="section-title">🎯 如何抓住机会</div>
                 <div class="highlight-box blue">
-                    <div class="highlight-title">如何在AI时代保持竞争力</div>
-                    <p><strong>学会与AI协作</strong>:把AI当作超级助手,而不是竞争对手<br><strong>培养创造力</strong>:AI擅长执行,人类擅长创新<br><strong>提升情商</strong>:人际关系、同理心、领导力是AI无法替代的<br><strong>终身学习</strong>:技术变化快,保持学习能力是关键</p>
+                    <div class="highlight-title">三个黄金赛道</div>
+                    <p><strong>赛道1:AI应用开发</strong>——学习AI工具,成为"AI翻译官",帮助企业落地AI方案<br><strong>赛道2:AI内容创作</strong>——用AI提升创作效率10倍,在内容经济中占据优势<br><strong>赛道3:AI咨询培训</strong>——成为AI专家,帮助个人和企业适应AI时代</p>
                 </div>
                 
                 <div class="investment-tips blue">
-                    <div class="title">💰 投资建议:拥抱变革</div>
+                    <div class="title">💰 投资建议:拥抱科技</div>
                     <ul>
-                        <li>投资AI基础设施(云计算、芯片、数据中心)</li>
-                        <li>关注AI应用领域的领先企业</li>
-                        <li>投资教育和培训行业</li>
-                        <li>长期持有优质科技股</li>
+                        <li>重点配置AI相关科技股</li>
+                        <li>关注AI基础设施(芯片、云计算)</li>
+                        <li>投资AI应用领域的创新公司</li>
+                        <li>长期持有,享受科技红利</li>
                     </ul>
                 </div>
             </div>
@@ -2047,39 +1855,44 @@
                     <span class="opinion-icon">👑</span>
                     <div>
                         <div class="opinion-title">个人独角兽时代来临</div>
-                        <div class="opinion-source">来源:David Kingsley · 2025</div>
+                        <div class="opinion-source">来源:Accenture & BCG · 2025</div>
                     </div>
                 </div>
                 
-                <div class="section-title">✨ 核心逻辑:单人独角兽崛起</div>
+                <div class="section-title">💭 核心观点</div>
+                <div class="highlight-box">
+                    <p>AI让人类从重复劳动中解放，专注创造性工作，实现人文复兴。</p>
+                </div>
+                
+                <div class="section-title">👑 核心逻辑：个体崛起</div>
                 <div class="key-points">
                     <ul>
-                        <li><span class="arrow">→</span> AI赋予个人前所未有的生产力</li>
-                        <li><span class="arrow">→</span> 创业门槛大幅降低</li>
-                        <li><span class="arrow">→</span> 一个人可以完成过去需要团队的工作</li>
-                        <li><span class="arrow">→</span> 独立创造者成为经济主力</li>
-                        <li><span class="arrow">→</span> <strong>文艺复兴式的创造力爆发</strong></li>
+                        <li><span class="arrow">→</span> AI承担所有重复性工作</li>
+                        <li><span class="arrow">→</span> 人类专注于创造和创新</li>
+                        <li><span class="arrow">→</span> 个人可以用AI完成过去需要团队才能完成的工作</li>
+                        <li><span class="arrow">→</span> "个人独角兽"大量涌现</li>
+                        <li><span class="arrow">→</span> <strong>创造者经济迎来黄金时代</strong></li>
                     </ul>
                 </div>
                 
-                <div class="highlight-box orange">
-                    <div class="highlight-title">🎨 新文艺复兴:个体创造者的黄金时代</div>
-                    <p>就像文艺复兴时期,少数天才艺术家改变了世界,AI时代将诞生大量"个人独角兽"——一个人借助AI工具,就能创造出价值数亿美元的产品或服务。创造力和想象力将成为最稀缺的资源。</p>
+                <div class="highlight-box purple">
+                    <div class="highlight-title">🌟 什么是"个人独角兽"?</div>
+                    <p>一个人,借助AI工具,创造出价值数百万甚至数十亿美元的产品或服务。就像一个人用AI在6个月内开发出爆款应用,或者一个创作者用AI制作的内容获得千万粉丝。AI让"超级个体"成为可能。</p>
                 </div>
                 
-                <div class="section-title">🚀 个人独角兽案例</div>
+                <div class="section-title">🎨 复兴派的时间线</div>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <span class="timeline-date">内容创作</span>
-                        <span class="timeline-content">一个人用AI制作电影级视频内容,订阅用户数百万</span>
+                        <span class="timeline-date">2025-2027</span>
+                        <span class="timeline-content">AI工具成熟,个人创作者开始展现惊人生产力</span>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-date">软件开发</span>
-                        <span class="timeline-content">独立开发者用AI构建复杂应用,年收入千万</span>
+                        <span class="timeline-date">2028-2030</span>
+                        <span class="timeline-content">首批"个人独角兽"出现,创造者经济规模突破万亿美元</span>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-date">设计服务</span>
-                        <span class="timeline-content">设计师借助AI为全球客户提供定制化服务</span>
+                        <span class="timeline-date">2031+</span>
+                        <span class="timeline-content">工作方式彻底改变,更多人从事创造性和有意义的工作</span>
                     </div>
                 </div>
                 
@@ -2112,7 +1925,12 @@
                     </div>
                 </div>
                 
-                <div class="section-title">⚖️ 核心逻辑:理性渐进转型</div>
+                <div class="section-title">💭 核心观点</div>
+                <div class="highlight-box">
+                    <p>AI影响取决于政策与社会选择，需要平衡技术进步与社会稳定。</p>
+                </div>
+                
+                <div class="section-title">⚖️ 核心逻辑：理性渐进转型</div>
                 <div class="key-points">
                     <ul>
                         <li><span class="arrow">→</span> AI潜力巨大,但受物理限制</li>
@@ -2215,7 +2033,7 @@
             <div class="action-category">
                 <div class="cat-title">📚 立即开始</div>
                 <ul>
-                    <li>学习使用主流AI工具</li>
+                    <li>学习使用主流AI工具(ChatGPT、Claude、Midjourney等)</li>
                     <li>评估你的工作中哪些部分可以用AI提效</li>
                     <li>建立个人知识库和技能档案</li>
                 </ul>
@@ -2226,7 +2044,7 @@
                 <ul>
                     <li>掌握至少一个AI工具的深度应用</li>
                     <li>用AI完成一个完整的项目</li>
-                    <li>开始建立个人品牌</li>
+                    <li>开始建立个人品牌(博客、社交媒体等)</li>
                 </ul>
             </div>
             
@@ -2380,28 +2198,26 @@
         </div>
     </div>
     
-    <!-- 浮动快速切换按钮 -->
-    <div class="floating-nav" id="floatingNav">
-        <div class="floating-menu" id="floatingMenu">
-            <div class="floating-menu-item" onclick="switchTabFromFloat('pessimistic')">
+    <!-- 顶部吸附导航栏 -->
+    <div class="sticky-nav" id="stickyNav">
+        <div class="sticky-nav-container">
+            <span class="sticky-nav-title">切换观点:</span>
+            <button class="sticky-nav-btn active" onclick="switchTab('pessimistic')">
                 <span class="icon">⚙️</span>
-                <span class="label">悲观派</span>
-            </div>
-            <div class="floating-menu-item" onclick="switchTabFromFloat('optimistic')">
+                <span>悲观派</span>
+            </button>
+            <button class="sticky-nav-btn" onclick="switchTab('optimistic')">
                 <span class="icon">🚀</span>
-                <span class="label">乐观派</span>
-            </div>
-            <div class="floating-menu-item" onclick="switchTabFromFloat('renaissance')">
+                <span>乐观派</span>
+            </button>
+            <button class="sticky-nav-btn" onclick="switchTab('renaissance')">
                 <span class="icon">👑</span>
-                <span class="label">复兴派</span>
-            </div>
-            <div class="floating-menu-item" onclick="switchTabFromFloat('neutral')">
+                <span>复兴派</span>
+            </button>
+            <button class="sticky-nav-btn" onclick="switchTab('neutral')">
                 <span class="icon">⚖️</span>
-                <span class="label">中立派</span>
-            </div>
-        </div>
-        <div class="floating-toggle" onclick="toggleFloatingMenu()">
-            <span id="floatingIcon">🔄</span>
+                <span>中立派</span>
+            </button>
         </div>
     </div>
     
@@ -2420,63 +2236,17 @@
                 btn.classList.remove('active');
             });
             
-            document.getElementById(faction).classList.add('active');
-            event.target.classList.add('active');
-        }
-        
-        // 图表提示框
-        const tooltipData = {
-            pessimistic: {
-                title: '⚙️ 悲观派:中介摩擦溶解',
-                source: 'Citrini Research',
-                content: 'AI消除人类中介,导致白领失业,引发需求萎缩与通缩螺旋',
-                position: '负面影响 · 快速扩散'
-            },
-            optimistic: {
-                title: '🚀 乐观派:生产力飞跃',
-                source: 'Goldman Sachs & McKinsey',
-                content: 'AI作为通用技术,带来15%长期生产力提升,创造新行业与高价值岗位',
-                position: '正面影响 · 渐进扩散'
-            },
-            renaissance: {
-                title: '👑 复兴派:单人独角兽崛起',
-                source: 'David Kingsley',
-                content: 'AI赋予个人前所未有的生产力,降低创业门槛,催生由独立创造者构成的经济复兴',
-                position: '正面影响 · 快速扩散'
-            },
-            neutral: {
-                title: '⚖️ 中立派:理性渐进转型',
-                source: 'Citadel Securities',
-                content: 'AI潜力巨大但受物理限制,生产力爆发尚未显现,社会有足够时间进行渐进式适应',
-                position: '正面影响 · 渐进扩散'
-            }
-        };
-        
-        function showTooltip(event, faction) {
-            const tooltip = document.getElementById('chartTooltip');
-            const data = tooltipData[faction];
+            const targetTab = document.getElementById(faction);
+            targetTab.classList.add('active');
             
-            // 隐藏交互提示标签（首次点击后）
-            const hint = document.getElementById('chartHint');
-            if (hint && !hint.classList.contains('fade-out')) {
-                hint.classList.add('fade-out');
+            // 更新按钮状态
+            const targetBtn = document.querySelector(`.view-btn[data-view="${faction}"]`);
+            if (targetBtn) {
+                targetBtn.classList.add('active');
             }
             
-            tooltip.querySelector('.tooltip-title').textContent = data.title;
-            tooltip.querySelector('.tooltip-source').textContent = data.source;
-            tooltip.querySelector('.tooltip-content').textContent = data.content;
-            tooltip.querySelector('.tooltip-position').textContent = '坐标:' + data.position;
-            
-            const rect = event.target.getBoundingClientRect();
-            const container = document.querySelector('.chart-container').getBoundingClientRect();
-            
-            tooltip.style.left = (rect.left - container.left + 20) + 'px';
-            tooltip.style.top = (rect.top - container.top - 80) + 'px';
-            tooltip.classList.add('show');
-            
-            setTimeout(() => {
-                tooltip.classList.remove('show');
-            }, 3000);
+            // 平滑滚动到目标标签内容
+            targetTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
         
         // 测评器
@@ -2542,25 +2312,9 @@
             document.getElementById('scenario' + scenario.charAt(0).toUpperCase() + scenario.slice(1)).classList.add('active');
         }
         
-        // 浮动按钮交互
-        let floatingMenuOpen = false;
-        
-        function toggleFloatingMenu() {
-            const menu = document.getElementById('floatingMenu');
-            const icon = document.getElementById('floatingIcon');
-            floatingMenuOpen = !floatingMenuOpen;
-            
-            if (floatingMenuOpen) {
-                menu.classList.add('show');
-                icon.textContent = '✕';
-            } else {
-                menu.classList.remove('show');
-                icon.textContent = '🔄';
-            }
-        }
-        
-        function switchTabFromFloat(faction) {
-            // 切换标签页
+        // 顶部吸附导航栏切换
+        function switchTab(faction) {
+            // 切换标签页内容
             document.querySelectorAll('.tabs-content').forEach(tab => {
                 tab.classList.remove('active');
             });
@@ -2582,71 +2336,61 @@
                 viewBtns[factionIndex[faction]].classList.add('active');
             }
             
-            // 更新浮动菜单项状态
-            document.querySelectorAll('.floating-menu-item').forEach(item => {
-                item.classList.remove('active');
+            // 更新顶部吸附导航栏按钮状态
+            document.querySelectorAll('.sticky-nav-btn').forEach(btn => {
+                btn.classList.remove('active');
             });
-            event.target.closest('.floating-menu-item').classList.add('active');
+            event.target.classList.add('active');
             
-            // 关闭浮动菜单
-            toggleFloatingMenu();
-            
-            // 滚动到页面顶部
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // 滚动到内容区域
+            const contentElement = document.getElementById(faction);
+            if (contentElement) {
+                contentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
         
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
-        // 监听滚动事件，显示/隐藏浮动按钮
+        // 监听滚动事件，显示/隐藏顶部吸附导航栏和返回顶部按钮
         window.addEventListener('scroll', function() {
-            const floatingNav = document.getElementById('floatingNav');
+            const stickyNav = document.getElementById('stickyNav');
             const backTop = document.getElementById('backTop');
             const viewSelector = document.querySelector('.view-selector');
             
-            if (!viewSelector) return;
-            
-            const viewSelectorRect = viewSelector.getBoundingClientRect();
-            
-            // 当视图切换器滚出视口时显示浮动按钮
-            if (viewSelectorRect.bottom < 0 || viewSelectorRect.top > window.innerHeight) {
-                floatingNav.classList.add('show');
+            // 返回顶部按钮：滚动超过300px时显示
+            if (window.scrollY > 300) {
                 backTop.classList.add('show');
             } else {
-                floatingNav.classList.remove('show');
                 backTop.classList.remove('show');
-                // 关闭菜单
-                if (floatingMenuOpen) {
-                    toggleFloatingMenu();
+            }
+            
+            // 顶部吸附导航栏：当视图切换器滚出视口时显示
+            if (viewSelector) {
+                const viewSelectorRect = viewSelector.getBoundingClientRect();
+                if (viewSelectorRect.bottom < 0) {
+                    stickyNav.classList.add('show');
+                } else {
+                    stickyNav.classList.remove('show');
                 }
             }
         });
         
-        // 点击页面其他地方关闭浮动菜单
-        document.addEventListener('click', function(e) {
-            const floatingNav = document.getElementById('floatingNav');
-            const floatingMenu = document.getElementById('floatingMenu');
-            
-            if (floatingMenuOpen && !floatingNav.contains(e.target)) {
-                toggleFloatingMenu();
-            }
-        });
-        
-        // 初始化：根据当前激活的标签页设置浮动菜单项状态
+        // 初始化：根据当前激活的标签页设置顶部导航栏按钮状态
         window.addEventListener('load', function() {
             const activeTab = document.querySelector('.tabs-content.active');
             if (activeTab) {
                 const activeId = activeTab.id;
-                const menuItems = document.querySelectorAll('.floating-menu-item');
+                const navBtns = document.querySelectorAll('.sticky-nav-btn');
                 const factionIndex = {
                     'pessimistic': 0,
                     'optimistic': 1,
                     'renaissance': 2,
                     'neutral': 3
                 };
-                if (menuItems[factionIndex[activeId]]) {
-                    menuItems[factionIndex[activeId]].classList.add('active');
+                if (navBtns[factionIndex[activeId]]) {
+                    navBtns[factionIndex[activeId]].classList.add('active');
                 }
             }
         });
