@@ -191,15 +191,16 @@
         }
         
         .axis-label {
-            font-size: 11px;
-            fill: #999;
-            font-weight: 500;
+            font-size: 12px;
+            fill: #bbb;
+            font-weight: 600;
         }
         
         .quadrant-label {
-            font-size: 10px;
-            fill: #666;
+            font-size: 11px;
+            fill: #888;
             font-style: italic;
+            font-weight: 500;
         }
         
         .grid-line {
@@ -1166,6 +1167,134 @@
             display: block; 
         }
         
+        /* 浮动快速切换按钮 */
+        .floating-nav {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            display: none;
+        }
+        
+        .floating-nav.show {
+            display: block;
+        }
+        
+        .floating-toggle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .floating-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.8);
+        }
+        
+        .floating-toggle:active {
+            transform: scale(0.95);
+        }
+        
+        .floating-menu {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            background: rgba(20, 20, 25, 0.98);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px;
+            min-width: 200px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-menu.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+        
+        .floating-menu-item {
+            padding: 12px 16px;
+            margin: 4px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #c0c0c0;
+            border: 1px solid transparent;
+        }
+        
+        .floating-menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+        
+        .floating-menu-item.active {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.4);
+            color: #ffffff;
+        }
+        
+        .floating-menu-item .icon {
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .floating-menu-item .label {
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        .floating-back-top {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(20, 20, 25, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #888;
+            font-size: 20px;
+            cursor: pointer;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            z-index: 998;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .floating-back-top.show {
+            display: flex;
+        }
+        
+        .floating-back-top:hover {
+            background: rgba(102, 126, 234, 0.3);
+            color: #fff;
+            border-color: rgba(102, 126, 234, 0.5);
+            transform: translateY(-3px);
+        }
+        
         /* 响应式 - 移动端优化 */
         @media (max-width: 768px) {
             body { 
@@ -1191,17 +1320,30 @@
                 letter-spacing: 2px;
             }
             
-            /* 坐标图适配 - 降低高度 */
+            /* 坐标图适配 - 增强可读性 */
             .chart-container {
-                height: 320px;
+                height: 350px;
+                background: rgba(10, 10, 15, 0.95);
             }
             
             .axis-label {
+                font-size: 11px;
+                fill: #ddd;
+                font-weight: 600;
+            }
+            
+            .quadrant-label {
                 font-size: 10px;
+                fill: #999;
             }
             
             .point-icon {
-                font-size: 16px;
+                font-size: 18px;
+            }
+            
+            .axis-line {
+                stroke: #666;
+                stroke-width: 2;
             }
             
             /* 信号网格 - 改为2列 */
@@ -1324,17 +1466,35 @@
                 font-size: 22px;
             }
             
-            /* 坐标图进一步优化 */
+            /* 坐标图进一步优化 - 增强可读性 */
             .chart-container {
-                height: 280px;
+                height: 300px;
+                background: rgba(10, 10, 15, 0.98);
+                border: 2px solid rgba(255, 255, 255, 0.12);
             }
             
             .axis-label {
+                font-size: 10px;
+                fill: #eee;
+                font-weight: 700;
+            }
+            
+            .quadrant-label {
                 font-size: 9px;
+                fill: #aaa;
             }
             
             .point-icon {
-                font-size: 14px;
+                font-size: 16px;
+            }
+            
+            .axis-line {
+                stroke: #888;
+                stroke-width: 2.5;
+            }
+            
+            .point-circle {
+                stroke-width: 2;
             }
             
             /* 信号网格 - 小屏改为单列 */
@@ -1434,8 +1594,39 @@
                 font-size: 20px;
             }
             
+            /* 坐标图超小屏优化 */
             .chart-container {
-                height: 240px;
+                height: 280px;
+                background: rgba(10, 10, 15, 1);
+                border: 2px solid rgba(255, 255, 255, 0.15);
+            }
+            
+            .panorama-title {
+                font-size: 18px;
+            }
+            
+            .panorama-subtitle {
+                font-size: 12px;
+            }
+            
+            .axis-label {
+                font-size: 10px;
+                fill: #fff;
+                font-weight: 700;
+            }
+            
+            .quadrant-label {
+                font-size: 8px;
+                fill: #bbb;
+            }
+            
+            .point-icon {
+                font-size: 15px;
+            }
+            
+            .axis-line {
+                stroke: #999;
+                stroke-width: 3;
             }
             
             .interactive-prompt-features {
@@ -2004,8 +2195,38 @@
         
         <div class="footer">
             <p>数据来源:Citrini Research, Goldman Sachs, McKinsey, Citadel Securities, David Kingsley</p>
-            <p class="wechat">💬 想了解更多?关注我们的公众号</p>
+            <p class="wechat">想了解更多?关注公众号 @叽歪黄油小面包</p>
         </div>
+    </div>
+    
+    <!-- 浮动快速切换按钮 -->
+    <div class="floating-nav" id="floatingNav">
+        <div class="floating-menu" id="floatingMenu">
+            <div class="floating-menu-item" onclick="switchTabFromFloat('pessimistic')">
+                <span class="icon">⚙️</span>
+                <span class="label">悲观派</span>
+            </div>
+            <div class="floating-menu-item" onclick="switchTabFromFloat('optimistic')">
+                <span class="icon">🚀</span>
+                <span class="label">乐观派</span>
+            </div>
+            <div class="floating-menu-item" onclick="switchTabFromFloat('renaissance')">
+                <span class="icon">👑</span>
+                <span class="label">复兴派</span>
+            </div>
+            <div class="floating-menu-item" onclick="switchTabFromFloat('neutral')">
+                <span class="icon">⚖️</span>
+                <span class="label">中立派</span>
+            </div>
+        </div>
+        <div class="floating-toggle" onclick="toggleFloatingMenu()">
+            <span id="floatingIcon">🔄</span>
+        </div>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <div class="floating-back-top" id="backTop" onclick="scrollToTop()">
+        ↑
     </div>
 
     <script>
@@ -2133,4 +2354,113 @@
             event.target.classList.add('active');
             document.getElementById('scenario' + scenario.charAt(0).toUpperCase() + scenario.slice(1)).classList.add('active');
         }
+        
+        // 浮动按钮交互
+        let floatingMenuOpen = false;
+        
+        function toggleFloatingMenu() {
+            const menu = document.getElementById('floatingMenu');
+            const icon = document.getElementById('floatingIcon');
+            floatingMenuOpen = !floatingMenuOpen;
+            
+            if (floatingMenuOpen) {
+                menu.classList.add('show');
+                icon.textContent = '✕';
+            } else {
+                menu.classList.remove('show');
+                icon.textContent = '🔄';
+            }
+        }
+        
+        function switchTabFromFloat(faction) {
+            // 切换标签页
+            document.querySelectorAll('.tabs-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(faction).classList.add('active');
+            
+            // 更新顶部视图按钮状态
+            const viewBtns = document.querySelectorAll('.view-btn');
+            const factionIndex = {
+                'pessimistic': 0,
+                'optimistic': 1,
+                'renaissance': 2,
+                'neutral': 3
+            };
+            if (viewBtns[factionIndex[faction]]) {
+                viewBtns[factionIndex[faction]].classList.add('active');
+            }
+            
+            // 更新浮动菜单项状态
+            document.querySelectorAll('.floating-menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.floating-menu-item').classList.add('active');
+            
+            // 关闭浮动菜单
+            toggleFloatingMenu();
+            
+            // 滚动到页面顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // 监听滚动事件，显示/隐藏浮动按钮
+        window.addEventListener('scroll', function() {
+            const floatingNav = document.getElementById('floatingNav');
+            const backTop = document.getElementById('backTop');
+            const viewSelector = document.querySelector('.view-selector');
+            
+            if (!viewSelector) return;
+            
+            const viewSelectorRect = viewSelector.getBoundingClientRect();
+            
+            // 当视图切换器滚出视口时显示浮动按钮
+            if (viewSelectorRect.bottom < 0 || viewSelectorRect.top > window.innerHeight) {
+                floatingNav.classList.add('show');
+                backTop.classList.add('show');
+            } else {
+                floatingNav.classList.remove('show');
+                backTop.classList.remove('show');
+                // 关闭菜单
+                if (floatingMenuOpen) {
+                    toggleFloatingMenu();
+                }
+            }
+        });
+        
+        // 点击页面其他地方关闭浮动菜单
+        document.addEventListener('click', function(e) {
+            const floatingNav = document.getElementById('floatingNav');
+            const floatingMenu = document.getElementById('floatingMenu');
+            
+            if (floatingMenuOpen && !floatingNav.contains(e.target)) {
+                toggleFloatingMenu();
+            }
+        });
+        
+        // 初始化：根据当前激活的标签页设置浮动菜单项状态
+        window.addEventListener('load', function() {
+            const activeTab = document.querySelector('.tabs-content.active');
+            if (activeTab) {
+                const activeId = activeTab.id;
+                const menuItems = document.querySelectorAll('.floating-menu-item');
+                const factionIndex = {
+                    'pessimistic': 0,
+                    'optimistic': 1,
+                    'renaissance': 2,
+                    'neutral': 3
+                };
+                if (menuItems[factionIndex[activeId]]) {
+                    menuItems[factionIndex[activeId]].classList.add('active');
+                }
+            }
+        });
     </script>
