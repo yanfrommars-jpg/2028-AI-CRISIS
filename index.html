@@ -1037,52 +1037,28 @@
             /* 头部适配 */
             .header { 
                 padding: 28px 20px; 
+                margin-bottom: 20px;
             }
             
             .header h1 { 
                 font-size: 24px;
-                letter-spacing: 1px;
+                letter-spacing: 0.5px;
             }
             
             .header .subtitle {
                 font-size: 12px;
-                letter-spacing: 2px;
+                letter-spacing: 1.5px;
             }
             
-            /* 坐标图适配 - 增强可读性 */
-            .chart-container {
-                height: 380px;
-                background: rgba(10, 10, 15, 0.95);
+            /* 引言卡片 */
+            .intro-card {
+                padding: 24px 20px;
+                margin-bottom: 20px;
             }
             
-            .axis-label {
+            .intro-card p {
                 font-size: 14px;
-                fill: #ddd;
-                font-weight: 700;
-            }
-            
-            .faction-label {
-                font-size: 15px;
-                font-weight: 700;
-            }
-            
-            .quadrant-label {
-                font-size: 12px;
-                fill: #999;
-                font-weight: 600;
-            }
-            
-            .point-icon {
-                font-size: 24px;
-            }
-            
-            .point-circle {
-                r: 18;
-            }
-            
-            .axis-line {
-                stroke: #666;
-                stroke-width: 2;
+                line-height: 1.9;
             }
             
             /* 信号网格 - 改为2列 */
@@ -1092,16 +1068,21 @@
             }
             
             .signal-item {
-                padding: 14px 6px;
+                padding: 14px 8px;
             }
             
             .signal-value {
-                font-size: 12px;
+                font-size: 13px;
+            }
+            
+            .signal-label {
+                font-size: 11px;
             }
             
             /* 观点卡片 */
             .opinion-card { 
-                padding: 24px 18px; 
+                padding: 28px 20px; 
+                margin-bottom: 20px;
             }
             
             .opinion-icon {
@@ -1109,20 +1090,30 @@
             }
             
             .opinion-title {
-                font-size: 18px;
+                font-size: 19px;
+            }
+            
+            .opinion-source {
+                font-size: 12px;
+            }
+            
+            .section-title {
+                font-size: 15px;
+                margin: 28px 0 14px;
             }
             
             /* 视图切换器 */
             .view-selector { 
                 position: static; 
-                margin-bottom: 16px;
+                margin-bottom: 20px;
                 flex-wrap: wrap;
+                gap: 10px;
             }
             
             .view-btn { 
-                font-size: 11px; 
-                padding: 12px 8px;
-                min-height: 44px; /* 确保触摸区域足够大 */
+                font-size: 12px; 
+                padding: 12px 10px;
+                min-height: 44px;
             }
             
             /* 时间线适配 */
@@ -1133,11 +1124,22 @@
             
             .timeline-date {
                 align-self: flex-start;
+                font-size: 11px;
+                padding: 5px 10px;
+            }
+            
+            .timeline-content {
+                font-size: 13px;
             }
             
             /* 互动提示框 */
             .interactive-prompt {
                 padding: 28px 20px;
+                margin: 28px 0 20px;
+            }
+            
+            .interactive-prompt-icon {
+                font-size: 44px;
             }
             
             .interactive-prompt-title {
@@ -1150,6 +1152,7 @@
             
             .interactive-prompt-features {
                 gap: 16px;
+                margin: 18px 0;
             }
             
             .prompt-feature {
@@ -1163,11 +1166,12 @@
             
             /* 关键点列表 */
             .key-points {
-                padding: 16px;
+                padding: 18px;
             }
             
             .key-points li {
                 font-size: 13px;
+                padding: 10px 0;
             }
             
             /* 按钮适配 */
@@ -1177,18 +1181,73 @@
                 min-height: 50px;
             }
             
-            /* Tooltip 适配 */
-            .tooltip {
-                max-width: 240px;
-                padding: 12px 16px;
+            /* 测评工具 */
+            .assessment-tool {
+                padding: 24px 20px;
             }
             
-            .tooltip-title {
+            .assessment-tool h3 {
+                font-size: 19px;
+            }
+            
+            .question-block {
+                padding: 18px;
+                margin-bottom: 24px;
+            }
+            
+            .question-title {
+                font-size: 14px;
+            }
+            
+            .option-item {
+                padding: 12px 14px;
+            }
+            
+            .option-text {
                 font-size: 13px;
             }
             
-            .tooltip-content {
+            /* 结果卡片 */
+            .result-card {
+                padding: 24px 20px;
+            }
+            
+            .result-card h4 {
+                font-size: 17px;
+            }
+            
+            .result-card p {
+                font-size: 13px;
+            }
+            
+            /* 场景标签 */
+            .scenario-tabs {
+                gap: 6px;
+                flex-wrap: wrap;
+            }
+            
+            .scenario-tab {
                 font-size: 11px;
+                padding: 8px;
+            }
+            
+            /* 吸顶导航 */
+            .sticky-nav-container {
+                padding: 10px 12px;
+            }
+            
+            .sticky-nav-btn {
+                padding: 7px 14px;
+                font-size: 12px;
+            }
+            
+            /* 返回顶部按钮 */
+            .floating-back-top {
+                width: 50px;
+                height: 50px;
+                bottom: 16px;
+                right: 16px;
+                font-size: 18px;
             }
         }
         
@@ -1199,57 +1258,55 @@
             
             .header { 
                 padding: 24px 16px; 
+                margin-bottom: 16px;
             }
             
             .header h1 { 
                 font-size: 22px;
+                letter-spacing: 0.3px;
             }
             
-            /* 坐标图进一步优化 - 增强可读性 */
-            .chart-container {
-                height: 340px;
-                background: rgba(10, 10, 15, 0.98);
-                border: 2px solid rgba(255, 255, 255, 0.12);
-            }
-            
-            .axis-label {
-                font-size: 13px;
-                fill: #eee;
-                font-weight: 700;
-            }
-            
-            .faction-label {
-                font-size: 14px;
-                font-weight: 700;
-            }
-            
-            .quadrant-label {
+            .header .subtitle {
                 font-size: 11px;
-                fill: #aaa;
-                font-weight: 600;
+                letter-spacing: 1px;
             }
             
-            .point-icon {
-                font-size: 22px;
+            /* 引言卡片 */
+            .intro-card {
+                padding: 20px 16px;
+                margin-bottom: 16px;
             }
             
-            .point-circle {
-                stroke-width: 2;
+            .intro-card .icon {
+                font-size: 28px;
             }
             
-            .axis-line {
-                stroke: #888;
-                stroke-width: 2.5;
+            .intro-card p {
+                font-size: 13px;
             }
             
             /* 信号网格 - 小屏改为单列 */
             .signal-grid { 
                 grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .signal-item {
+                padding: 12px 8px;
+            }
+            
+            .signal-value {
+                font-size: 12px;
+            }
+            
+            .signal-label {
+                font-size: 10px;
             }
             
             /* 观点卡片 */
             .opinion-card { 
-                padding: 20px 16px; 
+                padding: 24px 16px; 
+                margin-bottom: 16px;
             }
             
             .opinion-header {
@@ -1264,37 +1321,65 @@
                 font-size: 17px;
             }
             
+            .opinion-source {
+                font-size: 11px;
+            }
+            
+            .section-title {
+                font-size: 14px;
+                margin: 24px 0 12px;
+            }
+            
             /* 视图按钮 */
             .view-btn { 
-                font-size: 10px; 
-                padding: 10px 6px;
+                font-size: 11px; 
+                padding: 10px 8px;
+                min-height: 44px;
             }
             
             /* 互动提示框 */
             .interactive-prompt {
                 padding: 24px 16px;
+                margin: 24px 0 16px;
             }
             
             .interactive-prompt-icon {
                 font-size: 40px;
+                margin-bottom: 12px;
             }
             
             .interactive-prompt-title {
                 font-size: 18px;
+                margin-bottom: 10px;
             }
             
             .interactive-prompt-subtitle {
                 font-size: 12px;
             }
             
+            .interactive-prompt-features {
+                gap: 12px;
+                margin: 16px 0;
+            }
+            
+            .prompt-feature {
+                font-size: 11px;
+            }
+            
             .interactive-prompt .cta-button {
                 font-size: 15px;
                 padding: 16px 28px;
+                margin-top: 16px;
             }
             
             /* 深度概念框 */
             .deep-concept {
                 padding: 16px;
+                margin: 14px 0;
+            }
+            
+            .deep-concept .concept-title {
+                font-size: 13px;
             }
             
             .deep-concept p {
@@ -1304,6 +1389,11 @@
             /* 高亮框 */
             .highlight-box {
                 padding: 14px;
+                margin: 14px 0;
+            }
+            
+            .highlight-box .highlight-title {
+                font-size: 13px;
             }
             
             .highlight-box p {
@@ -1313,84 +1403,632 @@
             /* 投资提示 */
             .investment-tips {
                 padding: 14px;
+                margin-top: 14px;
+            }
+            
+            .investment-tips .title {
+                font-size: 13px;
             }
             
             .investment-tips li {
                 font-size: 12px;
+                padding: 6px 0;
+            }
+            
+            /* 关键点列表 */
+            .key-points {
+                padding: 16px;
+                margin: 16px 0;
+            }
+            
+            .key-points li {
+                font-size: 12px;
+                padding: 8px 0;
             }
             
             /* 结论区域 */
             .conclusion {
                 padding: 20px 16px;
+                margin-top: 20px;
             }
             
             .conclusion h3 {
                 font-size: 16px;
+                margin-bottom: 14px;
             }
             
             .conclusion li {
+                font-size: 12px;
+                padding: 8px 0;
+            }
+            
+            /* 信号区域 */
+            .signal-section {
+                padding: 20px 16px;
+            }
+            
+            .signal-section h3 {
+                font-size: 16px;
+            }
+            
+            /* 行动指南 */
+            .action-guide {
+                padding: 20px 16px;
+            }
+            
+            .action-guide h3 {
+                font-size: 16px;
+            }
+            
+            .action-category .cat-title {
                 font-size: 13px;
+            }
+            
+            .action-category li {
+                font-size: 12px;
+            }
+            
+            /* 按钮 */
+            .cta-button {
+                padding: 15px 24px;
+                font-size: 14px;
+                min-height: 48px;
+            }
+            
+            /* 测评工具 */
+            .assessment-tool {
+                padding: 20px 16px;
+            }
+            
+            .assessment-tool h3 {
+                font-size: 17px;
+            }
+            
+            .question-block {
+                padding: 16px;
+                margin-bottom: 20px;
+            }
+            
+            .question-title {
+                font-size: 13px;
+            }
+            
+            .question-number {
+                width: 26px;
+                height: 26px;
+                line-height: 26px;
+                font-size: 12px;
+            }
+            
+            .dimension-label {
+                font-size: 10px;
+                padding: 3px 8px;
+            }
+            
+            .option-item {
+                padding: 12px 14px;
+                margin-bottom: 8px;
+            }
+            
+            .option-text {
+                font-size: 12px;
+            }
+            
+            .option-radio {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .option-item.selected .option-radio::after {
+                width: 8px;
+                height: 8px;
+            }
+            
+            /* 结果卡片 */
+            .result-card {
+                padding: 20px 16px;
+                margin-top: 20px;
+            }
+            
+            .result-card h4 {
+                font-size: 16px;
+            }
+            
+            .result-card p {
+                font-size: 12px;
+            }
+            
+            /* 场景标签 */
+            .scenario-tabs {
+                gap: 6px;
+                margin: 16px 0;
+            }
+            
+            .scenario-tab {
+                font-size: 10px;
+                padding: 8px 6px;
+            }
+            
+            .scenario-content {
+                padding: 14px;
+                margin-top: 12px;
+            }
+            
+            .action-list li {
+                font-size: 12px;
+                padding: 6px 0;
+            }
+            
+            /* 页脚 */
+            .footer {
+                padding: 24px 16px;
+                font-size: 11px;
+            }
+            
+            /* 吸顶导航 */
+            .sticky-nav-container {
+                padding: 8px 10px;
+            }
+            
+            .sticky-nav-title {
+                font-size: 12px;
+            }
+            
+            .sticky-nav-btn {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+            
+            /* 返回顶部按钮 */
+            .floating-back-top {
+                width: 48px;
+                height: 48px;
+                bottom: 14px;
+                right: 14px;
+                font-size: 16px;
             }
         }
         
         /* 超小屏幕优化 */
         @media (max-width: 360px) {
+            body {
+                padding: 10px 8px;
+            }
+            
+            .header { 
+                padding: 20px 14px;
+                margin-bottom: 14px;
+            }
+            
             .header h1 { 
                 font-size: 20px;
+                letter-spacing: 0.2px;
             }
             
-            /* 坐标图超小屏优化 */
-            .chart-container {
-                height: 320px;
-                background: rgba(10, 10, 15, 1);
-                border: 2px solid rgba(255, 255, 255, 0.15);
-            }
-            
-            .panorama-title {
-                font-size: 18px;
-            }
-            
-            .panorama-subtitle {
-                font-size: 12px;
-            }
-            
-            .axis-label {
-                font-size: 12px;
-                fill: #fff;
-                font-weight: 700;
-            }
-            
-            .faction-label {
-                font-size: 13px;
-                font-weight: 700;
-            }
-            
-            .quadrant-label {
+            .header .subtitle {
                 font-size: 10px;
-                fill: #bbb;
-                font-weight: 600;
+                letter-spacing: 0.8px;
             }
             
-            .point-icon {
-                font-size: 20px;
+            /* 引言卡片 */
+            .intro-card {
+                padding: 18px 14px;
+                margin-bottom: 14px;
             }
             
-            .axis-line {
-                stroke: #999;
-                stroke-width: 3;
+            .intro-card .icon {
+                font-size: 26px;
+                margin-bottom: 10px;
             }
             
-            .interactive-prompt-features {
-                flex-direction: column;
-                gap: 8px;
+            .intro-card p {
+                font-size: 12px;
+                line-height: 1.8;
             }
             
+            /* 观点卡片 */
+            .opinion-card {
+                padding: 20px 14px;
+                margin-bottom: 14px;
+            }
+            
+            .opinion-header {
+                gap: 10px;
+                margin-bottom: 24px;
+            }
+            
+            .opinion-icon {
+                font-size: 26px;
+            }
+            
+            .opinion-title {
+                font-size: 16px;
+            }
+            
+            .opinion-source {
+                font-size: 10px;
+            }
+            
+            .section-title {
+                font-size: 13px;
+                margin: 20px 0 10px;
+            }
+            
+            /* 视图切换器 */
             .view-selector {
                 flex-direction: column;
+                gap: 8px;
+                margin-bottom: 14px;
             }
             
             .view-btn {
                 width: 100%;
+                font-size: 12px;
+                padding: 12px 10px;
+                min-height: 44px;
+            }
+            
+            /* 互动提示框 */
+            .interactive-prompt {
+                padding: 20px 14px;
+                margin: 20px 0 14px;
+            }
+            
+            .interactive-prompt-icon {
+                font-size: 36px;
+                margin-bottom: 10px;
+            }
+            
+            .interactive-prompt-title {
+                font-size: 17px;
+                margin-bottom: 8px;
+            }
+            
+            .interactive-prompt-subtitle {
+                font-size: 11px;
+            }
+            
+            .interactive-prompt-features {
+                flex-direction: column;
+                gap: 10px;
+                margin: 14px 0;
+            }
+            
+            .prompt-feature {
+                font-size: 11px;
+            }
+            
+            .prompt-feature-icon {
+                font-size: 16px;
+            }
+            
+            .interactive-prompt .cta-button {
+                font-size: 14px;
+                padding: 15px 24px;
+                margin-top: 14px;
+            }
+            
+            /* 深度概念框 */
+            .deep-concept {
+                padding: 14px;
+                margin: 12px 0;
+            }
+            
+            .deep-concept .concept-title {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+            
+            .deep-concept p {
+                font-size: 11px;
+                line-height: 1.8;
+            }
+            
+            /* 高亮框 */
+            .highlight-box {
+                padding: 12px;
+                margin: 12px 0;
+            }
+            
+            .highlight-box .highlight-title {
+                font-size: 12px;
+                margin-bottom: 8px;
+            }
+            
+            .highlight-box p {
+                font-size: 11px;
+                line-height: 1.7;
+            }
+            
+            /* 投资提示 */
+            .investment-tips {
+                padding: 12px;
+                margin-top: 12px;
+            }
+            
+            .investment-tips .title {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+            
+            .investment-tips li {
+                font-size: 11px;
+                padding: 5px 0;
+                padding-left: 14px;
+            }
+            
+            /* 关键点列表 */
+            .key-points {
+                padding: 14px;
+                margin: 14px 0;
+            }
+            
+            .key-points li {
+                font-size: 11px;
+                padding: 7px 0;
+            }
+            
+            /* 时间线 */
+            .timeline {
+                gap: 10px;
+                margin: 14px 0;
+            }
+            
+            .timeline-date {
+                font-size: 10px;
+                padding: 4px 10px;
+            }
+            
+            .timeline-content {
+                font-size: 11px;
+            }
+            
+            /* 信号区域 */
+            .signal-section {
+                padding: 18px 14px;
+                margin-bottom: 16px;
+            }
+            
+            .signal-section h3 {
+                font-size: 15px;
+                margin-bottom: 14px;
+            }
+            
+            .signal-grid {
+                gap: 8px;
+                margin-top: 14px;
+            }
+            
+            .signal-item {
+                padding: 10px 6px;
+            }
+            
+            .signal-label {
+                font-size: 9px;
+                margin-bottom: 4px;
+            }
+            
+            .signal-value {
+                font-size: 11px;
+            }
+            
+            /* 行动指南 */
+            .action-guide {
+                padding: 18px 14px;
+                margin-bottom: 16px;
+            }
+            
+            .action-guide h3 {
+                font-size: 15px;
+                margin-bottom: 14px;
+            }
+            
+            .action-category {
+                margin-bottom: 14px;
+            }
+            
+            .action-category .cat-title {
+                font-size: 12px;
+                margin-bottom: 6px;
+            }
+            
+            .action-category li {
+                font-size: 11px;
+                padding: 6px 0;
+                padding-left: 12px;
+            }
+            
+            /* 结论区域 */
+            .conclusion {
+                padding: 18px 14px;
+                margin-top: 18px;
+            }
+            
+            .conclusion h3 {
+                font-size: 15px;
+                margin-bottom: 12px;
+            }
+            
+            .conclusion li {
+                font-size: 11px;
+                padding: 7px 0;
+            }
+            
+            /* 按钮 */
+            .cta-button {
+                padding: 14px 20px;
+                font-size: 13px;
+                min-height: 46px;
+            }
+            
+            /* 测评工具 */
+            .assessment-tool {
+                padding: 18px 14px;
+                margin: 20px 0;
+            }
+            
+            .assessment-tool h3 {
+                font-size: 16px;
+                margin-bottom: 16px;
+            }
+            
+            .question-block {
+                padding: 14px;
+                margin-bottom: 18px;
+            }
+            
+            .question-title {
+                font-size: 12px;
+                margin-bottom: 12px;
+            }
+            
+            .question-number {
+                width: 24px;
+                height: 24px;
+                line-height: 24px;
+                font-size: 11px;
+                margin-right: 8px;
+            }
+            
+            .dimension-label {
+                font-size: 9px;
+                padding: 3px 7px;
+                margin-bottom: 8px;
+            }
+            
+            .option-item {
+                padding: 10px 12px;
+                margin-bottom: 8px;
+                gap: 10px;
+            }
+            
+            .option-text {
+                font-size: 11px;
+                line-height: 1.5;
+            }
+            
+            .option-radio {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .option-item.selected .option-radio::after {
+                width: 7px;
+                height: 7px;
+            }
+            
+            .slider {
+                height: 5px;
+            }
+            
+            .slider::-webkit-slider-thumb {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .slider::-moz-range-thumb {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .slider-labels {
+                font-size: 10px;
+                margin-top: 6px;
+            }
+            
+            /* 结果卡片 */
+            .result-card {
+                padding: 18px 14px;
+                margin-top: 18px;
+            }
+            
+            .result-card h4 {
+                font-size: 15px;
+                margin-bottom: 12px;
+            }
+            
+            .result-card p {
+                font-size: 11px;
+                line-height: 1.8;
+                margin-bottom: 10px;
+            }
+            
+            .risk-meter {
+                gap: 6px;
+                margin: 16px 0;
+            }
+            
+            .risk-bar {
+                height: 8px;
+            }
+            
+            /* 场景标签 */
+            .scenario-tabs {
+                gap: 5px;
+                margin: 14px 0;
+                flex-wrap: wrap;
+            }
+            
+            .scenario-tab {
+                font-size: 10px;
+                padding: 7px 6px;
+            }
+            
+            .scenario-content {
+                padding: 12px;
+                margin-top: 10px;
+            }
+            
+            .action-list {
+                margin-top: 12px;
+            }
+            
+            .action-list li {
+                font-size: 11px;
+                padding: 5px 0;
+                padding-left: 16px;
+            }
+            
+            /* 页脚 */
+            .footer {
+                padding: 20px 14px;
+                font-size: 10px;
+                margin-top: 32px;
+            }
+            
+            .footer .wechat {
+                font-size: 11px;
+                margin-top: 8px;
+            }
+            
+            /* 吸顶导航 */
+            .sticky-nav-container {
+                padding: 8px 10px;
+                gap: 6px;
+            }
+            
+            .sticky-nav-title {
+                font-size: 11px;
+                margin-right: 6px;
+            }
+            
+            .sticky-nav-btn {
+                padding: 6px 10px;
+                font-size: 10px;
+                border-radius: 16px;
+            }
+            
+            .sticky-nav-btn .icon {
+                font-size: 14px;
+            }
+            
+            /* 返回顶部按钮 */
+            .floating-back-top {
+                width: 44px;
+                height: 44px;
+                bottom: 12px;
+                right: 12px;
+                font-size: 15px;
             }
         }
     </style>
