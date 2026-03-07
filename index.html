@@ -1,6 +1,5 @@
 
 
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AI时代的十字路口</title>
@@ -143,156 +142,7 @@
             font-weight: 600;
         }
         
-        /* 全景坐标系 */
-        .panorama-section {
-            padding: 28px 24px;
-            margin-bottom: 24px;
-        }
-        
-        .panorama-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 10px;
-            text-align: center;
-            letter-spacing: 1px;
-        }
-        
-        .panorama-subtitle {
-            font-size: 13px;
-            color: #888;
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        
-        .chart-container {
-            position: relative;
-            width: 100%;
-            height: 420px;
-            background: rgba(10, 10, 15, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 8px;
-            margin: 20px 0;
-            overflow: hidden;
-        }
-        
-        .chart-svg {
-            width: 100%;
-            height: 100%;
-        }
-        
-        .axis-line {
-            stroke: #444;
-            stroke-width: 2;
-        }
-        
-        .axis-arrow {
-            fill: #666;
-        }
-        
-        .axis-label {
-            font-size: 12px;
-            fill: #bbb;
-            font-weight: 600;
-        }
-        
-        .faction-label {
-            font-size: 13px;
-            font-weight: 700;
-            pointer-events: none;
-        }
-        
-        .quadrant-label {
-            font-size: 11px;
-            fill: #888;
-            font-style: italic;
-            font-weight: 500;
-        }
-        
-        .grid-line {
-            stroke: rgba(255, 255, 255, 0.05);
-            stroke-width: 1;
-            stroke-dasharray: 3,3;
-        }
-        
-        .career-path {
-            stroke: rgba(155, 89, 182, 0.4);
-            stroke-width: 2;
-            stroke-dasharray: 5,5;
-            fill: none;
-        }
-        
-        .path-label {
-            font-size: 10px;
-            fill: #9b59b6;
-            font-weight: 600;
-        }
-        
-        .data-point {
-            cursor: pointer;
-        }
-        
-        .point-circle {
-            transition: opacity 0.3s ease;
-        }
-        
-        .data-point:hover .point-circle {
-            opacity: 0.8;
-        }
-        
-        .point-icon {
-            font-size: 18px;
-            text-anchor: middle;
-            dominant-baseline: central;
-            pointer-events: none;
-        }
-        
-        .tooltip {
-            position: absolute;
-            background: rgba(20, 20, 25, 0.98);
-            border: 1px solid rgba(102, 126, 234, 0.4);
-            border-radius: 8px;
-            padding: 16px;
-            min-width: 260px;
-            max-width: 320px;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 100;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-        }
-        
-        .tooltip.show {
-            opacity: 1;
-        }
-        
-        .tooltip-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 6px;
-        }
-        
-        .tooltip-source {
-            font-size: 11px;
-            color: #888;
-            margin-bottom: 10px;
-        }
-        
-        .tooltip-content {
-            font-size: 12px;
-            color: #c0c0c0;
-            line-height: 1.7;
-        }
-        
-        .tooltip-position {
-            font-size: 10px;
-            color: #666;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
+
         /* 视图切换器 */
         .view-selector {
             display: flex;
@@ -1044,6 +894,87 @@
             margin-top: 8px;
         }
         
+        /* 选择题样式 */
+        .question-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            background: rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(102, 126, 234, 0.4);
+            border-radius: 50%;
+            color: #667eea;
+            font-weight: 600;
+            font-size: 13px;
+            margin-right: 10px;
+        }
+        
+        .options-container {
+            margin-top: 16px;
+        }
+        
+        .option-item {
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .option-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(102, 126, 234, 0.4);
+        }
+        
+        .option-item.selected {
+            background: rgba(102, 126, 234, 0.15);
+            border-color: rgba(102, 126, 234, 0.6);
+            box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .option-radio {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .option-item.selected .option-radio {
+            border-color: #667eea;
+        }
+        
+        .option-item.selected .option-radio::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+        
+        .option-text {
+            color: #c0c0c0;
+            font-size: 14px;
+            line-height: 1.6;
+            flex: 1;
+        }
+        
+        .option-item.selected .option-text {
+            color: #ffffff;
+            font-weight: 500;
+        }
+        
         .result-card {
             display: none;
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
@@ -1650,7 +1581,6 @@
         }
     </style>
 
-
     <div class="container">
         <div class="header tech-border">
             <h1>⚡ AI 时代的十字路口</h1>
@@ -1662,79 +1592,12 @@
             <p>2027年一个普通早晨,你用AI几分钟写完报告。但就在同一天,公司宣布因AI效率提升需要缩编——办公室里空了好几个工位。<br><br>这不是科幻。这是<strong>四派顶级机构</strong>正在"吵架"的焦点:<strong>AI到底会让你的生活变好还是变坏?</strong></p>
         </div>
         
-        <!-- 全景坐标系 -->
-        <div class="panorama-section tech-border">
-            <h2 class="panorama-title">🗺️ AI时代全景坐标系</h2>
-            
-            <div class="chart-container">
-                <svg class="chart-svg" viewBox="0 0 650 400" preserveAspectRatio="xMidYMid meet">
-                    <!-- 网格线 -->
-                    <line class="grid-line" x1="150" y1="50" x2="150" y2="350"></line>
-                    <line class="grid-line" x1="300" y1="50" x2="300" y2="350"></line>
-                    <line class="grid-line" x1="450" y1="50" x2="450" y2="350"></line>
-                    <line class="grid-line" x1="50" y1="125" x2="550" y2="125"></line>
-                    <line class="grid-line" x1="50" y1="200" x2="550" y2="200"></line>
-                    <line class="grid-line" x1="50" y1="275" x2="550" y2="275"></line>
-                    
-                    <!-- X轴 -->
-                    <line class="axis-line" x1="80" y1="200" x2="570" y2="200"></line>
-                    <polygon class="axis-arrow" points="570,200 560,195 560,205"></polygon>
-                    <text class="axis-label" x="590" y="205" text-anchor="middle">正面影响</text>
-                    <text class="axis-label" x="60" y="205" text-anchor="middle">负面影响</text>
-                    
-                    <!-- Y轴 -->
-                    <line class="axis-line" x1="325" y1="350" x2="325" y2="50"></line>
-                    <polygon class="axis-arrow" points="325,50 320,60 330,60"></polygon>
-                    <text class="axis-label" x="325" y="40" text-anchor="middle">快速扩散</text>
-                    <text class="axis-label" x="325" y="370" text-anchor="middle">渐进扩散</text>
-                    
-                    <!-- 象限标签 -->
-                    <text class="quadrant-label" x="120" y="100" text-anchor="middle">快速危机</text>
-                    <text class="quadrant-label" x="480" y="100" text-anchor="middle">快速增长</text>
-                    <text class="quadrant-label" x="120" y="330" text-anchor="middle">渐进衰退</text>
-                    <text class="quadrant-label" x="480" y="330" text-anchor="middle">渐进繁荣</text>
-                    
-                    <!-- 职业转型路径 -->
-                    <path class="career-path" d="M 150,280 Q 200,220 280,180 T 420,140"></path>
-                    <text class="path-label" x="285" y="165" text-anchor="middle">职业转型路径 →</text>
-                    
-                    <!-- 数据点 -->
-                    <!-- 悲观派 -->
-                    <g class="data-point" data-faction="pessimistic" onclick="showTab('pessimistic')" style="cursor: pointer;">
-                        <circle class="point-circle" cx="140" cy="120" r="15" fill="#ff6b6b" opacity="0.9"></circle>
-                        <text class="point-icon" x="140" y="120">⚙️</text>
-                        <text class="faction-label" x="140" y="150" text-anchor="middle" fill="#ff6b6b" style="cursor: pointer;">悲观派</text>
-                    </g>
-                    
-                    <!-- 乐观派 -->
-                    <g class="data-point" data-faction="optimistic" onclick="showTab('optimistic')" style="cursor: pointer;">
-                        <circle class="point-circle" cx="460" cy="260" r="15" fill="#4ecdc4" opacity="0.9"></circle>
-                        <text class="point-icon" x="460" y="260">🚀</text>
-                        <text class="faction-label" x="460" y="290" text-anchor="middle" fill="#4ecdc4" style="cursor: pointer;">乐观派</text>
-                    </g>
-                    
-                    <!-- 复兴派 -->
-                    <g class="data-point" data-faction="renaissance" onclick="showTab('renaissance')" style="cursor: pointer;">
-                        <circle class="point-circle" cx="420" cy="140" r="15" fill="#ffd93d" opacity="0.9"></circle>
-                        <text class="point-icon" x="420" y="140">👑</text>
-                        <text class="faction-label" x="420" y="170" text-anchor="middle" fill="#ffd93d" style="cursor: pointer;">复兴派</text>
-                    </g>
-                    
-                    <!-- 中立派 -->
-                    <g class="data-point" data-faction="neutral" onclick="showTab('neutral')" style="cursor: pointer;">
-                        <circle class="point-circle" cx="380" cy="280" r="15" fill="#a8a8a8" opacity="0.9"></circle>
-                        <text class="point-icon" x="380" y="280">⚖️</text>
-                        <text class="faction-label" x="380" y="310" text-anchor="middle" fill="#a8a8a8" style="cursor: pointer;">中立派</text>
-                    </g>
-                </svg>
-            </div>
-        </div>
-        
+
         <!-- 视图切换器 -->
         <div class="view-selector">
             <button class="view-btn" data-view="pessimistic" onclick="showTab('pessimistic')">⚙️ 悲观派</button>
-            <button class="view-btn" data-view="optimistic" onclick="showTab('optimistic')">🚀 乐观派</button>
-            <button class="view-btn" data-view="renaissance" onclick="showTab('renaissance')">👑 复兴派</button>
+            <button class="view-btn" data-view="optimistic" onclick="showTab('optimistic')">💡 乐观派</button>
+            <button class="view-btn" data-view="renaissance" onclick="showTab('renaissance')">🚀 复兴派</button>
             <button class="view-btn" data-view="neutral" onclick="showTab('neutral')">⚖️ 中立派</button>
         </div>
         
@@ -1745,11 +1608,11 @@
                     <span class="opinion-icon">⚙️</span>
                     <div>
                         <div class="opinion-title">AI越成功,你越危险</div>
-                        <div class="opinion-source">来源:Citrini Research · 2025</div>
+                        <div class="opinion-source">来源:Citrini Research & Alap Shah · 2026年2月22日</div>
                     </div>
                 </div>
                 
-                <div class="section-title">💭 核心观点</div>
+                <div class="section-title">💡 核心观点</div>
                 <div class="highlight-box">
                     <p>AI越成功,你越危险。AI替代白领导致消费减少,形成恶性循环。</p>
                 </div>
@@ -1766,11 +1629,11 @@
                 </div>
                 
                 <div class="highlight-box red">
-                    <div class="highlight-title">🔥 最危险的职业</div>
+                    <div class="highlight-title">⚠️ 最危险的职业</div>
                     <p>数据分析师、初级程序员、客服、内容编辑、财务会计、市场研究员——这些岗位的重复性工作正在被AI快速替代。如果你的工作70%以上是"按流程操作",你需要立即警惕。</p>
                 </div>
                 
-                <div class="section-title">📉 悲观派的时间线</div>
+                <div class="section-title">📅 悲观派的时间线</div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <span class="timeline-date">2025-2027</span>
@@ -1808,19 +1671,19 @@
         <div id="optimistic" class="tabs-content">
             <div class="opinion-card optimistic tech-border">
                 <div class="opinion-header">
-                    <span class="opinion-icon">🚀</span>
+                    <span class="opinion-icon">💡</span>
                     <div>
                         <div class="opinion-title">AI是新的电力革命</div>
-                        <div class="opinion-source">来源:高盛 & ARK Invest · 2025</div>
+                        <div class="opinion-source">来源:Goldman Sachs & ARK Invest · 2025年8月13日</div>
                     </div>
                 </div>
                 
-                <div class="section-title">💭 核心观点</div>
+                <div class="section-title">💡 核心观点</div>
                 <div class="highlight-box">
                     <p>AI是新的电力革命,将创造更多高质量工作,提升全球GDP。</p>
                 </div>
                 
-                <div class="section-title">🚀 核心逻辑:生产力爆发</div>
+                <div class="section-title">⚡ 核心逻辑:生产力爆发</div>
                 <div class="key-points">
                     <ul>
                         <li><span class="arrow">→</span> AI大幅提升生产效率</li>
@@ -1832,11 +1695,11 @@
                 </div>
                 
                 <div class="highlight-box blue">
-                    <div class="highlight-title">💡 历史会重演</div>
+                    <div class="highlight-title">📜 历史会重演</div>
                     <p>电力革命淘汰了点灯工,但创造了无数新职业。互联网革命淘汰了打字员,但诞生了整个数字经济。AI革命也会如此——它会淘汰一些岗位,但会创造更多我们现在无法想象的新机会。</p>
                 </div>
                 
-                <div class="section-title">📈 乐观派的时间线</div>
+                <div class="section-title">📅 乐观派的时间线</div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <span class="timeline-date">2025-2027</span>
@@ -1874,19 +1737,19 @@
         <div id="renaissance" class="tabs-content">
             <div class="opinion-card renaissance tech-border">
                 <div class="opinion-header">
-                    <span class="opinion-icon">👑</span>
+                    <span class="opinion-icon">🚀</span>
                     <div>
                         <div class="opinion-title">个人独角兽时代来临</div>
-                        <div class="opinion-source">来源:Accenture & BCG · 2025</div>
+                        <div class="opinion-source">来源:David Kingsley · 2026年3月1日</div>
                     </div>
                 </div>
                 
-                <div class="section-title">💭 核心观点</div>
+                <div class="section-title">💡 核心观点</div>
                 <div class="highlight-box">
                     <p>AI让人类从重复劳动中解放,专注创造性工作,实现人文复兴。</p>
                 </div>
                 
-                <div class="section-title">👑 核心逻辑:个体崛起</div>
+                <div class="section-title">🚀 核心逻辑:个体崛起</div>
                 <div class="key-points">
                     <ul>
                         <li><span class="arrow">→</span> AI承担所有重复性工作</li>
@@ -1898,11 +1761,11 @@
                 </div>
                 
                 <div class="highlight-box purple">
-                    <div class="highlight-title">🌟 什么是"个人独角兽"?</div>
+                    <div class="highlight-title">🦄 什么是"个人独角兽"?</div>
                     <p>一个人,借助AI工具,创造出价值数百万甚至数十亿美元的产品或服务。就像一个人用AI在6个月内开发出爆款应用,或者一个创作者用AI制作的内容获得千万粉丝。AI让"超级个体"成为可能。</p>
                 </div>
                 
-                <div class="section-title">🎨 复兴派的时间线</div>
+                <div class="section-title">📅 复兴派的时间线</div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <span class="timeline-date">2025-2027</span>
@@ -1918,7 +1781,7 @@
                     </div>
                 </div>
                 
-                <div class="section-title">💎 如何成为个人独角兽</div>
+                <div class="section-title">🎯 如何成为个人独角兽</div>
                 <div class="highlight-box purple">
                     <div class="highlight-title">三个关键要素</div>
                     <p><strong>独特视角</strong>:找到别人没有发现的需求或机会<br><strong>AI工具精通</strong>:深度掌握AI工具,让它们成为你的"超能力"<br><strong>快速迭代</strong>:用AI加速试错,快速找到产品市场契合点<br><strong>个人品牌</strong>:建立强大的个人IP,吸引粉丝和客户</p>
@@ -1947,7 +1810,7 @@
                     </div>
                 </div>
                 
-                <div class="section-title">💭 核心观点</div>
+                <div class="section-title">💡 核心观点</div>
                 <div class="highlight-box">
                     <p>AI影响取决于政策与社会选择,需要平衡技术进步与社会稳定。</p>
                 </div>
@@ -1964,11 +1827,11 @@
                 </div>
                 
                 <div class="highlight-box gray">
-                    <div class="highlight-title">🔍 现实检验:物理世界的限制</div>
+                    <div class="highlight-title">🔬 现实检验:物理世界的限制</div>
                     <p>虽然AI在软件领域进展神速,但物理世界的改造需要时间。数据中心建设、能源供应、硬件制造——这些都需要数年甚至数十年。AI革命不会在一夜之间发生,我们有充足的时间来适应和调整。</p>
                 </div>
                 
-                <div class="section-title">📊 关键制约因素</div>
+                <div class="section-title">🔧 关键制约因素</div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <span class="timeline-date">能源瓶颈</span>
@@ -2004,7 +1867,7 @@
         
         <!-- 信号监测 -->
         <div class="signal-section tech-border">
-            <h3>📡 关键信号监测</h3>
+            <h3>📊 关键信号监测</h3>
             <p style="font-size: 13px; color: #888; margin-bottom: 12px;">观察这些指标,判断哪一派的预测正在成为现实</p>
             
             <div class="signal-grid">
@@ -2053,7 +1916,7 @@
             <p style="font-size: 13px; color: #888; margin-bottom: 16px;">无论哪一派成为现实,这些行动都能帮助你</p>
             
             <div class="action-category">
-                <div class="cat-title">📚 立即开始</div>
+                <div class="cat-title">⚡ 立即开始</div>
                 <ul>
                     <li>学习使用主流AI工具(ChatGPT、Claude、Midjourney等)</li>
                     <li>评估你的工作中哪些部分可以用AI提效</li>
@@ -2062,7 +1925,7 @@
             </div>
             
             <div class="action-category">
-                <div class="cat-title">💪 3个月内</div>
+                <div class="cat-title">📅 3个月内</div>
                 <ul>
                     <li>掌握至少一个AI工具的深度应用</li>
                     <li>用AI完成一个完整的项目</li>
@@ -2071,7 +1934,7 @@
             </div>
             
             <div class="action-category">
-                <div class="cat-title">🚀 1年内</div>
+                <div class="cat-title">🎯 1年内</div>
                 <ul>
                     <li>成为团队中的"AI专家"</li>
                     <li>尝试一个AI辅助的副业项目</li>
@@ -2082,7 +1945,7 @@
         
         <!-- 互动测评器引导 -->
         <div class="interactive-prompt">
-            <div class="interactive-prompt-icon">🎮</div>
+            <div class="interactive-prompt-icon">🎯</div>
             <h3 class="interactive-prompt-title">互动测评:你的职业风险有多高?</h3>
             <p class="interactive-prompt-subtitle">
                 回答4个简单问题,AI帮你分析在悲观/乐观/复兴三种未来情景下的应对策略
@@ -2107,59 +1970,22 @@
         </div>
         
         <div id="assessmentTool" class="assessment-tool tech-border">
-            <h3>🔍 AI时代职业风险评估</h3>
+            <h3>🎯 AI时代职业罗盘测评</h3>
+            <p style="text-align: center; color: #888; font-size: 14px; margin-bottom: 24px;">15道题 · 4个维度 · 找到你的职业剧本</p>
             
-            <div class="question-block">
-                <span class="dimension-label">可替代性</span>
-                <div class="question-title">你的工作中,有多少是重复性任务?</div>
-                <div class="slider-container">
-                    <input type="range" min="0" max="100" value="50" class="slider" id="repetitive">
-                    <div class="slider-labels">
-                        <span>很少重复</span>
-                        <span>大量重复</span>
-                    </div>
-                </div>
+            <div id="questionnaire">
+                <!-- 问题将通过JavaScript动态生成 -->
             </div>
             
-            <div class="question-block">
-                <span class="dimension-label">创造性</span>
-                <div class="question-title">你的工作需要多少创造性思维?</div>
-                <div class="slider-container">
-                    <input type="range" min="0" max="100" value="50" class="slider" id="creative">
-                    <div class="slider-labels">
-                        <span>几乎不需要</span>
-                        <span>高度创造性</span>
-                    </div>
+            <div style="text-align: center; margin-top: 24px;">
+                <div id="progressBar" style="background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; margin-bottom: 12px; overflow: hidden;">
+                    <div id="progressFill" style="background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; width: 0%; transition: width 0.3s;"></div>
                 </div>
+                <div id="progressText" style="color: #888; font-size: 13px; margin-bottom: 16px;">已完成 0/15 题</div>
+                <button class="cta-button" onclick="calculateResult()" id="submitBtn" style="opacity: 0.5; cursor: not-allowed;" disabled="">
+                    查看我的职业剧本
+                </button>
             </div>
-            
-            <div class="question-block">
-                <span class="dimension-label">人际互动</span>
-                <div class="question-title">你的工作需要多少面对面的人际互动?</div>
-                <div class="slider-container">
-                    <input type="range" min="0" max="100" value="50" class="slider" id="interpersonal">
-                    <div class="slider-labels">
-                        <span>很少互动</span>
-                        <span>大量互动</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="question-block">
-                <span class="dimension-label">技术适应</span>
-                <div class="question-title">你对学习新技术的态度如何?</div>
-                <div class="slider-container">
-                    <input type="range" min="0" max="100" value="50" class="slider" id="adaptability">
-                    <div class="slider-labels">
-                        <span>抗拒学习</span>
-                        <span>积极拥抱</span>
-                    </div>
-                </div>
-            </div>
-            
-            <button class="cta-button" onclick="calculateRisk()" style="margin-top: 20px;">
-                查看我的风险评估
-            </button>
             
             <div id="resultCard" class="result-card">
                 <h4>📊 你的职业风险评估结果</h4>
@@ -2229,11 +2055,11 @@
                 <span>悲观派</span>
             </button>
             <button class="sticky-nav-btn" onclick="switchTab('optimistic')">
-                <span class="icon">🚀</span>
+                <span class="icon">💡</span>
                 <span>乐观派</span>
             </button>
             <button class="sticky-nav-btn" onclick="switchTab('renaissance')">
-                <span class="icon">👑</span>
+                <span class="icon">🚀</span>
                 <span>复兴派</span>
             </button>
             <button class="sticky-nav-btn" onclick="switchTab('neutral')">
@@ -2249,6 +2075,375 @@
     </div>
 
     <script>
+        // 15道问题数据 - 基于四维度评分标准
+        const questions = [
+            // TS维度 - 任务可替代性 (4题)
+            { id: 1, dimension: 'TS', label: '任务可替代性', text: '你的日常工作中，有多少比例是重复性、标准化的任务？', options: [
+                { text: 'A. 几乎没有，每天都在处理新问题', score: 0 },
+                { text: 'B. 约25%，大部分工作需要灵活应变', score: 25 },
+                { text: 'C. 约50%，一半工作是常规流程', score: 50 },
+                { text: 'D. 约75%以上，大部分是重复性工作', score: 100 }
+            ]},
+            { id: 2, dimension: 'TS', label: '任务可替代性', text: '你的工作是否依赖明确的规则和流程？', options: [
+                { text: 'A. 完全不依赖，需要大量自主判断', score: 0 },
+                { text: 'B. 部分依赖，但有很大灵活空间', score: 30 },
+                { text: 'C. 较多依赖，但仍需人工判断', score: 60 },
+                { text: 'D. 完全依赖，严格按照SOP执行', score: 100 }
+            ]},
+            { id: 3, dimension: 'TS', label: '任务可替代性', text: '你的工作涉及多少数据录入、报告生成、信息整理类任务？', options: [
+                { text: 'A. 几乎没有，主要是战略性工作', score: 0 },
+                { text: 'B. 少量，占工作时间不到20%', score: 30 },
+                { text: 'C. 较多，占工作时间约50%', score: 70 },
+                { text: 'D. 大量，这是我工作的主要内容', score: 100 }
+            ]},
+            { id: 4, dimension: 'TS', label: '任务可替代性', text: '如果有AI工具能完成你的部分工作，你认为它能替代多少？', options: [
+                { text: 'A. 不到20%，我的工作高度依赖人类判断', score: 0 },
+                { text: 'B. 约30-40%，能辅助但无法替代核心工作', score: 30 },
+                { text: 'C. 约50-60%，能完成大部分常规任务', score: 70 },
+                { text: 'D. 70%以上，AI完全可以胜任', score: 100 }
+            ]},
+            
+            // CU维度 - 创造性与非结构化决策 (4题)
+            { id: 5, dimension: 'CU', label: '创造性决策', text: '你的工作需要多少原创性思维和创新？', options: [
+                { text: 'A. 非常多，创新是我工作的核心', score: 100 },
+                { text: 'B. 较多，经常需要提出新想法', score: 70 },
+                { text: 'C. 一般，偶尔需要创新', score: 30 },
+                { text: 'D. 很少，主要执行既定方案', score: 0 }
+            ]},
+            { id: 6, dimension: 'CU', label: '创造性决策', text: '你是否需要处理模糊、非结构化的问题？', options: [
+                { text: 'A. 经常，我的工作充满不确定性', score: 100 },
+                { text: 'B. 较多，需要在模糊中找到方向', score: 70 },
+                { text: 'C. 偶尔，大部分问题有明确答案', score: 30 },
+                { text: 'D. 几乎不需要，问题都很清晰', score: 0 }
+            ]},
+            { id: 7, dimension: 'CU', label: '创造性决策', text: '你的工作涉及多少战略规划、产品设计或艺术创作？', options: [
+                { text: 'A. 这是我工作的主要内容', score: 100 },
+                { text: 'B. 占较大比重，约50%以上', score: 70 },
+                { text: 'C. 偶尔涉及，约20-30%', score: 30 },
+                { text: 'D. 几乎不涉及', score: 0 }
+            ]},
+            { id: 8, dimension: 'CU', label: '创造性决策', text: '你的工作成果是否需要深度的情感共鸣或人际影响力？', options: [
+                { text: 'A. 非常需要，这是核心竞争力', score: 100 },
+                { text: 'B. 较为需要，影响工作效果', score: 70 },
+                { text: 'C. 部分需要，但不是关键', score: 30 },
+                { text: 'D. 几乎不需要', score: 0 }
+            ]},
+            
+            // IM维度 - 个人工具驾驭与独立性 (4题)
+            { id: 9, dimension: 'IM', label: '工具驾驭能力', text: '你对学习和使用AI工具的态度是？', options: [
+                { text: 'A. 非常积极，已经在使用多种AI工具', score: 100 },
+                { text: 'B. 比较开放，愿意学习新工具', score: 70 },
+                { text: 'C. 有些犹豫，但知道必须学', score: 30 },
+                { text: 'D. 抗拒或担忧，不太愿意改变', score: 0 }
+            ]},
+            { id: 10, dimension: 'IM', label: '工具驾驭能力', text: '你是否有利用AI工具独立创造价值的意愿？', options: [
+                { text: 'A. 非常强烈，正在探索或已经在做', score: 100 },
+                { text: 'B. 有兴趣，在考虑可能性', score: 70 },
+                { text: 'C. 想法不多，更倾向稳定工作', score: 30 },
+                { text: 'D. 没有，完全依赖组织平台', score: 0 }
+            ]},
+            { id: 11, dimension: 'IM', label: '工具驾驭能力', text: '你认为自己能否脱离组织，利用AI独立提供服务或产品？', options: [
+                { text: 'A. 完全可以，我有明确的方向', score: 100 },
+                { text: 'B. 可能可以，需要一些准备', score: 70 },
+                { text: 'C. 比较困难，缺乏资源和经验', score: 30 },
+                { text: 'D. 不可能，必须依赖组织', score: 0 }
+            ]},
+            { id: 12, dimension: 'IM', label: '工具驾驭能力', text: '你是否在积极打造个人品牌或IP？', options: [
+                { text: 'A. 是的，已经在运营个人品牌', score: 100 },
+                { text: 'B. 有计划，正在尝试', score: 70 },
+                { text: 'C. 有想法，但还没行动', score: 30 },
+                { text: 'D. 没有，也不打算', score: 0 }
+            ]},
+            
+            // IC维度 - 行业变革速度与合规性 (3题)
+            { id: 13, dimension: 'IC', label: '行业变革速度', text: '你所在的行业受AI影响的速度如何？', options: [
+                { text: 'A. 非常快，已经在深度应用AI', score: 100 },
+                { text: 'B. 较快，正在积极探索AI应用', score: 70 },
+                { text: 'C. 较慢，还在观望阶段', score: 30 },
+                { text: 'D. 很慢，受传统和监管限制', score: 0 }
+            ]},
+            { id: 14, dimension: 'IC', label: '行业变革速度', text: '你的行业是否受到严格的法律法规限制？', options: [
+                { text: 'A. 几乎没有，创新空间很大', score: 100 },
+                { text: 'B. 有一些，但不影响AI应用', score: 70 },
+                { text: 'C. 较多限制，AI应用需谨慎', score: 30 },
+                { text: 'D. 非常严格，AI难以快速渗透', score: 0 }
+            ]},
+            { id: 15, dimension: 'IC', label: '行业变革速度', text: '你的行业属于以下哪类？', options: [
+                { text: 'A. 互联网、科技、内容创作等新兴行业', score: 100 },
+                { text: 'B. 金融科技、电商、数字营销等', score: 70 },
+                { text: 'C. 传统制造、零售、教育等', score: 30 },
+                { text: 'D. 政府机构、传统金融、法律等', score: 0 }
+            ]}
+        ];
+        
+        // 用户答案存储
+        let userAnswers = {};
+        
+        // 初始化问卷
+        function initQuestionnaire() {
+            const container = document.getElementById('questionnaire');
+            questions.forEach((q, index) => {
+                const qBlock = document.createElement('div');
+                qBlock.className = 'question-block';
+                qBlock.innerHTML = `
+                    <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                        <span class="question-number">${q.id}</span>
+                        <span class="dimension-label">${q.label}</span>
+                    </div>
+                    <div class="question-title">${q.text}</div>
+                    <div class="options-container">
+                        ${q.options.map((opt, optIndex) => `
+                            <div class="option-item" onclick="selectOption(${q.id}, ${optIndex}, '${q.dimension}', ${opt.score})">
+                                <div class="option-radio"></div>
+                                <div class="option-text">${opt.text}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(qBlock);
+            });
+        }
+        
+        // 选择选项
+        function selectOption(questionId, optionIndex, dimension, score) {
+            // 移除同一问题的其他选中状态
+            const questionBlock = event.currentTarget.closest('.question-block');
+            questionBlock.querySelectorAll('.option-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            
+            // 添加选中状态
+            event.currentTarget.classList.add('selected');
+            
+            // 存储答案
+            userAnswers[questionId] = { dimension, score };
+            
+            // 更新进度
+            updateProgress();
+        }
+        
+        // 更新进度
+        function updateProgress() {
+            const answered = Object.keys(userAnswers).length;
+            const total = questions.length;
+            const percentage = (answered / total) * 100;
+            
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = `已完成 ${answered}/${total} 题`;
+            
+            // 启用/禁用提交按钮
+            const submitBtn = document.getElementById('submitBtn');
+            if (answered === total) {
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.5';
+                submitBtn.style.cursor = 'not-allowed';
+            }
+        }
+        
+        // 计算结果
+        function calculateResult() {
+            // 计算四个维度的得分
+            let scores = { TS: [], CU: [], IM: [], IC: [] };
+            
+            Object.values(userAnswers).forEach(answer => {
+                scores[answer.dimension].push(answer.score);
+            });
+            
+            // 计算每个维度的平均分
+            const avgScores = {
+                TS: scores.TS.reduce((a, b) => a + b, 0) / scores.TS.length,
+                CU: scores.CU.reduce((a, b) => a + b, 0) / scores.CU.length,
+                IM: scores.IM.reduce((a, b) => a + b, 0) / scores.IM.length,
+                IC: scores.IC.reduce((a, b) => a + b, 0) / scores.IC.length
+            };
+            
+            // 映射到派别
+            const faction = mapToFaction(avgScores);
+            
+            // 显示结果
+            showResult(faction, avgScores);
+        }
+        
+        // 派别映射逻辑
+        function mapToFaction(scores) {
+            const avgTS = scores.TS;
+            const avgCU = scores.CU;
+            const avgIM = scores.IM;
+            const avgIC = scores.IC;
+            
+            // 复兴派：高创造性 + 高工具驾驭 + 低可替代性
+            if (avgCU >= 60 && avgIM >= 60 && avgTS <= 40) {
+                return 'renaissance';
+            }
+            
+            // 悲观派：高可替代性 + 低创造性 + 低工具驾驭
+            if (avgTS >= 60 && avgCU <= 40 && avgIM <= 40) {
+                return 'pessimistic';
+            }
+            
+            // 乐观派：高创造性 + 高工具驾驭 + 中等可替代性
+            if (avgCU >= 60 && avgIM >= 60 && avgTS > 40 && avgTS < 70) {
+                return 'optimistic';
+            }
+            
+            // 中立派：低行业变革速度
+            if (avgIC <= 40) {
+                return 'neutral';
+            }
+            
+            // 默认：根据综合得分判断
+            const riskScore = (avgTS - avgCU - avgIM + avgIC) / 4;
+            if (riskScore > 20) return 'pessimistic';
+            if (riskScore < -20) return 'renaissance';
+            if (avgIM >= 50) return 'optimistic';
+            return 'neutral';
+        }
+        
+        // 显示结果
+        function showResult(faction, scores) {
+            const resultCard = document.getElementById('resultCard');
+            const scenarios = {
+                pessimistic: {
+                    icon: '⚙️',
+                    title: '悲观派：职场大溶解',
+                    color: '#ff6b6b',
+                    description: '你的工作面临较大的AI替代风险。AI正在快速消除"人类中介摩擦"，你的工作中重复性、标准化任务较多，且创造性要求不高。',
+                    scenario: `<p style="margin-bottom: 14px;"><strong>2028年的你：</strong></p>
+                    <p style="margin-bottom: 10px;">你发现部门被大幅裁撤，AI代理接管了大部分项目管理、数据分析和报告生成工作。曾经的团队成员纷纷转行或失业。你的经验在"零摩擦"的AI体系下变得不再稀缺，每天都在焦虑中寻找新的生存技能。收入锐减，房贷压力巨大。</p>`,
+                    actions: [
+                        '🚨 立即开始学习AI工具，提升不可替代性',
+                        '💰 建立应急储备金，至少覆盖12个月开支',
+                        '🔄 考虑职业转型，培养高创造性技能',
+                        '📚 学习复杂决策、人际协作等AI难以替代的能力',
+                        '🛡️ 建立多元收入来源，降低单一职业风险'
+                    ],
+                    investment: '防御为主：增加现金和债券比例，投资必需消费品，避免过度集中科技股'
+                },
+                optimistic: {
+                    icon: '💡',
+                    title: '乐观派：生产力飞跃与协作共赢',
+                    color: '#4ecdc4',
+                    description: '你具备较强的创造力和学习能力，能够与AI深度协作。AI将成为你的生产力倍增器，帮助你在现有组织中实现价值跃升。',
+                    scenario: `<p style="margin-bottom: 14px;"><strong>2028年的你：</strong></p>
+                    <p style="margin-bottom: 10px;">你晋升为"AI协作总监"，核心职责是管理AI代理和人类团队的协作效率。AI辅助你处理了所有重复性工作，让你有更多时间进行高层次思考和决策。团队规模缩小，但产出效率大幅提升。收入稳步增长，生活品质持续提高。</p>`,
+                    actions: [
+                        '🚀 深度学习AI工具，成为团队中的AI专家',
+                        '🤝 培养人机协作能力，提升团队效率',
+                        '📈 关注AI创造的新岗位和新机会',
+                        '💡 将AI应用到现有工作中，展现价值',
+                        '🎯 投资自己的技能升级和终身学习'
+                    ],
+                    investment: '拥抱科技：重点配置AI相关科技股，关注AI基础设施和应用领域'
+                },
+                renaissance: {
+                    icon: '🚀',
+                    title: '复兴派：单人独角兽崛起',
+                    color: '#ffd93d',
+                    description: '你具备极强的创造力和工具驾驭能力，AI将赋能你成为"超级个体"。你可以利用AI打破传统组织束缚，开创独立事业。',
+                    scenario: `<p style="margin-bottom: 14px;"><strong>2028年的你：</strong></p>
+                    <p style="margin-bottom: 10px;">你转型成为"AI赋能的超级创意人"，利用AI工具进行概念生成、快速迭代。你开发了自己的AI创意模型，为小众市场提供高度个性化服务，成为拥有全球粉丝的独立IP。工作地点自由，收入远超传统模式。你享受着AI带来的创作自由和无限可能。</p>`,
+                    actions: [
+                        '🦄 开始构建个人品牌和影响力',
+                        '🛠️ 深度掌握AI工具，让它们成为你的"超能力"',
+                        '🎨 培养独特视角和创造力',
+                        '🚀 尝试用AI工具启动个人项目',
+                        '💼 探索AI赋能的商业模式和变现路径'
+                    ],
+                    investment: '投资自己：最好的投资是技能和创造力，同时关注创作者经济平台'
+                },
+                neutral: {
+                    icon: '⚖️',
+                    title: '中立派：理性渐进转型',
+                    color: '#a8a8a8',
+                    description: '你所在的行业变革速度较慢，或受合规性限制。AI的影响是渐进的，你有充足的时间窗口进行学习和转型。',
+                    scenario: `<p style="margin-bottom: 14px;"><strong>2028年的你：</strong></p>
+                    <p style="margin-bottom: 10px;">你的工作内容发生了显著但渐进的变化。公司逐步引入AI工具，替代了部分报告撰写和数据整理工作。你通过持续学习，成功转型为"数字化转型顾问"，为公司提供AI落地咨询。收入保持稳定，但需要不断投入时间进行技能再培训。</p>`,
+                    actions: [
+                        '📚 持续学习AI相关技能，保持竞争力',
+                        '🔄 逐步将AI工具融入日常工作',
+                        '🎯 关注行业AI应用趋势，提前布局',
+                        '🤝 培养AI无法替代的软技能（沟通、协作）',
+                        '⏰ 利用时间窗口，稳健转型'
+                    ],
+                    investment: '稳健投资：关注在AI转型中表现稳健的公司，分散投资风险'
+                }
+            };
+            
+            const result = scenarios[faction];
+            
+            resultCard.innerHTML = `
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <div style="font-size: 48px; margin-bottom: 12px;">${result.icon}</div>
+                    <h4 style="font-size: 22px; color: ${result.color}; margin-bottom: 8px;">${result.title}</h4>
+                    <p style="font-size: 14px; color: #c0c0c0; line-height: 1.8;">${result.description}</p>
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                    <div style="font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 12px;">📊 你的四维度得分</div>
+                    <div style="margin-bottom: 12px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                            <span style="color: #c0c0c0; font-size: 13px;">任务可替代性 (TS)</span>
+                            <span style="color: #fff; font-size: 13px; font-weight: 600;">${Math.round(scores.TS)}</span>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: ${scores.TS > 60 ? '#ff6b6b' : '#4ecdc4'}; height: 100%; width: ${scores.TS}%;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                            <span style="color: #c0c0c0; font-size: 13px;">创造性决策 (CU)</span>
+                            <span style="color: #fff; font-size: 13px; font-weight: 600;">${Math.round(scores.CU)}</span>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: ${scores.CU > 60 ? '#4ecdc4' : '#ff6b6b'}; height: 100%; width: ${scores.CU}%;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                            <span style="color: #c0c0c0; font-size: 13px;">工具驾驭能力 (IM)</span>
+                            <span style="color: #fff; font-size: 13px; font-weight: 600;">${Math.round(scores.IM)}</span>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: ${scores.IM > 60 ? '#4ecdc4' : '#ff6b6b'}; height: 100%; width: ${scores.IM}%;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                            <span style="color: #c0c0c0; font-size: 13px;">行业变革速度 (IC)</span>
+                            <span style="color: #fff; font-size: 13px; font-weight: 600;">${Math.round(scores.IC)}</span>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: #667eea; height: 100%; width: ${scores.IC}%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 3px solid ${result.color};">
+                    <div style="font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 12px;">🎬 你的2028职业剧本</div>
+                    ${result.scenario}
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                    <div style="font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 12px;">🎯 行动建议</div>
+                    <ul style="list-style: none; padding: 0;">
+                        ${result.actions.map(action => `<li style="padding: 8px 0; padding-left: 0; color: #c0c0c0; font-size: 14px; line-height: 1.7;">${action}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px;">
+                    <div style="font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 12px;">💰 投资策略</div>
+                    <p style="color: #c0c0c0; font-size: 14px; line-height: 1.8;">${result.investment}</p>
+                </div>
+            `;
+            
+            resultCard.classList.add('show');
+            resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
         // 标签页切换
         function showTab(faction) {
             document.querySelectorAll('.tabs-content').forEach(tab => {
@@ -2261,13 +2456,11 @@
             const targetTab = document.getElementById(faction);
             targetTab.classList.add('active');
             
-            // 更新按钮状态
             const targetBtn = document.querySelector(`.view-btn[data-view="${faction}"]`);
             if (targetBtn) {
                 targetBtn.classList.add('active');
             }
             
-            // 平滑滚动到目标标签内容
             targetTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
         
@@ -2278,60 +2471,6 @@
             if (tool.classList.contains('active')) {
                 tool.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-        }
-        
-        function calculateRisk() {
-            const repetitive = parseInt(document.getElementById('repetitive').value);
-            const creative = parseInt(document.getElementById('creative').value);
-            const interpersonal = parseInt(document.getElementById('interpersonal').value);
-            const adaptability = parseInt(document.getElementById('adaptability').value);
-            
-            // 计算风险分数(0-100,越高越危险)
-            const riskScore = (repetitive + (100 - creative) + (100 - interpersonal) + (100 - adaptability)) / 4;
-            
-            const resultCard = document.getElementById('resultCard');
-            const riskLevel = document.getElementById('riskLevel');
-            const riskMeter = document.getElementById('riskMeter');
-            const riskDescription = document.getElementById('riskDescription');
-            
-            let level, description, meterHTML;
-            
-            if (riskScore < 30) {
-                level = '低风险 🟢';
-                description = '你的工作相对安全。继续保持创造力和人际互动优势,同时学习AI工具来进一步提升效率。';
-                meterHTML = '<div class="risk-bar active"></div><div class="risk-bar"></div><div class="risk-bar"></div><div class="risk-bar"></div><div class="risk-bar"></div>';
-            } else if (riskScore < 50) {
-                level = '中等风险 🟡';
-                description = '你的工作有一定风险,但也有机会。关键是要主动学习AI工具,将其转化为你的竞争优势。';
-                meterHTML = '<div class="risk-bar active"></div><div class="risk-bar active"></div><div class="risk-bar warning"></div><div class="risk-bar"></div><div class="risk-bar"></div>';
-            } else if (riskScore < 70) {
-                level = '较高风险 🟠';
-                description = '你的工作面临较大挑战。建议尽快开始转型准备,培养新技能,或考虑转向更具创造性的领域。';
-                meterHTML = '<div class="risk-bar danger"></div><div class="risk-bar danger"></div><div class="risk-bar danger"></div><div class="risk-bar warning"></div><div class="risk-bar"></div>';
-            } else {
-                level = '高风险 🔴';
-                description = '你的工作很可能在未来3-5年内被AI深度影响。强烈建议立即开始职业转型规划。';
-                meterHTML = '<div class="risk-bar danger"></div><div class="risk-bar danger"></div><div class="risk-bar danger"></div><div class="risk-bar danger"></div><div class="risk-bar danger"></div>';
-            }
-            
-            riskLevel.innerHTML = '<strong>风险等级:</strong> ' + level;
-            riskDescription.textContent = description;
-            riskMeter.innerHTML = meterHTML;
-            
-            resultCard.classList.add('show');
-            resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-        
-        function showScenario(scenario) {
-            document.querySelectorAll('.scenario-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.querySelectorAll('.scenario-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            event.target.classList.add('active');
-            document.getElementById('scenario' + scenario.charAt(0).toUpperCase() + scenario.slice(1)).classList.add('active');
         }
         
         // 顶部吸附导航栏切换
@@ -2375,20 +2514,20 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
-        // 监听滚动事件，显示/隐藏顶部吸附导航栏和返回顶部按钮
+        // 监听滚动事件,显示/隐藏顶部吸附导航栏和返回顶部按钮
         window.addEventListener('scroll', function() {
             const stickyNav = document.getElementById('stickyNav');
             const backTop = document.getElementById('backTop');
             const viewSelector = document.querySelector('.view-selector');
             
-            // 返回顶部按钮：滚动超过300px时显示
+            // 返回顶部按钮:滚动超过300px时显示
             if (window.scrollY > 300) {
                 backTop.classList.add('show');
             } else {
                 backTop.classList.remove('show');
             }
             
-            // 顶部吸附导航栏：当视图切换器滚出视口时显示
+            // 顶部吸附导航栏:当视图切换器滚出视口时显示
             if (viewSelector) {
                 const viewSelectorRect = viewSelector.getBoundingClientRect();
                 if (viewSelectorRect.bottom < 0) {
@@ -2399,8 +2538,11 @@
             }
         });
         
-        // 初始化：根据当前激活的标签页设置顶部导航栏按钮状态
+        // 初始化:根据当前激活的标签页设置顶部导航栏按钮状态
         window.addEventListener('load', function() {
+            // 初始化问卷
+            initQuestionnaire();
+            
             const activeTab = document.querySelector('.tabs-content.active');
             if (activeTab) {
                 const activeId = activeTab.id;
