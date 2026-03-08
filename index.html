@@ -53,10 +53,10 @@
             z-index: 2;
         }
         
-        /* 古老罗盘头部 */
+        /* 合并头部 - 精简版 */
         .compass-header {
             text-align: center;
-            padding: 60px 24px 50px;
+            padding: 40px 24px 36px;
             margin-bottom: 40px;
             position: relative;
             background: linear-gradient(135deg, #fdfbf7 0%, #f9f5ed 100%);
@@ -71,10 +71,10 @@
         .compass-header::before {
             content: "🧭";
             position: absolute;
-            top: -40px;
+            top: -30px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 80px;
+            font-size: 60px;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
             animation: compassSpin 20s linear infinite;
         }
@@ -98,78 +98,41 @@
         }
         
         .compass-header h1 { 
-            font-size: 36px; 
+            font-size: 28px; 
             color: #5a3e2b; 
-            margin-bottom: 16px; 
+            margin-bottom: 20px; 
             font-weight: 700; 
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-shadow: 2px 2px 4px rgba(139, 115, 85, 0.2);
             font-family: "Palatino Linotype", Georgia, serif;
         }
         
-        .compass-header h1 .emoji {
-            display: none;
-        }
-        
         .compass-header .subtitle { 
-            font-size: 14px; 
+            font-size: 13px; 
             color: #8b7355; 
-            letter-spacing: 3px; 
+            letter-spacing: 2px; 
             text-transform: uppercase;
             font-weight: 600;
+            margin-bottom: 20px;
         }
         
-        .compass-header .epic-quote {
-            display: none;
-        }
-        
-        /* 引言卡片 - 羊皮纸风格 */
-        .intro-card {
-            padding: 36px 32px;
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, #fdfbf7 0%, #f9f5ed 100%);
-            border: 2px solid #8b7355;
-            border-radius: 6px;
-            box-shadow: 0 6px 20px rgba(60, 40, 20, 0.12);
-            position: relative;
-        }
-        
-        /* 装饰性边角 */
-        .intro-card::before,
-        .intro-card::after {
-            content: "✦";
-            position: absolute;
-            font-size: 24px;
-            color: #8b7355;
-            opacity: 0.4;
-        }
-        
-        .intro-card::before {
-            top: 12px;
-            left: 12px;
-        }
-        
-        .intro-card::after {
-            bottom: 12px;
-            right: 12px;
-        }
-        
-        .intro-card .icon { 
-            font-size: 40px; 
-            margin-bottom: 16px; 
-            display: block;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-        }
-        
-        .intro-card p { 
-            font-size: 16px; 
+        .compass-header .intro-text { 
+            font-size: 15px; 
             color: #4a3f35; 
-            line-height: 2;
+            line-height: 1.9;
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: left;
         }
         
-        .intro-card strong {
+        .compass-header .intro-text strong {
             color: #5a3e2b;
             font-weight: 700;
+        }
+        
+        /* 引言卡片 - 隐藏,内容已合并到header */
+        .intro-card {
+            display: none;
         }
 
         /* 四向路标导航 - 精简版 */
@@ -196,6 +159,28 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+        }
+        
+        .signpost-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(60, 40, 20, 0.15);
+            border-color: #8b7355;
+        }
+        
+        .signpost-btn.active {
+            background: linear-gradient(135deg, #8b7355 0%, #6b5744 100%);
+            color: #fdfbf7;
+            border-color: #5a3e2b;
+            box-shadow: 0 4px 12px rgba(60, 40, 20, 0.2);
+        }
+        
+        .signpost-btn .icon {
+            font-size: 24px;
+        }
+        
+        .signpost-btn .title {
+            font-size: 16px;
+            font-weight: 700;
         }
         
         /* 返回顶部按钮 */
@@ -624,7 +609,7 @@
         }
         
         .interactive-prompt .cta-button::before {
-            content: '🧭';
+            content: '🎯';
             position: absolute;
             left: 22px;
             top: 50%;
@@ -940,65 +925,230 @@
             display: block; 
         }
         
-        /* 响应式 - 移动端优化 */
+        /* 响应式 - 移动端优先优化 */
         @media (max-width: 768px) {
             body { 
-                padding: 20px 12px; 
+                padding: 16px 12px; 
+                line-height: 1.8;
             }
             
             .compass-header { 
-                padding: 50px 20px 40px; 
-                margin-bottom: 30px;
+                padding: 36px 20px 28px; 
+                margin-bottom: 24px;
             }
             
             .compass-header h1 { 
-                font-size: 28px;
+                font-size: 24px;
+                margin-bottom: 16px;
+            }
+            
+            .compass-header .subtitle {
+                font-size: 11px;
+                margin-bottom: 16px;
+            }
+            
+            .compass-header .intro-text {
+                font-size: 14px;
+                line-height: 1.8;
             }
             
             .compass-header::before {
-                font-size: 60px;
-                top: -30px;
+                font-size: 48px;
+                top: -24px;
             }
             
             .signpost-selector {
                 flex-direction: column;
                 gap: 10px;
+                margin-bottom: 32px;
             }
             
             .signpost-btn {
                 min-width: auto;
+                padding: 14px 18px;
+            }
+            
+            .signpost-btn .icon {
+                font-size: 20px;
+            }
+            
+            .signpost-btn .title {
+                font-size: 15px;
             }
             
             .faction-card { 
-                padding: 32px 24px; 
-                margin-bottom: 24px;
+                padding: 28px 20px; 
+                margin-bottom: 20px;
             }
             
-            .realm-banner {
-                margin: -32px -24px 24px -24px;
-                padding: 16px 20px;
+            .faction-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            
+            .faction-icon {
+                font-size: 48px;
+            }
+            
+            .faction-title {
+                font-size: 22px;
+            }
+            
+            .section-title {
+                font-size: 16px;
+                margin: 28px 0 16px;
+            }
+            
+            .key-points {
+                padding: 20px;
+            }
+            
+            .key-points li {
+                font-size: 14px;
+                padding: 12px 0;
+            }
+            
+            .highlight-box {
+                padding: 18px;
+            }
+            
+            .highlight-box p {
+                font-size: 14px;
+            }
+            
+            .deep-concept {
+                padding: 18px;
+            }
+            
+            .deep-concept p {
+                font-size: 13px;
+            }
+            
+            .timeline {
+                padding-left: 16px;
+            }
+            
+            .timeline-date {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            
+            .timeline-content {
+                font-size: 13px;
+            }
+            
+            .investment-tips {
+                padding: 18px;
+            }
+            
+            .investment-tips .title {
+                font-size: 15px;
+            }
+            
+            .investment-tips li {
+                font-size: 13px;
+            }
+            
+            .interactive-prompt {
+                padding: 28px 20px;
+                margin: 28px 0 24px;
+            }
+            
+            .interactive-prompt-title {
+                font-size: 20px;
+            }
+            
+            .interactive-prompt-subtitle {
+                font-size: 14px;
+            }
+            
+            .interactive-prompt .cta-button {
+                padding: 16px 36px;
+                font-size: 16px;
+            }
+            
+            .interactive-prompt .cta-button::before {
+                font-size: 20px;
+                left: 16px;
+            }
+            
+            .assessment-tool {
+                padding: 24px 16px;
+            }
+            
+            .assessment-tool h3 {
+                font-size: 20px;
+            }
+            
+            .question-block {
+                padding: 18px;
+            }
+            
+            .question-title {
+                font-size: 15px;
+            }
+            
+            .option-item {
+                padding: 14px 16px;
+            }
+            
+            .option-text {
+                font-size: 13px;
+            }
+            
+            .result-card {
+                padding: 24px;
+            }
+            
+            .result-card h4 {
+                font-size: 18px;
+            }
+            
+            .result-card p {
+                font-size: 14px;
+            }
+            
+            .conclusion {
+                padding: 28px 20px;
+            }
+            
+            .conclusion h3 {
+                font-size: 20px;
+            }
+            
+            .conclusion li {
+                font-size: 14px;
+            }
+            
+            .cta-button {
+                padding: 18px 32px;
+                font-size: 16px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 40px;
             }
         }
     </style>
 
 
     <div class="container">
-        <!-- 古老罗盘头部 -->
+        <!-- 合并头部 - 快速进入正题 -->
         <div class="compass-header">
-            <h1><span class="emoji">⚡</span> AI 时代的十字路口</h1>
+            <h1>AI 时代的十字路口</h1>
             <p class="subtitle">四派观点 · 两种未来 · 你的选择?</p>
-        </div>
-        
-        <!-- 引言卡片 -->
-        <div class="intro-card">
-            <span class="icon">📖</span>
-            <p>2027年一个普通早晨,你用AI几分钟写完报告。但就在同一天,公司宣布因AI效率提升需要缩编——办公室里空了好几个工位。<br><br>这不是科幻。这是<strong>四派顶级机构</strong>正在"吵架"的焦点:<strong>AI到底会让你的生活变好还是变坏?</strong></p>
+            <p class="intro-text">2027年一个普通早晨,你用AI几分钟写完报告。但就在同一天,公司宣布因AI效率提升需要缩编——办公室里空了好几个工位。这不是科幻。这是<strong>四派顶级机构</strong>正在"吵架"的焦点:<strong>AI到底会让你的生活变好还是变坏?</strong></p>
         </div>
         
         <!-- 四向路标导航 -->
         <div class="signpost-selector">
             <button class="signpost-btn active" onclick="showFaction('pessimistic')">
-                <span class="icon">🌊</span>
+                <span class="icon">💥</span>
                 <span class="title">悲观派</span>
             </button>
             
@@ -1020,9 +1170,9 @@
         
         <!-- 悲观派 -->
         <div id="pessimistic" class="tabs-content active">
-            <div class="faction-card pessimistic" data-scene="🌊">
+            <div class="faction-card pessimistic" data-scene="💥">
                 <div class="faction-header">
-                    <span class="faction-icon">🌊</span>
+                    <span class="faction-icon">💥</span>
                     <div>
                         <div class="faction-title">AI越成功,你越危险</div>
                         <div class="faction-source">Citrini Research & Alap Shah</div>
@@ -1034,7 +1184,7 @@
                     <p>AI越成功,你越危险。AI将彻底消除"人类中介摩擦",导致大量标准化岗位被取代,引发结构性失业和经济衰退的恶性循环。</p>
                 </div>
                 
-                <div class="section-title">🧭 核心逻辑:替代螺旋</div>
+                <div class="section-title">🔄 核心逻辑:替代螺旋</div>
                 <div class="key-points">
                     <ul>
                         <li><span class="arrow">→</span> AI首先替代白领工作</li>
@@ -1066,7 +1216,7 @@
                     </div>
                 </div>
                 
-                <div class="section-title">🛡️ 如何自保</div>
+                <div class="section-title">💪 如何自保</div>
                 <div class="highlight-box red">
                     <div class="highlight-title">三条生存法则</div>
                     <p><strong>法则1:成为AI无法替代的人</strong>——深度专业知识、复杂决策能力、人际关系网络<br><strong>法则2:建立多元收入来源</strong>——不要把鸡蛋放在一个篮子里<br><strong>法则3:保持财务缓冲</strong>——至少准备12个月的应急储备金</p>
@@ -1082,15 +1232,19 @@
                     </ul>
                 </div>
                 
-
+                <div class="deep-concept">
+                    <div class="concept-title">深度概念:"人类中介摩擦"消失</div>
+                    <p>过去,很多工作的价值在于"连接"——连接信息、连接人、连接流程。AI的核心能力就是消除这些连接中的摩擦。当AI可以瞬间完成信息检索、数据分析、初步决策时,那些依赖"中介"角色的岗位将失去存在价值。</p>
+                    <p><strong>举例:</strong>传统市场研究员需要花数周收集、整理、分析数据,现在AI可以在几小时内完成同样的工作,甚至更准确。这不是"辅助",而是"替代"。</p>
+                </div>
             </div>
         </div>
         
         <!-- 乐观派 -->
         <div id="optimistic" class="tabs-content">
-            <div class="faction-card optimistic" data-scene="🚀">
+            <div class="faction-card optimistic" data-scene="🌟">
                 <div class="faction-header">
-                    <span class="faction-icon">🚀</span>
+                    <span class="faction-icon">🌟</span>
                     <div>
                         <div class="faction-title">AI是新的电力革命</div>
                         <div class="faction-source">Goldman Sachs, Citadel & ARK Invest</div>
@@ -1102,7 +1256,7 @@
                     <p>AI是史诗级的生产力工具,将通过巨额资本支出支撑经济,并催生全新的市场与高价值岗位,创造更多高质量工作,提升全球GDP。</p>
                 </div>
                 
-                <div class="section-title">🧭 核心逻辑:生产力爆发</div>
+                <div class="section-title">🔄 核心逻辑:生产力爆发</div>
                 <div class="key-points">
                     <ul>
                         <li><span class="arrow">→</span> AI大幅提升生产效率</li>
@@ -1114,43 +1268,47 @@
                 </div>
                 
                 <div class="highlight-box blue">
-                    <div class="highlight-title">🌟 新兴机会领域</div>
-                    <p>AI训练师、提示工程师、AI伦理专家、数据策展人、人机协作设计师——这些全新职业正在快速涌现。未来的工作不是被AI取代,而是与AI协作,创造更大价值。</p>
+                    <div class="highlight-title">🚀 新兴机会领域</div>
+                    <p>AI训练师、提示词工程师、AI伦理顾问、数据策展人、人机协作设计师——这些全新职业正在快速涌现。未来的工作不是"人vs AI",而是"会用AI的人 vs 不会用AI的人"。</p>
                 </div>
                 
-                <div class="section-title">📊 乐观派的数据支撑</div>
+                <div class="section-title">📅 乐观派的时间线</div>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <span class="timeline-date">2025-2030</span>
-                        <span class="timeline-content">AI基础设施投资达1万亿美元,创造数百万高薪岗位</span>
+                        <span class="timeline-date">2025-2027</span>
+                        <span class="timeline-content">AI基础设施投资高峰,科技公司大规模招聘AI相关人才</span>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-date">2030-2035</span>
-                        <span class="timeline-content">AI应用普及,全球GDP增长7%,新兴产业蓬勃发展</span>
+                        <span class="timeline-date">2028-2030</span>
+                        <span class="timeline-content">AI应用全面普及,新兴行业快速成长,创造大量高薪岗位</span>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-date">2035+</span>
-                        <span class="timeline-content">人类进入"创意经济"时代,工作更有意义和创造性</span>
+                        <span class="timeline-date">2031+</span>
+                        <span class="timeline-content">AI驱动的生产力革命全面展开,全球GDP显著提升</span>
                     </div>
                 </div>
                 
-                <div class="section-title">🚀 如何抓住机会</div>
+                <div class="section-title">🎯 如何抓住机会</div>
                 <div class="highlight-box blue">
                     <div class="highlight-title">三大行动策略</div>
-                    <p><strong>策略1:拥抱AI工具</strong>——学习使用AI提升工作效率,成为"AI增强型人才"<br><strong>策略2:投资新兴领域</strong>——关注AI基础设施、应用层创新公司<br><strong>策略3:终身学习</strong>——持续更新技能,适应快速变化的市场需求</p>
+                    <p><strong>策略1:成为AI的驾驭者</strong>——学习AI工具,将其整合到工作流程中<br><strong>策略2:聚焦创造性工作</strong>——AI擅长执行,人类擅长创新和战略<br><strong>策略3:建立个人品牌</strong>——在AI时代,独特的人格和专业声誉更有价值</p>
                 </div>
                 
                 <div class="investment-tips blue">
-                    <div class="title">💰 投资建议:积极进取</div>
+                    <div class="title">💰 投资建议:拥抱科技</div>
                     <ul>
-                        <li>重点配置AI基础设施(芯片、云计算、数据中心)</li>
-                        <li>关注AI应用层创新(垂直行业解决方案)</li>
-                        <li>投资受益于AI效率提升的传统行业</li>
-                        <li>保持适度风险敞口,享受增长红利</li>
+                        <li>重点配置AI基础设施和应用公司</li>
+                        <li>关注云计算、芯片、数据中心</li>
+                        <li>投资AI赋能的传统行业龙头</li>
+                        <li>长期持有,享受科技红利</li>
                     </ul>
                 </div>
                 
-
+                <div class="deep-concept">
+                    <div class="concept-title">深度概念:"资本支出超级周期"</div>
+                    <p>乐观派认为,AI将引发类似互联网泡沫时期的大规模资本支出,但这次不同——AI的应用场景更广泛、商业模式更清晰。科技巨头和初创公司正在向AI基础设施投入数千亿美元,这些投资将创造大量就业和经济增长。</p>
+                    <p><strong>数据支撑:</strong>Goldman Sachs预测,到2030年,AI相关资本支出将达到1万亿美元,直接和间接创造数百万个高薪工作岗位。</p>
+                </div>
             </div>
         </div>
         
@@ -1160,65 +1318,69 @@
                 <div class="faction-header">
                     <span class="faction-icon">🦄</span>
                     <div>
-                        <div class="faction-title">个体创作者的黄金时代</div>
-                        <div class="faction-source">David Kingsley</div>
+                        <div class="faction-title">AI解放人类创造力</div>
+                        <div class="faction-source">Marc Andreessen & a16z</div>
                     </div>
                 </div>
                 
                 <div class="section-title">💡 核心观点</div>
                 <div class="highlight-box orange">
-                    <p>AI将赋能个体创作者,让"单人独角兽"成为可能。传统大公司的优势将被削弱,个人可以凭借AI工具独立完成复杂项目,开启创作者经济的文艺复兴。</p>
+                    <p>AI将把人类从重复性劳动中解放出来,让每个人都能专注于创造性工作,迎来新文艺复兴时代。未来不是"失业",而是"重新定义工作"。</p>
                 </div>
                 
-                <div class="section-title">🧭 核心逻辑:能力民主化</div>
+                <div class="section-title">🔄 核心逻辑:创造力解放</div>
                 <div class="key-points">
                     <ul>
-                        <li><span class="arrow">→</span> AI降低专业技能门槛</li>
-                        <li><span class="arrow">→</span> 个人获得"超级能力"</li>
-                        <li><span class="arrow">→</span> 创作成本大幅下降</li>
-                        <li><span class="arrow">→</span> 个体可独立完成复杂项目</li>
-                        <li><span class="arrow">→</span> <strong>创作者经济爆发</strong></li>
+                        <li><span class="arrow">→</span> AI承担所有重复性任务</li>
+                        <li><span class="arrow">→</span> 人类时间被释放用于创造</li>
+                        <li><span class="arrow">→</span> 创造性工作产生更高价值</li>
+                        <li><span class="arrow">→</span> 社会整体财富和幸福感提升</li>
+                        <li><span class="arrow">→</span> <strong>进入创造者经济时代</strong></li>
                     </ul>
                 </div>
                 
                 <div class="highlight-box orange">
-                    <div class="highlight-title">🌟 单人独角兽案例</div>
-                    <p>一个人用AI工具可以完成:开发完整的软件产品、制作专业级视频内容、运营全球化业务、创作畅销书籍。传统需要团队协作的工作,现在一个人就能搞定。</p>
+                    <div class="highlight-title">✨ 未来工作的新定义</div>
+                    <p>在复兴派眼中,未来的"工作"不再是朝九晚五的固定模式,而是基于兴趣、热情和创造力的自由探索。每个人都可以成为创作者、发明家、思想家——AI是你的助手,而不是你的竞争对手。</p>
                 </div>
                 
-                <div class="section-title">📈 复兴派的愿景</div>
+                <div class="section-title">📅 复兴派的愿景</div>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <span class="timeline-date">2024-2026</span>
-                        <span class="timeline-content">AI工具成熟,个体创作者开始崛起,出现首批"单人独角兽"</span>
+                        <span class="timeline-date">2025-2027</span>
+                        <span class="timeline-content">AI工具普及,个人创作者开始大规模涌现</span>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-date">2027-2030</span>
-                        <span class="timeline-content">创作者经济蓬勃发展,传统雇佣关系被重新定义</span>
+                        <span class="timeline-date">2028-2030</span>
+                        <span class="timeline-content">创造者经济成为主流,传统雇佣关系被重新定义</span>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-date">2031+</span>
-                        <span class="timeline-content">个体创作者成为经济主力,工作方式彻底转变</span>
+                        <span class="timeline-content">新文艺复兴全面展开,人类进入创造力黄金时代</span>
                     </div>
                 </div>
                 
-                <div class="section-title">🎯 如何成为单人独角兽</div>
+                <div class="section-title">🌈 如何拥抱未来</div>
                 <div class="highlight-box orange">
-                    <div class="highlight-title">三大核心能力</div>
-                    <p><strong>能力1:AI工具精通</strong>——掌握各类AI工具,将其整合为个人"超级助手"<br><strong>能力2:独特视角</strong>——AI可以执行,但创意和方向需要人类提供<br><strong>能力3:快速迭代</strong>——利用AI加速试错,快速找到产品市场契合点</p>
+                    <div class="highlight-title">三大转型方向</div>
+                    <p><strong>方向1:发现你的独特价值</strong>——找到只有你能做的事情<br><strong>方向2:学会与AI共舞</strong>——把AI当作创作伙伴,而非威胁<br><strong>方向3:建立你的创作者品牌</strong>——在AI时代,个人IP是最大的资产</p>
                 </div>
                 
                 <div class="investment-tips orange">
-                    <div class="title">💰 投资建议:聚焦个体赋能</div>
+                    <div class="title">💰 投资建议:押注创造者</div>
                     <ul>
-                        <li>投资创作者工具平台(AI辅助创作、自动化工具)</li>
-                        <li>关注个体经济基础设施(支付、法务、财务工具)</li>
-                        <li>支持内容创作者和独立开发者</li>
-                        <li>投资自己,成为AI时代的"超级个体"</li>
+                        <li>投资创作者经济平台和工具</li>
+                        <li>关注内容、教育、娱乐领域</li>
+                        <li>支持个人品牌和社区驱动的项目</li>
+                        <li>投资自己的技能和创造力</li>
                     </ul>
                 </div>
                 
-
+                <div class="deep-concept">
+                    <div class="concept-title">深度概念:"新文艺复兴"</div>
+                    <p>复兴派将AI时代类比为文艺复兴时期——印刷术的发明让知识传播民主化,激发了人类创造力的大爆发。AI同样将创造工具民主化,让每个人都能实现自己的创意愿景。</p>
+                    <p><strong>历史启示:</strong>文艺复兴时期,艺术家、科学家、思想家涌现,人类文明实现了质的飞跃。AI时代,我们有机会见证类似的变革——不是工作的消失,而是工作意义的重新定义。</p>
+                </div>
             </div>
         </div>
         
@@ -1228,216 +1390,230 @@
                 <div class="faction-header">
                     <span class="faction-icon">⚖️</span>
                     <div>
-                        <div class="faction-title">渐进转型,平衡发展</div>
-                        <div class="faction-source">Moody's & Forrester</div>
+                        <div class="faction-title">真相在中间</div>
+                        <div class="faction-source">综合分析视角</div>
                     </div>
                 </div>
                 
-                <div class="section-title">💡 核心观点</div>
+                <div class="section-title">🎯 核心观点</div>
                 <div class="highlight-box gray">
-                    <p>AI的影响将是渐进式的,既有挑战也有机遇。关键在于政策引导、教育改革和社会保障体系的完善,确保转型过程平稳有序,让更多人受益。</p>
+                    <p>AI的影响既非全然灾难,也非完美乌托邦。真实情况是:短期阵痛与长期机遇并存,关键在于如何应对转型期的挑战。</p>
                 </div>
                 
-                <div class="section-title">🧭 核心逻辑:平衡转型</div>
+                <div class="section-title">⚖️ 平衡视角:两面性分析</div>
                 <div class="key-points">
                     <ul>
-                        <li><span class="arrow">→</span> AI带来生产力提升和就业挑战</li>
-                        <li><span class="arrow">→</span> 政府出台政策引导转型</li>
-                        <li><span class="arrow">→</span> 教育体系培养新技能</li>
-                        <li><span class="arrow">→</span> 社会保障缓冲转型阵痛</li>
-                        <li><span class="arrow">→</span> <strong>实现平稳过渡</strong></li>
+                        <li><span class="arrow">→</span> <strong>短期:</strong>确实会有岗位被替代,但速度比悲观派预测的慢</li>
+                        <li><span class="arrow">→</span> <strong>中期:</strong>新旧岗位交替,转型阵痛不可避免</li>
+                        <li><span class="arrow">→</span> <strong>长期:</strong>生产力提升带来整体福利增加,但分配不均问题需要解决</li>
+                        <li><span class="arrow">→</span> <strong>关键:</strong>政策、教育、社会支持系统的配套至关重要</li>
                     </ul>
                 </div>
                 
                 <div class="highlight-box gray">
-                    <div class="highlight-title">📊 数据与现实</div>
-                    <p>IMF预测,AI将在未来10年影响40%的工作岗位,但影响程度因行业和地区而异。发达国家受影响更大,但也有更强的适应能力。关键是提前准备,而非恐慌或盲目乐观。</p>
+                    <div class="highlight-title">🔍 现实检验</div>
+                    <p>历史上每次技术革命都经历了类似的争论。工业革命、电气化、计算机革命——最终都创造了比消灭更多的工作,但转型期的痛苦是真实的。AI时代也不例外:机会与挑战并存,准备充分的人将受益,准备不足的人将承压。</p>
                 </div>
                 
-                <div class="section-title">🛤️ 中立派的路线图</div>
+                <div class="section-title">📊 数据说话</div>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <span class="timeline-date">2025-2027</span>
-                        <span class="timeline-content">政策框架建立,教育改革启动,AI技能培训普及</span>
+                        <span class="timeline-date">历史经验</span>
+                        <span class="timeline-content">过去200年,技术进步消灭了无数职业(马车夫、打字员、电话接线员),但创造了更多新职业,整体就业率持续上升</span>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-date">2028-2032</span>
-                        <span class="timeline-content">劳动力市场调整,新旧岗位交替,社会保障体系完善</span>
+                        <span class="timeline-date">当前趋势</span>
+                        <span class="timeline-content">AI正在快速发展,但完全替代人类的"通用人工智能"(AGI)仍需时日,大多数工作是"增强"而非"替代"</span>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-date">2033+</span>
-                        <span class="timeline-content">新平衡建立,AI与人类协作成为常态</span>
+                        <span class="timeline-date">未来预测</span>
+                        <span class="timeline-content">到2030年,预计15-30%的工作任务会被AI自动化,但这不等于15-30%的人失业——大多数工作会被重新定义</span>
                     </div>
                 </div>
                 
-                <div class="section-title">🎯 如何应对转型</div>
+                <div class="section-title">🛠️ 务实建议</div>
                 <div class="highlight-box gray">
-                    <div class="highlight-title">三大应对策略</div>
-                    <p><strong>策略1:持续学习</strong>——投资教育和技能培训,保持竞争力<br><strong>策略2:关注政策</strong>——了解政府扶持政策,善用公共资源<br><strong>策略3:多元发展</strong>——不要孤注一掷,保持灵活性和适应性</p>
+                    <div class="highlight-title">四象限应对策略</div>
+                    <p><strong>1. 技能升级:</strong>学习AI工具,提升不可替代的软技能(创造力、同理心、复杂决策)<br><strong>2. 财务准备:</strong>建立应急储备,分散收入来源<br><strong>3. 心态调整:</strong>拥抱变化,保持学习心态<br><strong>4. 社会参与:</strong>关注政策讨论,推动公平转型</p>
                 </div>
                 
                 <div class="investment-tips gray">
-                    <div class="title">💰 投资建议:稳健配置</div>
+                    <div class="title">💰 投资建议:平衡配置</div>
                     <ul>
-                        <li>均衡配置传统行业和科技股</li>
-                        <li>关注受益于AI但不过度依赖的公司</li>
-                        <li>投资教育和技能培训相关产业</li>
-                        <li>保持投资组合多元化,降低单一风险</li>
+                        <li>科技股与传统行业平衡配置</li>
+                        <li>关注AI赋能的传统企业</li>
+                        <li>保持适度现金储备应对不确定性</li>
+                        <li>长期投资教育和个人技能提升</li>
                     </ul>
                 </div>
                 
-
+                <div class="deep-concept">
+                    <div class="concept-title">深度概念:"转型阵痛期"</div>
+                    <p>中立派强调,AI革命的最大挑战不是技术本身,而是转型期的社会适应。历史表明,技术进步最终有利于人类,但转型期可能长达10-20年,期间会有大量人员需要重新培训、转岗,社会需要建立更完善的支持系统。</p>
+                    <p><strong>政策建议:</strong>加强职业再培训、完善社会保障、推动教育改革、探索新的工作模式(如全民基本收入)——这些配套措施比技术本身更重要。</p>
+                </div>
             </div>
         </div>
         
         <!-- 互动引导 -->
         <div class="interactive-prompt">
-            <div class="interactive-prompt-title">测测你的AI时代生存指数</div>
-            <div class="interactive-prompt-subtitle">
-                基于四大派系的观点,评估你的职业风险与机会<br>
-                只需2分钟,获得个性化建议
-            </div>
-            <button class="cta-button" onclick="startAssessment()">  开始探索你的立场</button>
+            <div class="interactive-prompt-title">找到你的AI时代生存策略</div>
+            <div class="interactive-prompt-subtitle">5分钟测评,了解你的职业风险指数和最佳应对方案</div>
+            <button class="cta-button" onclick="startAssessment()">开始测评</button>
         </div>
         
-        <!-- 职业测评器 -->
-        <div id="assessmentTool" class="assessment-tool">
-            <h3>📊 AI时代职业风险评估</h3>
+        <!-- 职业测评工具 -->
+        <div class="assessment-tool" id="assessmentTool">
+            <h3>🎯 AI时代职业风险评估</h3>
             
-            <!-- 问题1 -->
             <div class="question-block">
-                <div class="question-title">
-                    <span class="question-number">1</span>
-                    你的工作中,有多少是"按流程重复操作"?
-                </div>
-                <div class="dimension-label">📊 替代风险维度</div>
-                <div class="options-container">
-                    <div class="option-item" onclick="selectOption(this, 'q1', 'high')">
-                        <div class="option-radio"></div>
-                        <div class="option-text">70%以上都是标准化流程(高风险)</div>
-                    </div>
-                    <div class="option-item" onclick="selectOption(this, 'q1', 'medium')">
-                        <div class="option-radio"></div>
-                        <div class="option-text">30-70%是流程化工作(中等风险)</div>
-                    </div>
-                    <div class="option-item" onclick="selectOption(this, 'q1', 'low')">
-                        <div class="option-radio"></div>
-                        <div class="option-text">不到30%,大部分需要创造性思考(低风险)</div>
+                <div class="dimension-label">维度1:工作可替代性</div>
+                <div class="question-title">你的工作中,有多少比例是重复性、标准化的任务?</div>
+                <div class="slider-container">
+                    <input type="range" min="0" max="100" value="50" class="slider" id="repeatability">
+                    <div class="slider-labels">
+                        <span>0% (完全创造性)</span>
+                        <span>100% (完全重复)</span>
                     </div>
                 </div>
             </div>
             
-            <!-- 问题2 -->
             <div class="question-block">
-                <div class="question-title">
-                    <span class="question-number">2</span>
-                    你对AI工具的掌握程度如何?
-                </div>
-                <div class="dimension-label">🚀 适应能力维度</div>
+                <div class="dimension-label">维度2:技能适应性</div>
+                <div class="question-title">你对学习新技术(尤其是AI工具)的态度是?</div>
                 <div class="options-container">
-                    <div class="option-item" onclick="selectOption(this, 'q2', 'high')">
+                    <div class="option-item" onclick="selectOption(this, 'adaptability', 0)">
                         <div class="option-radio"></div>
-                        <div class="option-text">熟练使用多种AI工具,能整合到工作流程</div>
+                        <div class="option-text">抗拒,觉得没必要</div>
                     </div>
-                    <div class="option-item" onclick="selectOption(this, 'q2', 'medium')">
+                    <div class="option-item" onclick="selectOption(this, 'adaptability', 25)">
                         <div class="option-radio"></div>
-                        <div class="option-text">会用ChatGPT等基础工具,但不够深入</div>
+                        <div class="option-text">被动接受,公司要求才学</div>
                     </div>
-                    <div class="option-item" onclick="selectOption(this, 'q2', 'low')">
+                    <div class="option-item" onclick="selectOption(this, 'adaptability', 75)">
                         <div class="option-radio"></div>
-                        <div class="option-text">基本不用AI工具,或只是偶尔尝试</div>
+                        <div class="option-text">主动学习,已经在用一些AI工具</div>
+                    </div>
+                    <div class="option-item" onclick="selectOption(this, 'adaptability', 100)">
+                        <div class="option-radio"></div>
+                        <div class="option-text">非常积极,持续探索最新AI应用</div>
                     </div>
                 </div>
             </div>
             
-            <!-- 问题3 -->
             <div class="question-block">
-                <div class="question-title">
-                    <span class="question-number">3</span>
-                    你的收入来源有多元化吗?
-                </div>
-                <div class="dimension-label">🛡️ 抗风险维度</div>
+                <div class="dimension-label">维度3:收入多元化</div>
+                <div class="question-title">除了主要工作,你有其他收入来源吗?</div>
                 <div class="options-container">
-                    <div class="option-item" onclick="selectOption(this, 'q3', 'high')">
+                    <div class="option-item" onclick="selectOption(this, 'income', 0)">
                         <div class="option-radio"></div>
-                        <div class="option-text">有多个收入来源,不依赖单一工作</div>
+                        <div class="option-text">没有,100%依赖工资</div>
                     </div>
-                    <div class="option-item" onclick="selectOption(this, 'q3', 'medium')">
+                    <div class="option-item" onclick="selectOption(this, 'income', 33)">
                         <div class="option-radio"></div>
-                        <div class="option-text">主要靠工资,但有一些副业或投资</div>
+                        <div class="option-text">有一些副业,但收入很少</div>
                     </div>
-                    <div class="option-item" onclick="selectOption(this, 'q3', 'low')">
+                    <div class="option-item" onclick="selectOption(this, 'income', 66)">
                         <div class="option-radio"></div>
-                        <div class="option-text">完全依赖工资收入</div>
+                        <div class="option-text">有稳定副业,占总收入20-40%</div>
+                    </div>
+                    <div class="option-item" onclick="selectOption(this, 'income', 100)">
+                        <div class="option-radio"></div>
+                        <div class="option-text">多元收入,不依赖单一来源</div>
                     </div>
                 </div>
             </div>
             
-            <button class="cta-button" onclick="calculateResult()">📊 查看评估结果</button>
+            <button class="cta-button" onclick="calculateResult()">查看我的风险指数</button>
             
-            <!-- 结果卡片 -->
-            <div id="resultCard" class="result-card">
-                <h4>🎯 你的AI时代生存指数:<span id="survivalScore"></span></h4>
-                <p id="resultDescription"></p>
-                <div id="resultRecommendation"></div>
+            <div class="result-card" id="resultCard">
+                <h4>📊 你的AI时代风险指数:<span id="riskScore"></span></h4>
+                <p id="riskLevel"></p>
+                <p id="recommendation"></p>
             </div>
         </div>
         
         <!-- 结论 -->
         <div class="conclusion">
-            <h3>🧭 十字路口的抉择</h3>
+            <h3>🎯 最终建议:无论你信哪一派</h3>
             <ul>
-                <li><strong>悲观派提醒我们:</strong> 不要低估AI的替代能力,提前做好风险防范</li>
-                <li><strong>乐观派鼓励我们:</strong> 拥抱变化,AI是工具而非威胁,机会大于风险</li>
-                <li><strong>复兴派启发我们:</strong> 个体力量被前所未有地放大,这是创作者的黄金时代</li>
-                <li><strong>中立派建议我们:</strong> 保持理性,关注政策,持续学习,稳健应对</li>
+                <li><strong>行动胜于观望:</strong>不管AI是天使还是魔鬼,主动学习和适应永远是最佳策略</li>
+                <li><strong>保持灵活性:</strong>建立多元技能和收入来源,不要把所有赌注押在一个方向</li>
+                <li><strong>关注长期:</strong>短期波动难以预测,但长期趋势是技术进步有利于人类</li>
+                <li><strong>投资自己:</strong>在AI时代,最好的投资是你的学习能力和适应能力</li>
             </ul>
         </div>
         
         <!-- 页脚 -->
         <div class="footer">
-            <p class="wechat">📮 想要更多深度内容?关注公众号:叽歪黄油小面包</p>
+            <p>本文综合了Citrini Research、Goldman Sachs、ARK Invest、a16z等机构的最新研究</p>
+            <p class="wechat">想了解更多AI时代的投资机会?关注我们的公众号</p>
         </div>
     </div>
     
     <!-- 返回顶部按钮 -->
-    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
-        🧭
-    </button>
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">🧭</button>
     
     <script>
         // 派系切换
         function showFaction(faction) {
             // 隐藏所有内容
-            document.querySelectorAll('.tabs-content').forEach(el => {
-                el.classList.remove('active');
+            document.querySelectorAll('.tabs-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // 移除所有按钮的active状态
+            document.querySelectorAll('.signpost-btn').forEach(btn => {
+                btn.classList.remove('active');
             });
             
             // 显示选中的内容
             document.getElementById(faction).classList.add('active');
             
-            // 更新按钮状态
-            document.querySelectorAll('.signpost-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
+            // 高亮选中的按钮
             event.target.closest('.signpost-btn').classList.add('active');
             
-            // 滚动到内容区域
+            // 平滑滚动到内容区域
             setTimeout(() => {
-                document.getElementById(faction).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.querySelector('.faction-card').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
             }, 100);
         }
+        
+        // 返回顶部
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // 显示/隐藏返回顶部按钮
+        window.addEventListener('scroll', () => {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
         
         // 开始测评
         function startAssessment() {
             document.getElementById('assessmentTool').classList.add('active');
-            document.getElementById('assessmentTool').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('assessmentTool').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
         }
         
         // 选项选择
-        const answers = {};
+        let assessmentData = {
+            repeatability: 50,
+            adaptability: null,
+            income: null
+        };
         
-        function selectOption(element, question, value) {
+        function selectOption(element, dimension, value) {
             // 移除同组其他选项的选中状态
             element.parentElement.querySelectorAll('.option-item').forEach(item => {
                 item.classList.remove('selected');
@@ -1446,67 +1622,58 @@
             // 选中当前选项
             element.classList.add('selected');
             
-            // 记录答案
-            answers[question] = value;
+            // 保存数据
+            assessmentData[dimension] = value;
         }
+        
+        // 更新滑块值
+        document.getElementById('repeatability')?.addEventListener('input', (e) => {
+            assessmentData.repeatability = parseInt(e.target.value);
+        });
         
         // 计算结果
         function calculateResult() {
-            if (Object.keys(answers).length < 3) {
+            // 检查是否所有问题都已回答
+            if (assessmentData.adaptability === null || assessmentData.income === null) {
                 alert('请完成所有问题后再查看结果');
                 return;
             }
             
-            // 计算分数
-            let score = 100;
-            
-            if (answers.q1 === 'high') score -= 30;
-            else if (answers.q1 === 'medium') score -= 15;
-            
-            if (answers.q2 === 'low') score -= 25;
-            else if (answers.q2 === 'medium') score -= 10;
-            
-            if (answers.q3 === 'low') score -= 20;
-            else if (answers.q3 === 'medium') score -= 10;
+            // 计算风险指数 (0-100,越高风险越大)
+            const riskScore = Math.round(
+                assessmentData.repeatability * 0.5 + 
+                (100 - assessmentData.adaptability) * 0.3 + 
+                (100 - assessmentData.income) * 0.2
+            );
             
             // 显示结果
-            const resultCard = document.getElementById('resultCard');
-            const scoreElement = document.getElementById('survivalScore');
-            const descElement = document.getElementById('resultDescription');
-            const recElement = document.getElementById('resultRecommendation');
+            document.getElementById('riskScore').textContent = riskScore + '分';
             
-            scoreElement.textContent = score + '分';
+            let riskLevel, recommendation;
             
-            if (score >= 80) {
-                descElement.textContent = '🎉 恭喜!你已经做好了充分准备,属于AI时代的"适应者"。你掌握了AI工具,有多元收入,工作也不容易被替代。';
-                recElement.innerHTML = '<div class="highlight-box blue"><div class="highlight-title">✨ 建议:继续保持优势</div><p>你已经走在正确的道路上。建议继续深化AI技能,探索"单人独角兽"的可能性,同时关注新兴机会领域。</p></div>';
-            } else if (score >= 60) {
-                descElement.textContent = '⚠️ 你处于"过渡期",有一定风险但也有机会。需要加强AI技能学习,并考虑收入多元化。';
-                recElement.innerHTML = '<div class="highlight-box orange"><div class="highlight-title">🎯 建议:积极提升</div><p>立即开始系统学习AI工具,将其融入日常工作。同时探索副业或投资机会,建立收入安全垫。参考"复兴派"的建议,尝试成为AI增强型个体。</p></div>';
+            if (riskScore < 30) {
+                riskLevel = '🟢 低风险 - 你已经做好了充分准备';
+                recommendation = '继续保持当前的学习和适应节奏,关注新兴机会,你很可能成为AI时代的受益者。建议:进一步深化AI工具的应用,考虑在你的领域成为"AI+专业"的先行者。';
+            } else if (riskScore < 60) {
+                riskLevel = '🟡 中等风险 - 需要主动调整策略';
+                recommendation = '你处于转型的关键期。建议:1) 立即开始学习AI工具,将其整合到日常工作中;2) 识别工作中的创造性部分,强化这些技能;3) 探索副业或其他收入来源;4) 建立至少6个月的应急储备金。';
             } else {
-                descElement.textContent = '🚨 警告!你的AI时代生存指数较低,面临较高风险。需要立即采取行动,提升适应能力。';
-                recElement.innerHTML = '<div class="highlight-box red"><div class="highlight-title">⚡ 建议:紧急行动</div><p>你需要立即行动:<br>1. 马上开始学习AI工具(ChatGPT、Midjourney等)<br>2. 评估你的工作是否容易被AI替代,考虑转型<br>3. 建立应急储备金,至少6-12个月生活费<br>4. 探索副业或新技能,不要把鸡蛋放在一个篮子里</p></div>';
+                riskLevel = '🔴 高风险 - 需要紧急行动';
+                recommendation = '你的工作可能在未来3-5年内受到显著冲击。紧急建议:1) 立即开始职业转型规划,考虑学习新技能或转行;2) 大幅降低固定支出,建立12个月以上的应急储备;3) 积极寻找副业机会,不要等到失业才行动;4) 考虑参加职业培训课程,获取新的技能认证。';
             }
             
-            resultCard.classList.add('show');
-            resultCard.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('riskLevel').innerHTML = '<strong>' + riskLevel + '</strong>';
+            document.getElementById('recommendation').textContent = recommendation;
+            
+            // 显示结果卡片
+            document.getElementById('resultCard').classList.add('show');
+            
+            // 滚动到结果
+            setTimeout(() => {
+                document.getElementById('resultCard').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }, 100);
         }
-        
-        // 返回顶部功能
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-        
-        // 监听滚动事件，显示/隐藏返回顶部按钮
-        window.addEventListener('scroll', function() {
-            const backToTopBtn = document.getElementById('backToTop');
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
     </script>
