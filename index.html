@@ -1142,7 +1142,7 @@
         <div class="compass-header">
             <h1>AI 时代的十字路口</h1>
             <p class="subtitle">四派观点 · 两种未来 · 你的选择？</p>
-            <p class="intro-text">2027年一个普通早晨，你用AI几分钟写完报告。但就在同一天，公司宣布因AI效率提升需要缩编，办公室里空了好几个工位。这不是科幻。这是<strong>四派顶级机构</strong>正在“吵架”的焦点：<strong>AI到底会让你的生活变好还是变坏？</strong></p>
+            <p class="intro-text">2027年一个普通早晨，你用AI几分钟写完报告。但就在同一天，公司宣布因AI效率提升需要缩编，办公室里空了好几个工位。这不是科幻！这是<strong>四派顶级机构</strong>正在“吵架”的焦点：<strong>AI到底会让你的生活变好还是变坏？</strong></p>
         </div>
         
         <!-- 四向路标导航 -->
@@ -1181,7 +1181,7 @@
                 
                 <div class="section-title">💡 核心观点</div>
                 <div class="highlight-box red">
-                    <p>AI将彻底消除“人类中介摩擦”，导致大量标准化岗位被取代，引发结构性失业和经济衰退的恶性循环。</p>
+                    <p>AI将彻底消除“人类中介摩擦”，导致大量标准化岗位被取代，引发结构性失业和经济衰退的恶性循环。“年轻白领招聘放缓”可被视为早期预警。</p>
                 </div>
                 
                 <div class="section-title">💎 核心逻辑：替代螺旋</div>
@@ -1473,7 +1473,7 @@
                     <input type="range" min="0" max="100" value="50" class="slider" id="repeatability">
                     <div class="slider-labels">
                         <span>0% (完全创造性)</span>
-                         <span>50% (重复与创造性差不多)</span>
+                        <span>50% (平均下来各占一半)</span>
                         <span>100% (完全重复)</span>
                     </div>
                 </div>
@@ -1481,7 +1481,7 @@
             
             <div class="question-block">
                 <div class="dimension-label">维度2：技能适应性</div>
-                <div class="question-title">你对学习新技术(尤其是AI工具)的态度是？</div>
+                <div class="question-title">你对学习新技术（尤其是AI工具）的态度是？</div>
                 <div class="options-container">
                     <div class="option-item" onclick="selectOption(this, 'adaptability', 0)">
                         <div class="option-radio"></div>
@@ -1547,7 +1547,7 @@
         
         <!-- 页脚 -->
         <div class="footer">
-            <p class="wechat">📮更多报告，关注公众号：叽歪黄油小面包</p>
+            <p class="wechat">📮更多观点解读，关注公众号：叽歪黄油小面包</p>
         </div>
     </div>
     
@@ -1653,13 +1653,13 @@
             
             if (riskScore < 30) {
                 riskLevel = '🟢 低风险 - 你已经做好了充分准备';
-                recommendation = '继续保持当前的学习和适应节奏,关注新兴机会,你很可能成为AI时代的受益者。建议:进一步深化AI工具的应用,考虑在你的领域成为"AI+专业"的先行者。';
+                recommendation = '继续保持当前的学习和适应节奏，关注新兴机会，你很可能成为AI时代的受益者。建议：进一步深化AI工具的应用，考虑在你的领域成为“AI+专业”的先行者。';
             } else if (riskScore < 60) {
                 riskLevel = '🟡 中等风险 - 需要主动调整策略';
-                recommendation = '你处于转型的关键期。建议:1) 立即开始学习AI工具,将其整合到日常工作中;2) 识别工作中的创造性部分,强化这些技能;3) 探索副业或其他收入来源;4) 建立至少6个月的应急储备金。';
+                recommendation = '你处于转型的关键期。建议：1) 立即开始学习AI工具，将其整合到日常工作中；2) 识别工作中的创造性部分，强化这些技能；3) 探索副业或其他收入来源；4) 建立至少6个月的应急储备金。';
             } else {
                 riskLevel = '🔴 高风险 - 需要紧急行动';
-                recommendation = '你的工作可能在未来3-5年内受到显著冲击。紧急建议:1) 立即开始职业转型规划,考虑学习新技能或转行;2) 大幅降低固定支出,建立12个月以上的应急储备;3) 积极寻找副业机会,不要等到失业才行动;4) 考虑参加职业培训课程,获取新的技能认证。';
+                recommendation = '你的工作可能在未来3-5年内受到显著冲击。紧急建议：1) 立即开始职业转型规划，考虑学习新技能或转行；2) 大幅降低固定支出，建立12个月以上的应急储备；3) 积极寻找副业机会，不要等到失业才行动；4) 考虑参加职业培训课程，获取新的技能认证。';
             }
             
             document.getElementById('riskLevel').innerHTML = '<strong>' + riskLevel + '</strong>';
